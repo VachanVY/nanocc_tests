@@ -9,8 +9,8 @@
 
 #include "../util.h" // declares check_* and id functions
 
- // check alignment of RSP and exit with exit_code if it's misaligned
- // defined in tests/chapter_20/helper_libs/alignment_check_<PLATFORM>.s
+// check alignment of RSP and exit with exit_code if it's misaligned
+// defined in tests/chapter_20/helper_libs/alignment_check_<PLATFORM>.s
 int check_alignment(int exit_code);
 
 // 5 callee-saved registers, 16 bytes (2 longs) on stack
@@ -37,7 +37,9 @@ int test1(void) {
 int test2(void) {
     char a = id(4);
     unsigned int b = id(5);
-    char arr[11] = { 'a', 'b', 'c', 'd','e', 'f', 'g', 'h', 'i', 'j', 'k', };
+    char arr[11] = {
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+    };
     check_alignment(-2);
     check_one_int(a, 4);
     check_one_int(b, 5);
@@ -49,7 +51,7 @@ int test2(void) {
 
 // three callee-saved registers, one aliased var on the stack
 int test3(void) {
-    static int *ptr;
+    static int* ptr;
     char a = id(4);
     unsigned char b = id(5);
     long c = id(6);

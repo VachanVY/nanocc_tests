@@ -24,13 +24,9 @@ unsigned long target_shift_ulong_left(void) {
 }
 
 // make sure right shift is logical, not arithmetic
-unsigned int target_shift_uint_right(void) {
-    return 4294967296u >> 16;
-}
+unsigned int target_shift_uint_right(void) { return 4294967296u >> 16; }
 
-unsigned long target_shift_ulong_right(void) {
-    return 9223372041149743104ul >> 21l;
-}
+unsigned long target_shift_ulong_right(void) { return 9223372041149743104ul >> 21l; }
 
 int main(void) {
     if (target_and() != 4026593280u) {

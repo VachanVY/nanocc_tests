@@ -42,7 +42,6 @@ int ternary_int_uint(int flag, int i, unsigned int ui) {
      */
     long result = flag ? i : ui;
     return (result == 4294967295l);
-
 }
 
 int main(void) {
@@ -84,5 +83,4 @@ int main(void) {
     }
 
     return 0;
-
 }

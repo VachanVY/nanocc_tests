@@ -7,7 +7,7 @@
 int main(void) {
     int a = 3;
     int b = 0;
-    switch(a) {
+    switch (a) {
         // a is in scope but we skip its initializer
         int a = (b = 5);
     case 3:

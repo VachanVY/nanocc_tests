@@ -11,11 +11,11 @@
 #endif
 #endif
 
-int strcmp(char *s1, char *s2);
+int strcmp(char* s1, char* s2);
 
 struct s {
     double one_d;
-    char *two_msg;
+    char* two_msg;
     unsigned char three_arr[3];
     int four_i;
 };

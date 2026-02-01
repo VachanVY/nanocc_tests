@@ -59,8 +59,6 @@ int target(void) {
      * candidates but only actually spill zero through four.
      */
 
-
-
     // define zero through four, initialize them to 0 through 4
     set_globals(0);
     int zero = glob0;

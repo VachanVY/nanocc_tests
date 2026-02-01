@@ -2,7 +2,7 @@
 int i = 0;
 int j = 0;
 
-int incr_i(void){
+int incr_i(void) {
     // expect i = 1
     if (i == 1) {
         i++;
@@ -31,7 +31,7 @@ int main(void) {
     }
 
     // should take first branch; result of --j is value after decrementing
-    --j? decr_j(): 0;
+    --j ? decr_j() : 0;
 
     // after fun call, expect j = -2
     if (j != -2) {

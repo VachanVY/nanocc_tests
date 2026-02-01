@@ -4,14 +4,14 @@ int i = 4;
 
 int int_array(void) {
     int arr[6] = {1, 2, 3, 4, 5, 6};
-    int *ptr = arr;
+    int* ptr = arr;
 
     // basic +=
     if (*(ptr += 5) != 6) {
         return 1; // fail
     }
     if (ptr[0] != 6) {
-         return 2; // fail
+        return 2; // fail
     }
 
     if (ptr != arr + 5) {
@@ -19,7 +19,7 @@ int int_array(void) {
     }
 
     // basic -=
-    if (*(ptr -=3) != 3) {
+    if (*(ptr -= 3) != 3) {
         return 4; // fail
     }
     if (ptr[0] != 3) {
@@ -63,14 +63,14 @@ int int_array(void) {
 int double_array(void) {
     // identical to int_array but with static double array instead
     static double arr[6] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
-    double *ptr = arr;
+    double* ptr = arr;
 
     // basic +=
     if (*(ptr += 5) != 6) {
         return 1; // fail
     }
     if (ptr[0] != 6) {
-         return 2; // fail
+        return 2; // fail
     }
 
     if (ptr != arr + 5) {
@@ -78,7 +78,7 @@ int double_array(void) {
     }
 
     // basic -=
-    if (*(ptr -=3) != 3) {
+    if (*(ptr -= 3) != 3) {
         return 4; // fail
     }
     if (ptr[0] != 3) {

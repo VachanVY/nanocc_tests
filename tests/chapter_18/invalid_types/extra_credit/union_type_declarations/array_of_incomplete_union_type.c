@@ -2,7 +2,7 @@
  * element type, including union types.
  */
 
-union u;  // declare incomplete union type
+union u; // declare incomplete union type
 int main(void) {
     // declare pointer to array of three union u elements;
     // illegal because union u is incomplete

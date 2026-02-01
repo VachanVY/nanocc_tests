@@ -1,7 +1,7 @@
 // Apply prefix and postfix ++/-- to dereferenced pointers
 int main(void) {
     int x = 10;
-    int *y = &x;
+    int* y = &x;
 
     // Prefix ++
     if (++*y != 11) {
@@ -40,7 +40,7 @@ int main(void) {
 
     // different types
     unsigned long ul = 0;
-    unsigned long *ul_ptr = &ul;
+    unsigned long* ul_ptr = &ul;
     if ((*ul_ptr)--) {
         return 9;
     }
@@ -49,7 +49,7 @@ int main(void) {
     }
 
     double d = 0.0;
-    double *d_ptr = &d;
+    double* d_ptr = &d;
     if (++(*d_ptr) != 1.0) {
         return 11;
     }

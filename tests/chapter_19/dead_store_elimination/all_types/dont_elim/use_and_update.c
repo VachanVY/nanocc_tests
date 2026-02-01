@@ -16,10 +16,6 @@ struct s {
 
 struct s global_struct = {1, 2, 3};
 
-int *target(void) {
-    return &global_struct.b;
-}
+int* target(void) { return &global_struct.b; }
 
-int main(void) {
-    return *target() == 2;
-}
+int main(void) { return *target() == 2; }

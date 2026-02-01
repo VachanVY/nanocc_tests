@@ -5,8 +5,7 @@
  * (e.g. arr[10 * 20]), this would be
  * a type error rather than a parse error.
  */
-int main(void)
-{
+int main(void) {
     int arr[-3];
     return 0;
 }

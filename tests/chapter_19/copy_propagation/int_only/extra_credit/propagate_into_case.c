@@ -8,16 +8,16 @@ int callee(int arg) {
 int target(int flag) {
     int arg = 10;
     switch (flag) {
-        case 1:
-            arg = 20;
-            break;
-        case 2:
-            // replace arg w/ 10 here - previous assignment
-            // doesn't kill this b/c we never pass through it to get here
-            callee(arg);
-            break;
-        default:
-            globvar = -1;
+    case 1:
+        arg = 20;
+        break;
+    case 2:
+        // replace arg w/ 10 here - previous assignment
+        // doesn't kill this b/c we never pass through it to get here
+        callee(arg);
+        break;
+    default:
+        globvar = -1;
     }
     return 0;
 }

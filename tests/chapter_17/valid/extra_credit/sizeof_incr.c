@@ -8,25 +8,24 @@ int main(void) {
     int i = 0;
     long l = 0;
     static char arr[3] = {0, 0, 0};
-    char *ptr = arr;
-    if (sizeof (i++) != 4) {
+    char* ptr = arr;
+    if (sizeof(i++) != 4) {
         return 1; // fail
     }
 
-    if (sizeof (arr[0]--) != 1) {
+    if (sizeof(arr[0]--) != 1) {
         return 2; // fail
     }
 
-
-    if (sizeof (++l) != 8) {
+    if (sizeof(++l) != 8) {
         return 3; // fail
     }
 
-    if (sizeof (--arr[1]) != 1) {
+    if (sizeof(--arr[1]) != 1) {
         return 4; // fail
     }
 
-    if (sizeof (ptr--) != 8) {
+    if (sizeof(ptr--) != 8) {
         return 5;
     }
 

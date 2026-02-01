@@ -1,4 +1,1 @@
-int main(void) {
-    0invalid_label:
-        return 0;
-}
+int main(void) { 0invalid_label : return 0; }

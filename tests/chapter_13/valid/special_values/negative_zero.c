@@ -20,11 +20,11 @@ int main(void) {
         return 1;
 
     // a positive number divided by negative zero is negative infinity
-    if ( 1/negative_zero != -10e308 )
+    if (1 / negative_zero != -10e308)
         return 2;
 
     // a negative number divided by negative zero is positive infinity
-    if ( (-10)/negative_zero != 10e308)
+    if ((-10) / negative_zero != 10e308)
         return 3;
 
     // negative zero short-circuits boolean expressions

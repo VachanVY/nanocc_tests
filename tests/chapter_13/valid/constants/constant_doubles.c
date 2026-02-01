@@ -12,7 +12,7 @@ int main(void) {
     double d = .01e+2;
 
     /* Make sure they all have the correct value */
-    if (! (a == b && a == c && a == d) )
+    if (!(a == b && a == c && a == d))
         return 1;
     if (a + b + c + d != 4.0)
         return 2;
@@ -24,11 +24,10 @@ int main(void) {
     double h = 1250000000e-10;
 
     /* Make sure they all have the correct value */
-    if (! (e == f && e == g && e == h) )
+    if (!(e == f && e == g && e == h))
         return 3;
     if (e + f + g + h != 0.5)
         return 4;
 
     return 0;
-
 }

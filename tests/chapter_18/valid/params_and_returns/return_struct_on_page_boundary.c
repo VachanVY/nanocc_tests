@@ -39,5 +39,5 @@ int main(void) {
     if (x.arr[9] != -1) {
         return 3;
     }
-    return 0;  // success
+    return 0; // success
 }

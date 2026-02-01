@@ -31,8 +31,8 @@ int target(void) {
     int c = glob2;
     int d = glob3;
     int e = glob4;
-    increment_globals();  // to force a-e to be callee saved
-    int x = a;            // now x interferes with b through e, but not a
+    increment_globals(); // to force a-e to be callee saved
+    int x = a;           // now x interferes with b through e, but not a
 
     /* if cmp updated its second operand, this comparison would make
      * a interfere with x. Then we'd need to spill, because
@@ -40,10 +40,10 @@ int target(void) {
      * and only five callee-saved regs are available
      */
     if (a > b) {
-        return 1;  // fail
+        return 1; // fail
     }
     if (b) {
-        x = 100;  // so we can't propagate x = a into function call
+        x = 100; // so we can't propagate x = a into function call
     }
 
     increment_globals(); // to force x to be callee-saved
@@ -93,5 +93,5 @@ int validate(int hundred, int one, int two, int three, int four) {
         return 11;
     }
 
-    return 0;  // success
+    return 0; // success
 }

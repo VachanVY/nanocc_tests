@@ -1,8 +1,8 @@
 struct s {
-  int a;
+    int a;
 };
 
 int main(void) {
-  struct s x = {1};
-  return x[0]; // can only subscript pointers, not structures
+    struct s x = {1};
+    return x[0]; // can only subscript pointers, not structures
 }

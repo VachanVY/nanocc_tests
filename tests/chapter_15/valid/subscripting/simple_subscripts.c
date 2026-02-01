@@ -4,7 +4,7 @@
 #pragma GCC diagnostic ignored "-Wtautological-compare"
 #endif
 
-int integer_types(unsigned *arr, unsigned expected) {
+int integer_types(unsigned* arr, unsigned expected) {
     // make sure our index can be any integer type
     unsigned val1 = arr[5];
     unsigned val2 = arr[5u];
@@ -29,17 +29,17 @@ int integer_types(unsigned *arr, unsigned expected) {
 }
 
 // x[i] == i[x] - doesn't matter which is the index
-int reverse_subscript(long *arr, long expected)  {
+int reverse_subscript(long* arr, long expected) {
     if (arr[3] != expected) {
         return 5;
     }
 
-    if (3[arr] != expected) {
+    if (3 [arr] != expected) {
         return 6;
     }
 
     // taking address of both expression should yield same address
-    if (&3[arr] != &arr[3]) {
+    if (&3 [arr] != &arr[3]) {
         return 7;
     }
 
@@ -64,7 +64,7 @@ int subscript_static(void) {
 
 // update an array element using subscripting
 // expected is new value of arr[10] after update
-int update_element(int *arr, int expected) {
+int update_element(int* arr, int expected) {
     arr[10] = arr[10] * 2;
 
     if (arr[10] != expected) {
@@ -75,7 +75,7 @@ int update_element(int *arr, int expected) {
 }
 
 // update an array element with static storage duration using subscripting
-int *increment_static_element(void) {
+int* increment_static_element(void) {
     static int arr[4];
     arr[3] = arr[3] + 1;
     return arr;
@@ -83,7 +83,7 @@ int *increment_static_element(void) {
 
 int check_increment_static_element(void) {
     // increment static arr and get a pointer to it
-    int *arr1 = increment_static_element();
+    int* arr1 = increment_static_element();
 
     // last element should be 1, all others should be 0
     if (arr1[3] != 1) {
@@ -95,7 +95,7 @@ int check_increment_static_element(void) {
     }
 
     // call function again to increment last element again
-    int *arr2 = increment_static_element();
+    int* arr2 = increment_static_element();
 
     if (arr1 != arr2) {
         return 14;
@@ -140,5 +140,4 @@ int main(void) {
     }
 
     return 0;
-
 }

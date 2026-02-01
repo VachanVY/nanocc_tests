@@ -3,8 +3,6 @@
 #endif
 int main(void) {
     int x = 4;
-    {
-        int x;
-    }
+    { int x; }
     return x;
 }

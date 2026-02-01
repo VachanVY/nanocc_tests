@@ -19,9 +19,7 @@ long static a;
  * so they don't conflict.
  */
 int my_function(long a, long int b, int long c);
-int my_function(long int x, int long y, long z) {
-    return x + y + z;
-}
+int my_function(long int x, int long y, long z) { return x + y + z; }
 
 int main(void) {
     /* Several different ways to declare local long variables */
@@ -35,8 +33,8 @@ int main(void) {
 
     /* make sure we can use long type specifier in for loop initializer
      * i is 2^40 so this loop should have 41 iterations
-    */
-   int sum = 0;
+     */
+    int sum = 0;
     for (long i = 1099511627776l; i > 0; i = i / 2) {
         sum = sum + 1;
     }
@@ -54,7 +52,7 @@ int main(void) {
         return 3;
     }
 
-    if (my_function(x,  y, z) != 6) {
+    if (my_function(x, y, z) != 6) {
         return 4;
     }
 

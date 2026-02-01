@@ -25,5 +25,5 @@ int main(void) {
     if (result.d != 2.0 || result.l != 8) {
         return 1;
     }
-    return 0;  // success
+    return 0; // success
 }

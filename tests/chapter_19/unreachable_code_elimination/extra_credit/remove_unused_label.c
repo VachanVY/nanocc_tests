@@ -5,10 +5,8 @@
 #endif
 
 int target(void) {
-    lbl:
+lbl:
     return 0;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

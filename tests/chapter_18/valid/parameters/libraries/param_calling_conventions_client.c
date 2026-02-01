@@ -22,8 +22,7 @@ int main(void) {
 
     // call validation functions
 
-    if (!pass_small_structs(two_xmm, one_int, one_xmm, xmm_and_int, xii,
-                            one_long)) {
+    if (!pass_small_structs(two_xmm, one_int, one_xmm, xmm_and_int, xii, one_long)) {
         return 1;
     }
 
@@ -36,12 +35,10 @@ int main(void) {
         return 2;
     }
 
-    if (!struct_in_mem(10.0, 11.125, 12.0, xmm_and_int, 13.0, two_xmm, 0,
-                       int_and_xmm, one_xmm)) {
+    if (!struct_in_mem(10.0, 11.125, 12.0, xmm_and_int, 13.0, two_xmm, 0, int_and_xmm, one_xmm)) {
         return 3;
     }
-    if (!pass_borderline_struct_in_memory(two_ints, '!', int_and_xmm, 0,
-                                          two_ints_nested, 7.8)) {
+    if (!pass_borderline_struct_in_memory(two_ints, '!', int_and_xmm, 0, two_ints_nested, 7.8)) {
         return 4;
     }
 
@@ -50,8 +47,8 @@ int main(void) {
     struct twelve_bytes struct2 = {-5, {100, 101, 102}};
     struct odd_size os = {{100, 99, 98, 97, 96}};
     struct memory m = {5.345, {-1, -2, -3}, 4294967300l, 10000};
-    if (!pass_uneven_struct_in_mem(struct1, 9223372036854775805l,
-                                   9223372036854775800l, struct2, os, m)) {
+    if (!pass_uneven_struct_in_mem(struct1, 9223372036854775805l, 9223372036854775800l, struct2, os,
+                                   m)) {
         return 5;
     }
 

@@ -22,6 +22,4 @@ int bar(void) {
     return a;
 }
 
-int main(void) {
-    return foo() + bar() + foo() + bar();
-}
+int main(void) { return foo() + bar() + foo() + bar(); }

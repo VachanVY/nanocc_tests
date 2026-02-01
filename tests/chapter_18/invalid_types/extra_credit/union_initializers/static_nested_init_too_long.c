@@ -9,6 +9,5 @@ struct s {
 };
 
 struct s my_struct = {
-    10,
-    {1, 2}  // invalid - nested union initializer has two elements
+    10, {1, 2} // invalid - nested union initializer has two elements
 };

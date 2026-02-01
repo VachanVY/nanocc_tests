@@ -32,9 +32,7 @@ double glob_thirteen;
 double glob_fourteen;
 
 // use this to prevent copy prop into check_one_double calls
-void incr_glob1(void) {
-    glob1 = glob1 + 1;
-}
+void incr_glob1(void) { glob1 = glob1 + 1; }
 
 int target(void) {
     // Create thirteen pseudos that interfere with each other (one-thirteen)
@@ -71,7 +69,7 @@ int target(void) {
     double eleven = (glob10 + 1.) * glob1;
     double twelve = (glob1 + glob2) * 4.;
     double thirteen = (glob2 * 3.) + 7.;
-    glob_zero = zero;  // save zero here so it doesn't interfere with fourteen
+    glob_zero = zero; // save zero here so it doesn't interfere with fourteen
     double fourteen = glob2 * 7.;
 
     // Save one-fourteen to global variables (so we can then

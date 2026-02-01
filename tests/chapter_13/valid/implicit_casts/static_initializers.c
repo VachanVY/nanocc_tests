@@ -23,7 +23,8 @@ double d4 = 4611686018427389955l;
 
 /* Using round-to-nearest, this rounds to 9223372036854775808 */
 double d5 = 9223372036854775810ul;
-double d6 = 4611686018427389955ul; // this as the same value as d4 and should round to the same double
+double d6 =
+    4611686018427389955ul; // this as the same value as d4 and should round to the same double
 
 /* This is exactly halfway between 9223372036854775808.0 and
  * 9223372036854777856.0 We round ties to even, so this

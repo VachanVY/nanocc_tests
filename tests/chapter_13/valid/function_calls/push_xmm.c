@@ -3,8 +3,8 @@
  * you implement register allocation in Part III.
  */
 
-int callee(double a, double b, double c, double d, double e, double f, double g,
-           double h, double i, double j, double k) {
+int callee(double a, double b, double c, double d, double e, double f, double g, double h, double i,
+           double j, double k) {
     if (a != 0.) {
         return 1;
     }
@@ -39,14 +39,11 @@ int callee(double a, double b, double c, double d, double e, double f, double g,
         return 11;
     }
 
-    return 0;  // success
+    return 0; // success
 }
 
 int target(int a, int b, int c, int d, int e) {
-    return callee(0., 1., 2., 3., 4., 5., e + 1., d + 3., c + 5., b + 7.,
-                  a + 9.);
+    return callee(0., 1., 2., 3., 4., 5., e + 1., d + 3., c + 5., b + 7., a + 9.);
 }
 
-int main(void) {
-    return target(1, 2, 3, 4, 5);
-}
+int main(void) { return target(1, 2, 3, 4, 5); }

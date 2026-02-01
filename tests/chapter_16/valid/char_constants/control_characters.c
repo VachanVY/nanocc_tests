@@ -1,7 +1,6 @@
 /* Make sure we can handle control characters that are in the source character set */
 
-int main(void)
-{
+int main(void) {
     int tab = '	';
     int vertical_tab = '';
     int form_feed = '';

@@ -4,6 +4,6 @@ int main(void) {
      * so its value will be 10 even though we jump over this declaration
      */
     static int x = 10;
-    end:
-        return x;
+end:
+    return x;
 }

@@ -28,6 +28,4 @@ int target(void) {
     return callee(u1, u2);
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

@@ -3,7 +3,7 @@
  */
 
 union u {
-    signed char *ptr;
+    signed char* ptr;
     double d;
 };
 

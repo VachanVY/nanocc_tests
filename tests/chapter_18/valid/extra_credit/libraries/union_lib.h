@@ -9,7 +9,7 @@
 // library functions
 int strcmp(char* s1, char* s2);
 void exit(int status);
-void *malloc(unsigned long size);
+void* malloc(unsigned long size);
 
 // I. unions passed in one register
 
@@ -91,14 +91,13 @@ union has_xmm_union {
 // struct contains union
 struct dbl_struct {
     union one_double member1; // first eightbyte
-    double member2; // second eightbyte
+    double member2;           // second eightbyte
 };
 
 // union contains struct
 union has_dbl_struct {
     struct dbl_struct member1;
 };
-
 
 // IIb. two general-purpose regs
 
@@ -118,7 +117,7 @@ union two_arrs {
 
 // union contains struct
 union two_eightbyte_has_struct {
-    int arr[3]; // includes integers in both eightbytes
+    int arr[3];                // includes integers in both eightbytes
     struct dbl_struct member1; // all in the SSE class
 };
 
@@ -180,7 +179,6 @@ union uneven_union_array {
     union uneven u_arr[2];
 };
 
-
 // union contains array of structs
 struct small {
     char arr[3];
@@ -196,13 +194,13 @@ union has_small_struct_array {
 // scalars and arrays
 union gp_and_xmm {
     double d_arr[2]; // doubles in both eightbytes
-    char c; // int in first eightbyte
+    char c;          // int in first eightbyte
 };
 
 // union contains struct
 
 union scalar_and_struct {
-    long* ptr; // only takes up first eightbyte
+    long* ptr;                       // only takes up first eightbyte
     struct char_first_eightbyte cfe; // second eightbyte is in SSE class
 };
 
@@ -303,26 +301,23 @@ int test_contains_large_struct(union contains_large_struct u);
 int test_contains_union_array(union contains_union_array u);
 
 // validate multiple params (for param_passing test cases)
-int pass_unions_and_structs(int i1, int i2, struct has_union one_gp_struct,
-    double d1, union two_doubles two_xmm, union one_int one_gp, int i3, int i4,
-    int i5);
-int pass_gp_union_in_memory(union two_doubles two_xmm,
-    struct has_union one_gp_struct, int i1, int i2, int i3,
-    int i4, int i5, int i6, union one_int one_gp);
+int pass_unions_and_structs(int i1, int i2, struct has_union one_gp_struct, double d1,
+                            union two_doubles two_xmm, union one_int one_gp, int i3, int i4,
+                            int i5);
+int pass_gp_union_in_memory(union two_doubles two_xmm, struct has_union one_gp_struct, int i1,
+                            int i2, int i3, int i4, int i5, int i6, union one_int one_gp);
 int pass_xmm_union_in_memory(double d1, double d2, union two_doubles two_xmm,
-    union two_doubles two_xmm_copy, double d3, double d4,
-    union two_doubles two_xmm_2);
-int pass_borderline_union(int i1, int i2, int i3, int i4, int i5,
-    union char_arr two_gp);
-int pass_borderline_xmm_union(union two_doubles two_xmm, double d1, double d2,
-    double d3, double d4, double d5, union two_doubles two_xmm_2);
-int pass_mixed_reg_in_memory(double d1, double d2, double d3, double d4,
-    int i1, int i2, int i3, int i4, int i5, int i6,
-    union gp_and_xmm mixed_regs);
-int pass_uneven_union_in_memory(int i1, int i2, int i3, int i4, int i5,
-    union gp_and_xmm mixed_regs, union one_int one_gp, union uneven uneven);
-int pass_in_mem_first(union lotsa_doubles mem, union gp_and_xmm mixed_regs,
-    union char_arr two_gp, struct has_union one_gp_struct);
+                             union two_doubles two_xmm_copy, double d3, double d4,
+                             union two_doubles two_xmm_2);
+int pass_borderline_union(int i1, int i2, int i3, int i4, int i5, union char_arr two_gp);
+int pass_borderline_xmm_union(union two_doubles two_xmm, double d1, double d2, double d3, double d4,
+                              double d5, union two_doubles two_xmm_2);
+int pass_mixed_reg_in_memory(double d1, double d2, double d3, double d4, int i1, int i2, int i3,
+                             int i4, int i5, int i6, union gp_and_xmm mixed_regs);
+int pass_uneven_union_in_memory(int i1, int i2, int i3, int i4, int i5, union gp_and_xmm mixed_regs,
+                                union one_int one_gp, union uneven uneven);
+int pass_in_mem_first(union lotsa_doubles mem, union gp_and_xmm mixed_regs, union char_arr two_gp,
+                      struct has_union one_gp_struct);
 
 // validate return values (for union_retvals test case)
 union one_double return_one_double(void);
@@ -332,7 +327,8 @@ union two_arrs return_two_arrs(void);
 union scalar_and_struct return_scalar_and_struct(void);
 union xmm_and_gp return_xmm_and_gp(void);
 union contains_union_array return_contains_union_array(void);
-union lotsa_chars pass_params_and_return_in_mem(int i1,
-    union scalar_and_struct int_and_dbl, union two_arrs two_arrs, int i2,
-    union contains_union_array big_union, union one_int_nested oin);
+union lotsa_chars pass_params_and_return_in_mem(int i1, union scalar_and_struct int_and_dbl,
+                                                union two_arrs two_arrs, int i2,
+                                                union contains_union_array big_union,
+                                                union one_int_nested oin);
 struct has_uneven_union return_struct_with_union(void);

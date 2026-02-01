@@ -34,7 +34,7 @@ int main(void) {
 
     /* true comparisons */
 
-    if (!(tiny > 00.000005))  {
+    if (!(tiny > 00.000005)) {
         return 7;
     }
 
@@ -64,5 +64,4 @@ int main(void) {
     }
 
     return 0;
-
 }

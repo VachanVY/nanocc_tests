@@ -17,7 +17,7 @@ int flag = 1;
 int target(void) {
     int coalesce_into_eax = 0;
     // put initializer in condition to prevent copy prop
-    if (flag) {  // always taken
+    if (flag) { // always taken
         // We move the function's return value from EAX into this variable;
         // we can coalesce these because they pass the Briggs test.
         coalesce_into_eax = id(10);
@@ -26,7 +26,7 @@ int target(void) {
     // Define a variable with significant degree that interferes with
     // coalesce_into_eax, and with the arguments passed in param-passing
     // registers below, but does not interfere with any hard registers.
-    int high_degree = 2 * coalesce_into_eax;  // 20
+    int high_degree = 2 * coalesce_into_eax; // 20
 
     // Validate coalesce_into_eax. NOTE: don't use check_one_int here to avoid
     // coalescing this into EDI or create a mov instruction between registers
@@ -60,5 +60,5 @@ int target(void) {
     // calls, because that would make more pseudos interfere with EAX
     check_5_ints(one, two, three, four, five, 1);
 
-    return 0;  // success
+    return 0; // success
 }

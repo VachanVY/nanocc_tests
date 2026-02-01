@@ -29,7 +29,6 @@ int main(void) {
     int array_param(int a[6]);
     int nested_array_param(int a[5][3]);
 
-
     // call array_param and make sure it works as expected
     int arr[8] = {8, 7, 6, 5, 4, 3, 2, 1};
     array_param(arr);
@@ -44,7 +43,7 @@ int main(void) {
     }
 
     // call nested_array_param and make sure it works as expected
-    int nested_arr[4][3] = { {-1, -1, -1}, {-2, -2, -2}, {-3, -3, -3}, {-4, -4, -4}};
+    int nested_arr[4][3] = {{-1, -1, -1}, {-2, -2, -2}, {-3, -3, -3}, {-4, -4, -4}};
 
     nested_array_param(nested_arr);
     if (nested_arr[1][1] != 1) {
@@ -55,9 +54,8 @@ int main(void) {
     for (int i = 0; i < 4; i = i + 1) {
         int expected = -1 - i;
         for (int j = 0; j < 3; j = j + 1) {
-            if ((i != 1 || j != 1) &&
-                (nested_arr[i][j] != expected)) {
-                    return 4;
+            if ((i != 1 || j != 1) && (nested_arr[i][j] != expected)) {
+                return 4;
             }
         }
     }
@@ -65,4 +63,4 @@ int main(void) {
     return 0;
 }
 
-int array_param(int *a);
+int array_param(int* a);

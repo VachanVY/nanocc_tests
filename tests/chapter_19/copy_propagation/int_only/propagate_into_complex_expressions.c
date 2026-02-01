@@ -8,6 +8,4 @@ int target(void) {
     return (y ? x % 3 : x / 4);
 }
 
-int main(void) {
-    return target() == 25;
-}
+int main(void) { return target() == 25; }

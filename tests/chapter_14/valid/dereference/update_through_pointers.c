@@ -7,9 +7,9 @@ int main(void) {
     double d = 1e50;
 
     // define pointers to those variables
-    unsigned *i_ptr = &i;
-    long *l_ptr = &l;
-    double *d_ptr = &d;
+    unsigned* i_ptr = &i;
+    long* l_ptr = &l;
+    double* d_ptr = &d;
 
     // assign to dereferenced pointers
     *i_ptr = 10;

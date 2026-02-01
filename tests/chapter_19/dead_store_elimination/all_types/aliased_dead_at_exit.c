@@ -4,16 +4,16 @@
 
 int b = 0;
 
-void callee(int *ptr) {
+void callee(int* ptr) {
     b = *ptr;
     *ptr = 100;
 }
 
 int target(void) {
     int x = 10;
-    callee(&x);  // generates all aliased variables (i.e. x)
+    callee(&x); // generates all aliased variables (i.e. x)
     int y = x;
-    x = 50;  // this is dead
+    x = 50; // this is dead
     return y;
 }
 

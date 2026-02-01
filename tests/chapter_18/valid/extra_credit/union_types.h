@@ -1,5 +1,5 @@
-void *calloc(unsigned long nmemb, unsigned long size);
-void *malloc(unsigned long size);
+void* calloc(unsigned long nmemb, unsigned long size);
+void* malloc(unsigned long size);
 
 union simple {
     int i;
@@ -11,7 +11,7 @@ union simple {
 union has_union {
     double d;
     union simple u;
-    union simple *u_ptr;
+    union simple* u_ptr;
 };
 
 struct simple_struct {
@@ -33,5 +33,5 @@ struct struct_with_union {
 union complex_union {
     double d_arr[2];
     struct struct_with_union s;
-    union has_union *u_ptr;
+    union has_union* u_ptr;
 };

@@ -3,15 +3,15 @@
  * it doesn't reach that block
  * */
 
-int putchar(int c);  // from standard library
+int putchar(int c); // from standard library
 
 int f(int src, int flag) {
-    int x = src;  // generate x = src
+    int x = src; // generate x = src
     if (flag) {
-        src = 65;  // kill x = src
+        src = 65; // kill x = src
     }
-    putchar(src);  // use src so assignment doesn't get optimized away entirely
-    return x;      // make sure we don't rewrite this as 'return src'
+    putchar(src); // use src so assignment doesn't get optimized away entirely
+    return x;     // make sure we don't rewrite this as 'return src'
 }
 
 int main(void) {
@@ -29,5 +29,5 @@ int main(void) {
         return 2;
     }
 
-    return 0;  // success
+    return 0; // success
 }

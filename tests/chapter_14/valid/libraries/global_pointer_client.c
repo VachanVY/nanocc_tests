@@ -1,4 +1,4 @@
-extern double *d_ptr;
+extern double* d_ptr;
 int update_thru_ptr(double new_val);
 
 int main(void) {
@@ -6,5 +6,4 @@ int main(void) {
     d_ptr = &d;
     update_thru_ptr(10.0);
     return (d == 10.0);
-
 }

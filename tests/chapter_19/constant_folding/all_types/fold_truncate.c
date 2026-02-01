@@ -47,17 +47,11 @@ int ulong_to_int(void) {
     return (int)18446744073709551615UL;
 }
 
-unsigned int ulong_to_uint(void) {
-    return (unsigned int)18446744073709551615UL;
-}
+unsigned int ulong_to_uint(void) { return (unsigned int)18446744073709551615UL; }
 
-char ulong_to_char(void) {
-    return (char)4294967295UL;
-}
+char ulong_to_char(void) { return (char)4294967295UL; }
 
-signed char ulong_to_schar(void) {
-    return (signed char)4611686018427388032ul;
-}
+signed char ulong_to_schar(void) { return (signed char)4611686018427388032ul; }
 
 unsigned char ulong_to_uchar(void) {
     // 2^63 + 255
@@ -65,36 +59,28 @@ unsigned char ulong_to_uchar(void) {
 }
 
 // truncate int
-char int_to_char(void) {
-    return (char)1274;
-}
+char int_to_char(void) { return (char)1274; }
 
 signed char int_to_schar(void) {
     // INT_MAX
     return (signed char)2147483647;
 }
 
-unsigned char int_to_uchar(void) {
-    return (unsigned char)1274;
-}
+unsigned char int_to_uchar(void) { return (unsigned char)1274; }
 
 // truncate unsigned int
 char uint_to_char(void) {
-    return (char)2147483901u;  // 2^31 + 253
+    return (char)2147483901u; // 2^31 + 253
 }
 
 signed char uint_to_schar(void) {
-    return (signed char)2147483660u;  // 2^31 + 12
+    return (signed char)2147483660u; // 2^31 + 12
 }
 
-unsigned char uint_to_uchar(void) {
-    return (unsigned char)2147483901u;
-}
+unsigned char uint_to_uchar(void) { return (unsigned char)2147483901u; }
 
 // same as uint_to_uchar but implicit cast
-unsigned char implicit(void) {
-    return 2147483901u;
-}
+unsigned char implicit(void) { return 2147483901u; }
 
 int one = 1;
 int six = 6;

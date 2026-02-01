@@ -1,8 +1,8 @@
 // Test using -> to copy entire structures,
 // including large structures w/ members of different sizes
 
-void *calloc(unsigned long nmemb, unsigned long size);
-void *malloc(unsigned long size);
+void* calloc(unsigned long nmemb, unsigned long size);
+void* malloc(unsigned long size);
 
 struct inner {
     double d;
@@ -17,14 +17,14 @@ struct outer {
 
 struct outermost {
     int i;
-    struct outer *nested_ptr;
+    struct outer* nested_ptr;
     struct outer nested_struct;
 };
 
 // case 1: x = y->z
 int test_copy_from_member_pointer(void) {
     struct inner small = {0.0, 0};
-    struct outer *outer_ptr = malloc(sizeof(struct outer));
+    struct outer* outer_ptr = malloc(sizeof(struct outer));
     outer_ptr->a = 100;
     outer_ptr->substruct.d = 21.5;
     outer_ptr->substruct.i = 100001;
@@ -35,13 +35,13 @@ int test_copy_from_member_pointer(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 2: y->z = x
 int test_copy_to_member_pointer(void) {
     struct inner small = {99.25, 987654};
-    struct outer *outer_ptr = calloc(1, sizeof(struct outer));
+    struct outer* outer_ptr = calloc(1, sizeof(struct outer));
     outer_ptr->substruct = small;
 
     // validate
@@ -54,13 +54,13 @@ int test_copy_to_member_pointer(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 3: a = x->y->z
 int test_copy_from_nested_member_pointer(void) {
     struct inner small = {99.25, 987654};
-    struct outermost *outer_ptr = calloc(1, sizeof(struct outermost));
+    struct outermost* outer_ptr = calloc(1, sizeof(struct outermost));
     outer_ptr->nested_ptr = calloc(1, sizeof(struct outer));
 
     // initialize allocated pointer
@@ -82,13 +82,13 @@ int test_copy_from_nested_member_pointer(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 4: x->y->z = a
 int test_copy_to_nested_member_pointer(void) {
     struct inner small = {99.25, 987654};
-    struct outermost *outer_ptr = calloc(1, sizeof(struct outermost));
+    struct outermost* outer_ptr = calloc(1, sizeof(struct outermost));
     outer_ptr->nested_ptr = calloc(1, sizeof(struct outer));
 
     outer_ptr->nested_ptr->substruct = small;
@@ -104,14 +104,14 @@ int test_copy_to_nested_member_pointer(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 5: assign one member to another,
 // copy to/from x->y.z and x.y->z
 int test_mixed_nested_access(void) {
     struct outermost s1 = {100, 0, {0, 0, {0, 0}}};
-    struct outermost *s2_ptr = calloc(1, sizeof(struct outermost));
+    struct outermost* s2_ptr = calloc(1, sizeof(struct outermost));
 
     // populate s1
     s1.i = 2147483647;
@@ -135,8 +135,7 @@ int test_mixed_nested_access(void) {
     s1.nested_ptr->substruct = s2_ptr->nested_struct.substruct;
 
     // validate
-    if (s1.nested_ptr->substruct.d != 8.e8 ||
-        s1.nested_ptr->substruct.i != -5) {
+    if (s1.nested_ptr->substruct.d != 8.e8 || s1.nested_ptr->substruct.i != -5) {
         return 0;
     }
 
@@ -145,7 +144,7 @@ int test_mixed_nested_access(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 6: assign to member of struct pointer produced by cast expression,
@@ -153,16 +152,16 @@ int test_mixed_nested_access(void) {
 int test_member_from_cast(void) {
     struct inner small = {20.0, 10};
 
-    void *outer_ptr = calloc(1, sizeof(struct outer));
-    ((struct outer *)outer_ptr)->substruct = small;
+    void* outer_ptr = calloc(1, sizeof(struct outer));
+    ((struct outer*)outer_ptr)->substruct = small;
 
     // validate
-    if (((struct outer *)outer_ptr)->substruct.d != 20.0 ||
-        ((struct outer *)outer_ptr)->substruct.i != 10) {
+    if (((struct outer*)outer_ptr)->substruct.d != 20.0 ||
+        ((struct outer*)outer_ptr)->substruct.i != 10) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {

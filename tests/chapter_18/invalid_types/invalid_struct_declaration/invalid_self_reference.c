@@ -6,6 +6,4 @@ struct s {
     struct s y;
 };
 
-int main(void) {
-    return 0;
-}
+int main(void) { return 0; }

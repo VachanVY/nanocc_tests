@@ -7,9 +7,7 @@
 
 // define a function that returns a value
 // so we can't just constant fold everything away
-int return_five(void) {
-    return 5;
-}
+int return_five(void) { return 5; }
 
 int target(int one, int two, int three) {
     // define and use some variables
@@ -27,9 +25,9 @@ int target(int one, int two, int three) {
     for (int i = 0; i < 2; i = i + 1) {
         if (i % 2) {
             int five = return_five();
-            int quotient = 25 / five;                        // 5
-            int remainder = 27 % five;                       // 2
-            int complex = (quotient + 3) * (remainder + 4);  // 48
+            int quotient = 25 / five;                       // 5
+            int remainder = 27 % five;                      // 2
+            int complex = (quotient + 3) * (remainder + 4); // 48
             check_one_int(quotient, 5);
             check_one_int(remainder, 2);
             check_one_int(complex, 48);
@@ -53,8 +51,7 @@ int target(int one, int two, int three) {
     int negative_two = negative_six / 3;
 
     // validate these five variables all at once
-    check_5_ints(negative_six, negative_five, negative_four, negative_three,
-                 negative_two, -6);
+    check_5_ints(negative_six, negative_five, negative_four, negative_three, negative_two, -6);
 
-    return 0;  // success
+    return 0; // success
 }

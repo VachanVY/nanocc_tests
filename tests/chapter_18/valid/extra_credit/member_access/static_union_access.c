@@ -5,7 +5,7 @@ union u {
     char arr[8];
 };
 
-static union u my_union = { 18446744073709551615UL };
+static union u my_union = {18446744073709551615UL};
 static union u* union_ptr = 0;
 
 int main(void) {

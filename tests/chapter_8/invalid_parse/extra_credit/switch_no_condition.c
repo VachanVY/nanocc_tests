@@ -1,5 +1,3 @@
 int main(void) {
-    switch {
-        return 0;
-    }
+    switch { return 0; }
 }

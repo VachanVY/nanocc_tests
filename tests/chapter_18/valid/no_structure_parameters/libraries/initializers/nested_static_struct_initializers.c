@@ -24,7 +24,7 @@ int test_uninitialized(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 2: partially initialized struct
@@ -40,7 +40,7 @@ int test_partially_initialized(void) {
         return 0;
     }
 
-    if (partial.four_d) {  // this wasn't explicitly initialized, should be 0
+    if (partial.four_d) { // this wasn't explicitly initialized, should be 0
         return 0;
     }
 
@@ -50,12 +50,11 @@ int test_partially_initialized(void) {
     }
 
     if (partial.two_struct.two_arr[1] || partial.two_struct.two_arr[2] ||
-        partial.two_struct
-            .three_u) {  // not explicitly initialized, should be 0
+        partial.two_struct.three_u) { // not explicitly initialized, should be 0
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 3: fully initialized struct
@@ -69,8 +68,8 @@ int test_partially_initialized(void) {
 */
 int test_fully_intialized(void) {
     // validate elements in struct outer
-    if (full.one_l != 18014398509481979l ||
-        strcmp(full.three_msg, "Another message") || full.four_d != 2e12) {
+    if (full.one_l != 18014398509481979l || strcmp(full.three_msg, "Another message") ||
+        full.four_d != 2e12) {
         return 0;
     }
 
@@ -81,7 +80,7 @@ int test_fully_intialized(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 4: implicit conversion of scalar elements
@@ -109,15 +108,13 @@ int test_implicit_conversions(void) {
     }
 
     // validate elements in struct inner
-    if (converted.two_struct.one_i != -2147483646 ||
-        converted.two_struct.two_arr[0] != 15 ||
-        converted.two_struct.two_arr[1] != 3 ||
-        converted.two_struct.two_arr[2] != -127 ||
+    if (converted.two_struct.one_i != -2147483646 || converted.two_struct.two_arr[0] != 15 ||
+        converted.two_struct.two_arr[1] != 3 || converted.two_struct.two_arr[2] != -127 ||
         converted.two_struct.three_u != 2147483648u) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 5: array of structures
@@ -136,39 +133,35 @@ int test_array_of_structs(void) {
 
     // validate nested members of array element 0
     if (struct_array[0].two_struct.one_i != 2 ||
-        strcmp((char *)struct_array[0].two_struct.two_arr, "ab") ||
+        strcmp((char*)struct_array[0].two_struct.two_arr, "ab") ||
         struct_array[0].two_struct.three_u != 3) {
         return 0;
     }
 
     // validate outer members of array element 1
-    if (struct_array[1].one_l != 6 ||
-        strcmp((char *)struct_array[1].three_msg, "Message") ||
+    if (struct_array[1].one_l != 6 || strcmp((char*)struct_array[1].three_msg, "Message") ||
         struct_array[1].four_d != 9) {
         return 0;
     }
 
     // validate nested members of array element 1
     if (struct_array[1].two_struct.one_i != 7 ||
-        strcmp((char *)struct_array[1].two_struct.two_arr, "cd") ||
+        strcmp((char*)struct_array[1].two_struct.two_arr, "cd") ||
         struct_array[1].two_struct.three_u != 8) {
         return 0;
     }
 
     // validate array element 2 - should be all 0s
-    if (struct_array[2].one_l || struct_array[2].three_msg ||
-        struct_array[2].four_d) {
+    if (struct_array[2].one_l || struct_array[2].three_msg || struct_array[2].four_d) {
         return 0;
     }
 
     // validate nested members of array element 2
-    if (struct_array[2].two_struct.one_i ||
-        struct_array[2].two_struct.two_arr[0] ||
-        struct_array[2].two_struct.two_arr[1] ||
-        struct_array[2].two_struct.two_arr[2] ||
+    if (struct_array[2].two_struct.one_i || struct_array[2].two_struct.two_arr[0] ||
+        struct_array[2].two_struct.two_arr[1] || struct_array[2].two_struct.two_arr[2] ||
         struct_array[2].two_struct.three_u) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }

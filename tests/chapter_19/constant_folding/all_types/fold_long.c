@@ -44,9 +44,7 @@ int target_not(void) {
     return !72110370596061184l;
 }
 
-int target_eq(void) {
-    return 9223372036854775716l == 9223372036854775716l;
-}
+int target_eq(void) { return 9223372036854775716l == 9223372036854775716l; }
 
 int target_neq(void) {
     // lower 32 bits of 72110370596061184l are all zeros
@@ -56,16 +54,14 @@ int target_neq(void) {
 int target_gt(void) {
     // second operand is greater, but if we only looked at lower
     // 32 bits we'd think the first was greater
-    return 549755813889l > 17592186044416l ;  // 2^39 + 1 > 2^44
+    return 549755813889l > 17592186044416l; // 2^39 + 1 > 2^44
 }
 
-int target_ge(void) {
-    return 400l >= 399l;
-}
+int target_ge(void) { return 400l >= 399l; }
 
 int target_lt(void) {
     // compare two values whose lower 32 bits are identical
-    return 17592186044416l < 549755813888l;  // 2^44 < 2^39
+    return 17592186044416l < 549755813888l; // 2^44 < 2^39
 }
 
 int target_le(void) {

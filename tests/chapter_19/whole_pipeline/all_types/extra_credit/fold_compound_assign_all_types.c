@@ -2,8 +2,8 @@
  * types and type conversions
  */
 
- // identical to chapter 16's compound_assign_chars.c but fully constant foldable
- // and we'll inspect the assembly output to make sure it's constant folded
+// identical to chapter 16's compound_assign_chars.c but fully constant foldable
+// and we'll inspect the assembly output to make sure it's constant folded
 int target_chars(void) {
     char c = 100;
     char c2 = 100;
@@ -21,7 +21,7 @@ int target_chars(void) {
 
     uc -= 250.0; // convert uc to double, do operation, convert back
     if (uc != 4) {
-        return 3;  // fail
+        return 3; // fail
     }
 
     signed char sc = -70;

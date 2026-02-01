@@ -3,9 +3,7 @@
  * Based on Figure 19-5.
  * */
 
-int callee(int a, int b) {
-    return a + b;
-}
+int callee(int a, int b) { return a + b; }
 int target(int flag) {
     // use static variables here so we can't coalesce x and y
     // into the same register, or into EDI and ESI, once we implement
@@ -34,5 +32,5 @@ int main(void) {
     if (result != 40)
         return 2;
 
-    return 0;  // success
+    return 0; // success
 }

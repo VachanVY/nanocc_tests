@@ -63,8 +63,8 @@ int target(double one, double two, double three) {
     callee(twelve, thirteen, fourteen);
 
     // validate globals
-    check_14_doubles(glob1, glob2, glob3, glob4, glob5, glob6, glob7, glob8,
-                     glob9, glob10, glob11, 12., 13., 14., 1);
+    check_14_doubles(glob1, glob2, glob3, glob4, glob5, glob6, glob7, glob8, glob9, glob10, glob11,
+                     12., 13., 14., 1);
 
     return 0;
 }

@@ -7,22 +7,22 @@ struct inner {
 
 struct outer {
     unsigned long l;
-    struct inner *in_ptr;
+    struct inner* in_ptr;
     int array[3];
 };
 
-void *calloc(unsigned long nmemb, unsigned long size);
+void* calloc(unsigned long nmemb, unsigned long size);
 
 int main(void) {
     struct outer my_struct = {
         // l
         9223372036854775900ul,
         // in_ptr
-        calloc(3, sizeof (struct inner)),
+        calloc(3, sizeof(struct inner)),
         // array
         {-1000, -2000, -3000},
     };
-    struct outer *my_struct_ptr = &my_struct;
+    struct outer* my_struct_ptr = &my_struct;
 
     // prefix ++
     if (++my_struct.l != 9223372036854775901ul) {
@@ -31,7 +31,7 @@ int main(void) {
 
     // prefix --
     if (--my_struct.in_ptr[0].u != 4294967295U) { // unsigned wraparound
-        return 2; // fail
+        return 2;                                 // fail
     }
 
     // postfix ++
@@ -53,7 +53,7 @@ int main(void) {
     if (my_struct.in_ptr->c != 1) {
         return 6; // fail
     }
-    if (my_struct_ptr->in_ptr->u !=  4294967295U) {
+    if (my_struct_ptr->in_ptr->u != 4294967295U) {
         return 7; // fail
     }
 
@@ -73,7 +73,7 @@ int main(void) {
     my_struct_ptr->in_ptr[2].u = 100000u;
 
     (++my_struct_ptr->in_ptr)->c--; // decrement struct array[1].c
-    my_struct_ptr->in_ptr++->u++; // decrement stuct_array[1].u, increment in_ptr
+    my_struct_ptr->in_ptr++->u++;   // decrement stuct_array[1].u, increment in_ptr
 
     // validate - in_ptr currently points to array member at index 2
 

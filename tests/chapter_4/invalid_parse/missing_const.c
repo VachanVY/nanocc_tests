@@ -1,4 +1,1 @@
-int main(void)
-{
-    10 <= !;
-}
+int main(void) { 10 <= !; }

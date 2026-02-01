@@ -3,7 +3,7 @@
 int i = 0;
 
 int target(int arg) {
-    i = 5;  // dead store
+    i = 5; // dead store
     i = arg;
     return i + 1;
 }
@@ -11,17 +11,17 @@ int target(int arg) {
 int main(void) {
     int result1 = target(2);
     if (i != 2) {
-        return 1;  // fail
+        return 1; // fail
     }
     if (result1 != 3) {
-        return 2;  // fail
+        return 2; // fail
     }
     int result2 = target(-1);
     if (i != -1) {
-        return 3;  // fail
+        return 3; // fail
     }
     if (result2 != 0) {
-        return 4;  // fail
+        return 4; // fail
     }
-    return 0;  // success
+    return 0; // success
 }

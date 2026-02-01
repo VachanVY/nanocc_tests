@@ -1,3 +1,1 @@
-int main(void) {
-    1 && label: 2;
-}
+int main(void) { 1 && label : 2; }

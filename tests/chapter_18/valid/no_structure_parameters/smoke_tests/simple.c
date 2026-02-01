@@ -17,7 +17,7 @@ int main(void) {
     }
 
     // read structure members with -> operator
-    struct pair *x_ptr = &x;
+    struct pair* x_ptr = &x;
     if (x_ptr->a != 1 || x_ptr->b != 2) {
         return 2;
     }

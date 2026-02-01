@@ -42,12 +42,12 @@ int leaf_call(struct two_ints t_i, int c, double d) {
     if (c != 'p' || d != 4.56) {
         return 0;
     }
-    return 1;  // success
+    return 1; // success
 }
 
-struct memory pass_and_return_regs(int i, double d, struct int_and_xmm strct,
-                                   int c, struct two_ints t_i, long l,
-                                   struct one_int_exactly o_i_e, int c2) {
+struct memory pass_and_return_regs(int i, double d, struct int_and_xmm strct, int c,
+                                   struct two_ints t_i, long l, struct one_int_exactly o_i_e,
+                                   int c2) {
     // include a stack variable to make sure it doen't overwrite return value
     // pointer or vice versa
     char stackbytes[8] = "zyxwvut";
@@ -77,5 +77,5 @@ struct memory pass_and_return_regs(int i, double d, struct int_and_xmm strct,
         return retval;
     }
     retval.l = 100;
-    return retval;  // success
+    return retval; // success
 }

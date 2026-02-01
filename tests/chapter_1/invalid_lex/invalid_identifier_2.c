@@ -1,4 +1,1 @@
-int main(void)
-{
-    return @b;
-}
+int main(void) { return @b; }

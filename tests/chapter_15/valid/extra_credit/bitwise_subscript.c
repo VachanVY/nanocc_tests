@@ -18,7 +18,7 @@ int main(void) {
         return 4;
     }
 
-    if ((arr[5] << 3 ) != 96) {
+    if ((arr[5] << 3) != 96) {
         return 5;
     }
 

@@ -20,19 +20,19 @@ int target(int a, int b, int c, int d, int e, int f) {
     // coalesce all of a-f into parameter-passing registers.
 
     // define g-l (values 7-12)
-    int g = a + f;  // 7
-    int h = b * d;  // 8
-    int i = c * c;  // 9
-    int j = d + f;  // 10
-    int k = e + f;  // 11
-    int l = f * b;  // 12
+    int g = a + f; // 7
+    int h = b * d; // 8
+    int i = c * c; // 9
+    int j = d + f; // 10
+    int k = e + f; // 11
+    int l = f * b; // 12
 
     // define m-q; use a-f in initializer for m to make them interfere with g-l
-    int m = (a + b + c + d + e + f) - 7;  // 14
-    int n = g + h;                        // 15
-    int o = i + 7;                        // 16
-    int p = j * 2 - 3;                    // 17
-    int q = k + g;                        // 18
+    int m = (a + b + c + d + e + f) - 7; // 14
+    int n = g + h;                       // 15
+    int o = i + 7;                       // 16
+    int p = j * 2 - 3;                   // 17
+    int q = k + g;                       // 18
     // this makes m-q conflict w/ all param-passing registers
     check_12_ints(g, h, i, j, k, l, 13, m, n, o, p, q, 7);
     return 0;

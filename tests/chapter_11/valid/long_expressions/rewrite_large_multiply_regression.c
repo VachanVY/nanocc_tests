@@ -15,8 +15,8 @@
  * */
 
 // for validation
-int check_12_ints(int start, int a, int b, int c, int d, int e, int f, int g,
-                  int h, int i, int j, int k, int l);
+int check_12_ints(int start, int a, int b, int c, int d, int e, int f, int g, int h, int i, int j,
+                  int k, int l);
 
 // use a variable with static storage duration in operations below
 // so they can't be constant folded
@@ -47,8 +47,7 @@ int main(void) {
 
     // validate one through twelve
     // (this makes them all live at this point)
-    check_12_ints(one, two, three, four, five, six, seven, eight, nine, ten,
-                  eleven, twelve, 1);
+    check_12_ints(one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, 1);
     // create another clique of twelve pseudos that interfere with each other
     // and imul result, so imul result will have more conflicts than other
     // pseudoregisters
@@ -67,23 +66,22 @@ int main(void) {
 
     // validate thirteen through twenty-four
     // (this makes them all live at this point)
-    check_12_ints(thirteen, fourteen, fifteen, sixteen, seventeen, eighteen,
-                  nineteen, twenty, twenty_one, twenty_two, twenty_three,
-                  twenty_four, 13);
+    check_12_ints(thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty,
+                  twenty_one, twenty_two, twenty_three, twenty_four, 13);
     // use imul result to make it interfere with other pseudos
     // and validate that it wasn't clobbered
     if (should_spill != 21474836535l) {
         return -1;
     }
-    return 0;  // success
+    return 0; // success
 }
 
 // validate that a == start, b == start + 1, ...l == start + 11
 // NOTE: 'start' is the last param because if it were first, every
 // arg in the caller would interfere with EDI and we'd have to spill more than
 // one pseudo
-int check_12_ints(int a, int b, int c, int d, int e, int f, int g, int h, int i,
-                  int j, int k, int l, int start) {
+int check_12_ints(int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k,
+                  int l, int start) {
     int expected = 0;
 
     expected = start + 0;
@@ -146,5 +144,5 @@ int check_12_ints(int a, int b, int c, int d, int e, int f, int g, int h, int i,
         return expected;
     }
 
-    return 0;  // success
+    return 0; // success
 }

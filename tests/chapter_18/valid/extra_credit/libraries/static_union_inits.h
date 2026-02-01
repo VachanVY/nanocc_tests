@@ -35,10 +35,8 @@ struct has_union_array {
     union simple s;
 };
 
-
 extern struct has_union_array my_struct;
 int validate_has_union_array(void);
-
 
 // Test case 4 - an uninitialized static union (make sure we initialize the
 // whole thing, including padding, to zeroes)

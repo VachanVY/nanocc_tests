@@ -14,6 +14,4 @@ int target(void) {
     return my_union.i;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

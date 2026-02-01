@@ -1,6 +1,4 @@
-long add(int a, int b) {
-    return (long) a + (long) b;
-}
+long add(int a, int b) { return (long)a + (long)b; }
 
 int main(void) {
     long a = add(2147483645, 2147483645);

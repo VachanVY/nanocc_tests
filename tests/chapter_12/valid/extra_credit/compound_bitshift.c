@@ -9,10 +9,10 @@ int main(void) {
         return 1;
     }
 
-    unsigned long ul = 18446744073709551615UL;  // 2^64 - 1
-    ul <<= 44;                                  // 0 out lower 44 bits
+    unsigned long ul = 18446744073709551615UL; // 2^64 - 1
+    ul <<= 44;                                 // 0 out lower 44 bits
     if (ul != 18446726481523507200ul) {
-        return 2;  // fail
+        return 2; // fail
     }
-    return 0;  // success
+    return 0; // success
 }

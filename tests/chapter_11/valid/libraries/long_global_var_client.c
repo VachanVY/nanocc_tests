@@ -5,8 +5,6 @@ extern long int l;
 long return_l(void);
 int return_l_as_int(void);
 
-
-
 int main(void) {
 
     /* Make sure l has the right value before we update it */

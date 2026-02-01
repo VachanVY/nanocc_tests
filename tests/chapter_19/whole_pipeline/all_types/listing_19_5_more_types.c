@@ -11,7 +11,7 @@ struct inner {
 };
 
 struct s {
-    void *ptr;
+    void* ptr;
     long arr[5];
     struct inner x;
     char c[4];
@@ -33,12 +33,10 @@ long target(void) {
         my_struct.x.a = z * 100.;
     }
     if (!flag) {
-        z = 10 + *(int *)my_struct.ptr;
+        z = 10 + *(int*)my_struct.ptr;
     }
     z = x + 5;
     return z;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

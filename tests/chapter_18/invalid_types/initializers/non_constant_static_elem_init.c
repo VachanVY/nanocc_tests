@@ -1,6 +1,6 @@
 struct pair {
-  int a;
-  int b;
+    int a;
+    int b;
 };
 
 struct pair x = {1, 2};

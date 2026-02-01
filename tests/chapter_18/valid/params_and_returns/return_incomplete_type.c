@@ -19,7 +19,7 @@ int main(void) {
     if (val.a != 2 || val.b != 3) {
         return 1;
     }
-    return 0;  // success
+    return 0; // success
 }
 
 struct s increment_struct(struct s param) {

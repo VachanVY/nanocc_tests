@@ -3,13 +3,12 @@
  * all three arrays are >= 16 bytes so they must be 16-byte aligned
  */
 
-int check_alignment(int *ptr) {
-    unsigned long addr = (unsigned long) ptr;
+int check_alignment(int* ptr) {
+    unsigned long addr = (unsigned long)ptr;
     return (addr % 16 == 0);
 }
 
-int main(void)
-{
+int main(void) {
     // this initializes each element in each array to zero
     int arr[5] = {0};
     int arr2[7] = {0};
@@ -35,12 +34,12 @@ int main(void)
             return 3;
 
     // now update arr2
-    for (int i = 0; i < 7; i = i + 1){
+    for (int i = 0; i < 7; i = i + 1) {
         arr2[i] = -i;
     }
 
     // check alignment of arr3
-    if (!check_alignment((int *)arr3)) {
+    if (!check_alignment((int*)arr3)) {
         return 4;
     }
 

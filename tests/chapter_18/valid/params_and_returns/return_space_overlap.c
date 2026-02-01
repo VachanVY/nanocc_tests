@@ -24,14 +24,14 @@ struct s {
  * tests/chapter_18/valid/params_and_returns/return_space_address_overlap_<PLATFORM>.s
  */
 
-extern struct s globvar;  // initialized to 0
+extern struct s globvar; // initialized to 0
 
 // Validate that memory RDI points to does not overlap with globvar,
 // then return { 400, 500, 600 }
 struct s overlap_with_globvar(void);
 // Validate that memory RDI points to does not overlap with ptr,
 // then return { ptr->l1 * 2, ptr->l2 * 2, ptr->l3 * 2 }
-struct s overlap_with_pointer(struct s *ptr);
+struct s overlap_with_pointer(struct s* ptr);
 
 int main(void) {
     // make sure we don't pass the address of globvar as the return
@@ -49,5 +49,5 @@ int main(void) {
         return 4;
     }
 
-    return 0;  // success
+    return 0; // success
 }

@@ -4,16 +4,12 @@
  * on those different paths.
  * This example is loosely based on Figure 19-11.
  * */
-int callee(void) {
-    return 4;
-}
+int callee(void) { return 4; }
 
-int callee2(void) {
-    return 5;
-}
+int callee2(void) { return 5; }
 
 int target(int flag) {
-    int x = 10;  // this is a dead store; make sure its eliminated
+    int x = 10; // this is a dead store; make sure its eliminated
     if (flag) {
         x = callee(); // this kills x; it's dead at earlier points
     } else {

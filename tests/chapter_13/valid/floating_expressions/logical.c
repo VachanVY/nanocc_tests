@@ -65,7 +65,6 @@ int main(void) {
         return 10;
     }
 
-
     // mix of double and integer operands
     if (18446744073709551615UL && zero) {
         return 11;
@@ -74,7 +73,6 @@ int main(void) {
     if (!(non_zero && 5l)) {
         return 12;
     }
-
 
     /* || operator */
 
@@ -101,5 +99,4 @@ int main(void) {
     }
 
     return 0;
-
 }

@@ -1,6 +1,6 @@
 int foo(void) {
-    label:
-        return 0;
+label:
+    return 0;
 }
 
 int main(void) {

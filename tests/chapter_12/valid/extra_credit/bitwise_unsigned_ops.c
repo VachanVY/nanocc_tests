@@ -2,7 +2,7 @@
 #pragma GCC diagnostic ignored "-Wsign-compare"
 #endif
 int main(void) {
-    unsigned int ui = -1u; // lower 32 bits set
+    unsigned int ui = -1u;                    // lower 32 bits set
     unsigned long ul = 9223372036854775808ul; // 2^63, only uppermost bit set
 
     /* this expression will:
@@ -30,7 +30,6 @@ int main(void) {
      */
     if ((i & ul) != ul)
         return 3;
-
 
     /* this expression will:
      * 1. sign-extend i. the result will have every bit set to 1.

@@ -2,7 +2,7 @@
  * and using struct pointers returned from functions
  * */
 
-void *malloc(unsigned long size);
+void* malloc(unsigned long size);
 
 // define some struct types
 struct inner {
@@ -18,11 +18,11 @@ struct outer {
 
 struct outermost {
     int i;
-    struct outer *nested_ptr;
+    struct outer* nested_ptr;
     struct outer nested_struct;
 };
 
 // declare some functions that return pointers to structs
-struct inner *make_struct_inner(int seed);
-struct outer *make_struct_outer(int seed);
-struct outermost *make_struct_outermost(int seed);
+struct inner* make_struct_inner(int seed);
+struct outer* make_struct_outer(int seed);
+struct outermost* make_struct_outermost(int seed);

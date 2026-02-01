@@ -18,8 +18,8 @@ double glob12;
 double glob13;
 double glob14;
 
-int target(double one, double two, double three, double four, double five,
-           double six, double seven, double eight) {
+int target(double one, double two, double three, double four, double five, double six, double seven,
+           double eight) {
 
     // Define 6 variables that interfere with each other and with arguments,
     // initializing each one with a complex expression that requires an
@@ -48,8 +48,8 @@ int target(double one, double two, double three, double four, double five,
     glob14 = fourteen;
 
     // Validate arguments
-    check_14_doubles(one, two, three, four, five, six, seven, eight, 9.0, 10.0,
-                     11.0, 12.0, 13.0, 14.0, 1.0);
+    check_14_doubles(one, two, three, four, five, six, seven, eight, 9.0, 10.0, 11.0, 12.0, 13.0,
+                     14.0, 1.0);
 
     // Validate globals
     check_one_double(glob9, 9.0);

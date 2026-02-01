@@ -12,7 +12,7 @@ int main(void) {
     if (a != 8589934592l) {
         return 1;
     }
-    if (b != -1){
+    if (b != -1) {
         return 2;
     }
     if (c != -8589934592l) {

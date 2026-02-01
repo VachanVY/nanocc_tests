@@ -29,8 +29,8 @@ int target(void) {
     double fourteen = 21 - seven;
 
     // validate them
-    check_14_doubles(one, two, three, four, five, six, seven, eight, nine, ten,
-                     eleven, twelve, thirteen, fourteen, 1.0);
+    check_14_doubles(one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve,
+                     thirteen, fourteen, 1.0);
 
     // make another fourteen pseudos that conflict w/ should_spill and each
     // other
@@ -48,9 +48,9 @@ int target(void) {
     double twenty_six = twenty_five - nineteen + twenty;
     double twenty_seven = glob * 9.0;
     double twenty_eight = twenty_two + 6;
-    check_14_doubles(fifteen, sixteen, seventeen, eighteen, nineteen, twenty,
-                     twenty_one, twenty_two, twenty_three, twenty_four,
-                     twenty_five, twenty_six, twenty_seven, twenty_eight, 15.0);
+    check_14_doubles(fifteen, sixteen, seventeen, eighteen, nineteen, twenty, twenty_one,
+                     twenty_two, twenty_three, twenty_four, twenty_five, twenty_six, twenty_seven,
+                     twenty_eight, 15.0);
 
     if (should_spill != 3.0) {
         return -1;

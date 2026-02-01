@@ -7,8 +7,6 @@ union u {
     long b;
 };
 
-union u x = {1, 2};  // invalid - multiple initializers
+union u x = {1, 2}; // invalid - multiple initializers
 
-int main(void) {
-    return 0;
-}
+int main(void) { return 0; }

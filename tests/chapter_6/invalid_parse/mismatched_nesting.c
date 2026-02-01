@@ -4,6 +4,5 @@ int main(void) {
         return 1;
     else
         return 2;
-    else
-        return 3;
+    else return 3;
 }

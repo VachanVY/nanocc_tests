@@ -1,3 +1,1 @@
-int main(void) {
-    return 0 && a;
-}
+int main(void) { return 0 && a; }

@@ -5,135 +5,73 @@
 /* Test explicit conversions to and from character types */
 
 // conversions between character types
-unsigned char char_to_uchar(char c) {
-    return (unsigned char)c;
-}
+unsigned char char_to_uchar(char c) { return (unsigned char)c; }
 
-signed char char_to_schar(char c) {
-    return (signed char)c;
-}
+signed char char_to_schar(char c) { return (signed char)c; }
 
-char uchar_to_char(unsigned char u) {
-    return (char)u;
-}
+char uchar_to_char(unsigned char u) { return (char)u; }
 
-char schar_to_char(signed char u) {
-    return (char)u;
-}
+char schar_to_char(signed char u) { return (char)u; }
 
-signed char uchar_to_schar(unsigned char u) {
-    return (signed char)u;
-}
+signed char uchar_to_schar(unsigned char u) { return (signed char)u; }
 
-unsigned char schar_to_uchar(signed char u) {
-    return (unsigned char)u;
-}
+unsigned char schar_to_uchar(signed char u) { return (unsigned char)u; }
 
 // char to other types
-int char_to_int(char c) {
-    return (int)c;
-}
+int char_to_int(char c) { return (int)c; }
 
-unsigned int char_to_uint(char c) {
-    return (unsigned int)c;
-}
+unsigned int char_to_uint(char c) { return (unsigned int)c; }
 
-long char_to_long(char c) {
-    return (long)c;
-}
+long char_to_long(char c) { return (long)c; }
 
-unsigned long char_to_ulong(char c) {
-    return (unsigned long)c;
-}
+unsigned long char_to_ulong(char c) { return (unsigned long)c; }
 
-double char_to_double(char c) {
-    return (double)c;
-}
+double char_to_double(char c) { return (double)c; }
 
 // signed char to other types
-int schar_to_int(signed char s) {
-    return (int)s;
-}
+int schar_to_int(signed char s) { return (int)s; }
 
-unsigned int schar_to_uint(signed char s) {
-    return (unsigned int)s;
-}
+unsigned int schar_to_uint(signed char s) { return (unsigned int)s; }
 
-long schar_to_long(signed char s) {
-    return (long)s;
-}
+long schar_to_long(signed char s) { return (long)s; }
 
-unsigned long schar_to_ulong(signed char s) {
-    return (unsigned long)s;
-}
+unsigned long schar_to_ulong(signed char s) { return (unsigned long)s; }
 
-double schar_to_double(signed char s) {
-    return (double)s;
-}
+double schar_to_double(signed char s) { return (double)s; }
 
 // unsigned char to other types
-int uchar_to_int(unsigned char u) {
-    return (int)u;
-}
+int uchar_to_int(unsigned char u) { return (int)u; }
 
-unsigned int uchar_to_uint(unsigned char u) {
-    return (unsigned int)u;
-}
+unsigned int uchar_to_uint(unsigned char u) { return (unsigned int)u; }
 
-long uchar_to_long(unsigned char u) {
-    return (long)u;
-}
+long uchar_to_long(unsigned char u) { return (long)u; }
 
-unsigned long uchar_to_ulong(unsigned char u) {
-    return (unsigned long)u;
-}
+unsigned long uchar_to_ulong(unsigned char u) { return (unsigned long)u; }
 
-double uchar_to_double(unsigned char u) {
-    return (double)u;
-}
+double uchar_to_double(unsigned char u) { return (double)u; }
 
 // other types to char
-char int_to_char(int i) {
-    return (char)i;
-}
+char int_to_char(int i) { return (char)i; }
 
-char uint_to_char(unsigned int u) {
-    return (char)u;
-}
+char uint_to_char(unsigned int u) { return (char)u; }
 
-char double_to_char(double d) {
-    return (char)d;
-}
+char double_to_char(double d) { return (char)d; }
 
 // other types to signed char
-signed char long_to_schar(long l) {
-    return (signed char)l;
-}
+signed char long_to_schar(long l) { return (signed char)l; }
 
-signed char ulong_to_schar(unsigned long l) {
-    return (signed char)l;
-}
+signed char ulong_to_schar(unsigned long l) { return (signed char)l; }
 
 // other types to unsigned char
-unsigned char int_to_uchar(int i) {
-    return (unsigned char)i;
-}
+unsigned char int_to_uchar(int i) { return (unsigned char)i; }
 
-unsigned char uint_to_uchar(unsigned int ui) {
-    return (unsigned char)ui;
-}
+unsigned char uint_to_uchar(unsigned int ui) { return (unsigned char)ui; }
 
-unsigned char long_to_uchar(long l) {
-    return (unsigned char)l;
-}
+unsigned char long_to_uchar(long l) { return (unsigned char)l; }
 
-unsigned char ulong_to_uchar(unsigned long ul) {
-    return (unsigned char)ul;
-}
+unsigned char ulong_to_uchar(unsigned long ul) { return (unsigned char)ul; }
 
-unsigned char double_to_uchar(double d) {
-    return (unsigned char)d;
-}
+unsigned char double_to_uchar(double d) { return (unsigned char)d; }
 
 int main(void) {
     // char to other types
@@ -214,7 +152,7 @@ int main(void) {
     }
 
     // other types to schar
-    if (long_to_schar(17592186044416l)) {  // should be null byte
+    if (long_to_schar(17592186044416l)) { // should be null byte
         return 18;
     }
 
@@ -245,7 +183,7 @@ int main(void) {
     }
 
     // you can cast a pointer type to a char
-    static long *null_ptr;
+    static long* null_ptr;
     char zero = (char)null_ptr;
     if (zero) {
         return 25;
@@ -253,7 +191,7 @@ int main(void) {
 
     // you can cast a char to a pointer type as long as it isn't misaligned
     c = 32;
-    int *i = (int *)c;
+    int* i = (int*)c;
     // conversion should round-trip
     if ((char)i != c) {
         return 26;

@@ -3,14 +3,14 @@
 int main(void) {
     // lval is pointer
     double d = 5.0;
-    double *d_ptr = &d;
+    double* d_ptr = &d;
     // convert 1000 to double
     *d_ptr *= 1000u;
     if (d != 5000.0) {
         return 1; // fail
     }
     int i = -50;
-    int *i_ptr = &i;
+    int* i_ptr = &i;
     // convert *i_ptr to unsigned, perform operation, then convert back
     *i_ptr %= 4294967200U;
     if (*i_ptr != 46) {
@@ -28,7 +28,7 @@ int main(void) {
     // both operands are pointers
     i = -10;
     unsigned long ul = 9223372036854775807ul; // 2^63 - 1
-    unsigned long *ul_ptr = &ul;
+    unsigned long* ul_ptr = &ul;
     // convert i to common type (ul), perform operation, then
     // convert back to int
     *i_ptr -= *ul_ptr;

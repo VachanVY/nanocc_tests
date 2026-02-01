@@ -8,7 +8,7 @@ struct inner {
 
 struct outer {
     struct inner s;
-    struct inner *ptr;
+    struct inner* ptr;
     long l;
 };
 

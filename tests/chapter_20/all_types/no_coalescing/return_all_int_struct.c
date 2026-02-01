@@ -9,7 +9,8 @@
  * tests/chapter_20/helper_libs/return_all_instr_struct_lib.c defines a
  * 'target' function that calls 'return_struct' and validates the result.
  *
- * This test program is generated from templates/chapter_20_templates/fourteen_pseudos_interfere.c.jinja.
+ * This test program is generated from
+ * templates/chapter_20_templates/fourteen_pseudos_interfere.c.jinja.
  * */
 struct s {
     int a;
@@ -39,14 +40,13 @@ struct s return_struct(void) {
     double m = j - d;
     double n = m * l;
 
-    if (a == 400.0 && b == 32.0 && c == 405.0 && d == -8.0 && e == 27.0 &&
-        f == 60.0 && g == 1215.0 && h == -896. && i == 9.0 && j == 1275. &&
-        k == -2171. && l == 1009. && m == 1283. && n == 1294547.) {
+    if (a == 400.0 && b == 32.0 && c == 405.0 && d == -8.0 && e == 27.0 && f == 60.0 &&
+        g == 1215.0 && h == -896. && i == 9.0 && j == 1275. && k == -2171. && l == 1009. &&
+        m == 1283. && n == 1294547.) {
         struct s retval = {20, 30, 40};
         return retval; // success
     } else {
         struct s retval = {-1, -2, -3};
         return retval; // fail
     }
-
 }

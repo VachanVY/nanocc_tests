@@ -1,4 +1,1 @@
-int main(void)
-{
-    return 'x
-}
+int main(void) { return 'x }

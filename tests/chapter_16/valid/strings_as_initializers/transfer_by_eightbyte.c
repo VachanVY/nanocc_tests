@@ -9,7 +9,7 @@
  * we don't overrun neighboring memory
  */
 
-int strcmp(char *s1, char *s2);
+int strcmp(char* s1, char* s2);
 
 int main(void) {
     char strings[2][13] = {"abcdefghijkl", "z"};

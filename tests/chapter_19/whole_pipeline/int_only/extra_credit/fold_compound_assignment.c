@@ -18,9 +18,7 @@ int target(void) {
         return 0; // success
     }
 
-    return 1; //fail
+    return 1; // fail
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

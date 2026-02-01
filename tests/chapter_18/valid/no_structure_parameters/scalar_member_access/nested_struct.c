@@ -1,25 +1,25 @@
 /* Test accessing nested structures members, through dot, arrow, and subscript
  * operators */
 
-void *calloc(unsigned long nmemb, unsigned long size);
-void *malloc(unsigned long size);
+void* calloc(unsigned long nmemb, unsigned long size);
+void* malloc(unsigned long size);
 
 struct inner {
     double a;
     char b;
-    int *ptr;
+    int* ptr;
 };
 
 struct outer {
     unsigned long l;
-    struct inner *in_ptr;
+    struct inner* in_ptr;
     struct inner in_array[4];
     int bar;
     struct inner in;
 };
 
-int ptr_target;  // static int for 'ptr' member in various struct inners to
-                 // point to
+int ptr_target; // static int for 'ptr' member in various struct inners to
+                // point to
 
 int test_auto_dot(void) {
     // Test nested access in struct with automatic storage duration,
@@ -37,7 +37,7 @@ int test_auto_dot(void) {
     }
 
     // get address of nested member
-    char *char_ptr = &s.in.b;
+    char* char_ptr = &s.in.b;
     if (*char_ptr != 2) {
         return 0;
     }
@@ -54,7 +54,7 @@ int test_auto_dot(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int test_static_dot(void) {
@@ -73,7 +73,7 @@ int test_static_dot(void) {
     }
 
     // get address of nested member
-    char *char_ptr = &s.in.b;
+    char* char_ptr = &s.in.b;
     if (*char_ptr != 2) {
         return 0;
     }
@@ -90,7 +90,7 @@ int test_static_dot(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int test_auto_arrow(void) {
@@ -99,7 +99,7 @@ int test_auto_arrow(void) {
 
     struct inner in;
     struct outer s;
-    struct outer *s_ptr = &s;
+    struct outer* s_ptr = &s;
     s_ptr->in_ptr = &in;
 
     // initialize non-nested members to make sure we don't overwrite them
@@ -125,19 +125,19 @@ int test_auto_arrow(void) {
     }
 
     // read through nested accesses
-    if (s_ptr->in_ptr->a != 10.0 || s_ptr->in_ptr->b != 'x' ||
-        s_ptr->in_array->a != 11.0 || (s_ptr->in_array + 3)->a != 12.0) {
+    if (s_ptr->in_ptr->a != 10.0 || s_ptr->in_ptr->b != 'x' || s_ptr->in_array->a != 11.0 ||
+        (s_ptr->in_array + 3)->a != 12.0) {
         return 0;
     }
 
     // get address of nested member
-    char *char_ptr = &s_ptr->in_ptr->b;
+    char* char_ptr = &s_ptr->in_ptr->b;
     if (*char_ptr != 'x') {
         return 0;
     }
 
     // dereference nested member
-    *s_ptr->in_array->ptr = 123;  // indirectly updates s_ptr->bar
+    *s_ptr->in_array->ptr = 123; // indirectly updates s_ptr->bar
     if (s_ptr->bar != 123) {
         return 0;
     }
@@ -148,7 +148,7 @@ int test_auto_arrow(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int test_static_arrow(void) {
@@ -159,7 +159,7 @@ int test_static_arrow(void) {
     static struct outer s;
 
     // shouldn't really matter if this pointer is static
-    static struct outer *s_ptr;
+    static struct outer* s_ptr;
     s_ptr = &s;
 
     s_ptr->in_ptr = &in;
@@ -187,19 +187,19 @@ int test_static_arrow(void) {
     }
 
     // read through nested accesses
-    if (s_ptr->in_ptr->a != 10.0 || s_ptr->in_ptr->b != 'x' ||
-        s_ptr->in_array->a != 11.0 || (s_ptr->in_array + 3)->a != 12.0) {
+    if (s_ptr->in_ptr->a != 10.0 || s_ptr->in_ptr->b != 'x' || s_ptr->in_array->a != 11.0 ||
+        (s_ptr->in_array + 3)->a != 12.0) {
         return 0;
     }
 
     // get address of nested member
-    char *char_ptr = &s_ptr->in_ptr->b;
+    char* char_ptr = &s_ptr->in_ptr->b;
     if (*char_ptr != 'x') {
         return 0;
     }
 
     // dereference nested member
-    *s_ptr->in_array->ptr = 123;  // indirectly updates s_ptr->bar
+    *s_ptr->in_array->ptr = 123; // indirectly updates s_ptr->bar
     if (s_ptr->bar != 123) {
         return 0;
     }
@@ -210,16 +210,16 @@ int test_static_arrow(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int test_mixed(void) {
     // Test nested access using a mix of ., ->, and []
     // include: x->y.z, x.y->z, x->y[i].z
-    struct inner *in_ptr = malloc(sizeof(struct inner));
+    struct inner* in_ptr = malloc(sizeof(struct inner));
     struct outer out;
     out.in_ptr = in_ptr;
-    struct outer *out_ptr = &out;
+    struct outer* out_ptr = &out;
 
     // non-nested writes to make sure these don't get clobbered
     out.l = 10;
@@ -228,12 +228,12 @@ int test_mixed(void) {
     // nested writes
     out.in_ptr->a = -1.0;
     out.in_ptr->b = '!';
-    out.in_ptr->ptr = 0;  // null pointer
+    out.in_ptr->ptr = 0; // null pointer
 
     // nested writes thru out_ptr
     out_ptr->in_array[0].a = -2.0;
     out_ptr->in_array[0].b = '?';
-    out_ptr->in_array[0].ptr = 0;  // null pointer
+    out_ptr->in_array[0].ptr = 0; // null pointer
     // don't bother with array elements 1 and 2, skip to last one
     out_ptr->in_array[3].a = -3.0;
     out_ptr->in_array[3].b = '*';
@@ -257,8 +257,8 @@ int test_mixed(void) {
     // reads via nested access thru out_ptr
     if (out_ptr->in_array[0].a != -2.0 || out_ptr->in_array[0].b != '?' ||
         out_ptr->in_array[0].ptr || out_ptr->in_array[3].a != -3.0 ||
-        out_ptr->in_array[3].b != '*' || out_ptr->in.a != -3.0 ||
-        out_ptr->in.b != '&' || out_ptr->in.ptr != &i) {
+        out_ptr->in_array[3].b != '*' || out_ptr->in.a != -3.0 || out_ptr->in.b != '&' ||
+        out_ptr->in.ptr != &i) {
         return 0;
     }
 
@@ -274,7 +274,7 @@ int test_mixed(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int test_array_of_structs(void) {
@@ -282,7 +282,7 @@ int test_array_of_structs(void) {
     // including x[i].y->z, x[i].y.z, x[i].y[i].z
 
     static struct outer struct_array[3];
-    struct inner *in_ptr = malloc(sizeof(struct inner));
+    struct inner* in_ptr = malloc(sizeof(struct inner));
 
     // tricky: make struct_array[0].in_ptr and struct_array[1].in_ptr point to
     // same struct
@@ -310,20 +310,19 @@ int test_array_of_structs(void) {
         return 0;
     }
 
-    if (struct_array[1].in_array[1].a != 30.0 ||
-        struct_array[1].in_array[0].b != '#' || struct_array[2].in.a != 40.0 ||
-        struct_array[2].in.b != '$') {
+    if (struct_array[1].in_array[1].a != 30.0 || struct_array[1].in_array[0].b != '#' ||
+        struct_array[2].in.a != 40.0 || struct_array[2].in.b != '$') {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int test_array_of_struct_pointers(void) {
     // test nested access to array of struct pointers
     // including x[i]->y.z, x[i]->y[i].z, x[i]->y->z
 
-    struct outer *ptr_array[2];
+    struct outer* ptr_array[2];
 
     ptr_array[0] = calloc(1, sizeof(struct outer));
     ptr_array[1] = calloc(1, sizeof(struct outer));
@@ -394,7 +393,7 @@ int test_array_of_struct_pointers(void) {
     }
     for (int i = 0; i < 4; i = i + 1) {
         // ptr_array[0].in_array is all 0s except for in_array[1].b
-        struct inner *elem_ptr = &ptr_array[0]->in_array[i];
+        struct inner* elem_ptr = &ptr_array[0]->in_array[i];
         if (elem_ptr->a || elem_ptr->ptr) {
             return 0;
         }
@@ -415,7 +414,7 @@ int test_array_of_struct_pointers(void) {
 
     for (int i = 0; i < 4; i = i + 1) {
         // ptr_array[1].in_array is all 0s except for in_array[2].a
-        struct inner *elem_ptr = &ptr_array[1]->in_array[i];
+        struct inner* elem_ptr = &ptr_array[1]->in_array[i];
         if (elem_ptr->b || elem_ptr->ptr) {
             return 0;
         }
@@ -429,7 +428,7 @@ int test_array_of_struct_pointers(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {

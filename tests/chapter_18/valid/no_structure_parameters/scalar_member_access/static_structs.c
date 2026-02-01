@@ -9,9 +9,9 @@
 #endif
 #endif
 
-void *malloc(unsigned long size);
+void* malloc(unsigned long size);
 int putchar(int ch);
-int puts(char *s);
+int puts(char* s);
 
 // test that changes to static struct are retained across function calls
 // do this by validating text written to stdout,
@@ -43,7 +43,7 @@ void test_static_local_pointer(int a, int b) {
         int b;
     };
 
-    static struct s *struct_ptr;
+    static struct s* struct_ptr;
     if (!struct_ptr) {
         struct_ptr = malloc(sizeof(struct s));
     } else {
@@ -90,7 +90,7 @@ void test_global_struct(void) {
 }
 
 // test that changes to global struct pointer are visible across function calls
-struct global *g_ptr;
+struct global* g_ptr;
 
 void f3(void) {
     g_ptr->x = g_ptr->x + 1;
@@ -106,7 +106,7 @@ void f4(void) {
 }
 
 void test_global_struct_pointer(void) {
-    g_ptr = &g;  // first, point to global struct from previous test
+    g_ptr = &g; // first, point to global struct from previous test
     f3();
     f4();
     f3();
@@ -126,11 +126,11 @@ int main(void) {
     test_static_local('m', 'n');
     test_static_local('o', 'p');
     test_static_local('!', '!');
-    ;  // last one, won't be printed
+    ; // last one, won't be printed
     test_static_local_pointer('w', 'x');
     test_static_local_pointer('y', 'z');
     test_static_local_pointer('!', '!');
-    ;  // last one, won't be printed
+    ; // last one, won't be printed
     test_global_struct();
     test_global_struct_pointer();
     return 0;

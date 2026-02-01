@@ -13,6 +13,4 @@ int f(int a) {
     } while (1);
 }
 
-int main(void) {
-    return f(10);
-}
+int main(void) { return f(10); }

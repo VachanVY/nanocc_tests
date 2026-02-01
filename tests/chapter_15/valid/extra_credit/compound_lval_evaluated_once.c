@@ -11,11 +11,11 @@ int get_call_count(void) {
 int main(void) {
     int arr[4] = {10, 11, 12, 13};
     if (arr[get_call_count()] != 11) { // arr[0]
-        return 1; // fail
+        return 1;                      // fail
     }
-    int *end_ptr = arr + 4;
+    int* end_ptr = arr + 4;
     if ((end_ptr - 1)[-get_call_count()] != 11) { // arr[2]
-        return 2; // fail
+        return 2;                                 // fail
     }
 
     if (get_call_count() != 3) {

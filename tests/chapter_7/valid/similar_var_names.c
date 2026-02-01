@@ -8,7 +8,7 @@ int main(void) {
     int result;
     int a1 = 1; // a10
     {
-        int a = 2; //a1
+        int a = 2;  // a1
         int a1 = 2; // a11
         {
             int a; // a2

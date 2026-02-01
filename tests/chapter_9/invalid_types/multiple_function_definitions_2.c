@@ -1,7 +1,5 @@
 /* Function 'foo' is defined twice */
-int foo(void){
-    return 3;
-}
+int foo(void) { return 3; }
 
 int main(void) {
     // after seeing this declaration, we should still remember that
@@ -10,6 +8,4 @@ int main(void) {
     return foo();
 }
 
-int foo(void){
-    return 4;
-}
+int foo(void) { return 4; }

@@ -1,6 +1,6 @@
 // Test updating a static local variable over multiple function invocations;
 // also test passing a static variable as an argument
-int putchar (int ch);
+int putchar(int ch);
 
 int print_alphabet(void) {
     /* the value of count increases by 1
@@ -15,6 +15,4 @@ int print_alphabet(void) {
     return count;
 }
 
-int main(void) {
-    print_alphabet();
-}
+int main(void) { print_alphabet(); }

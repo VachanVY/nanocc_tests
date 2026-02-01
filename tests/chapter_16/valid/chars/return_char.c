@@ -12,15 +12,15 @@
 #endif
 
 char return_char(void) {
-    return 5369233654l;  // this will be truncated to -10
+    return 5369233654l; // this will be truncated to -10
 }
 
 signed char return_schar(void) {
-    return 5369233654l;  // this will be truncated to -10
+    return 5369233654l; // this will be truncated to -10
 }
 
 unsigned char return_uchar(void) {
-    return 5369233654l;  // this will be truncated to 246
+    return 5369233654l; // this will be truncated to 246
 }
 
 int main(void) {
@@ -41,8 +41,7 @@ int main(void) {
     if (retval_c != -10) {
         return 2;
     }
-    if (char_array2[0] != -5 || char_array2[1] != 88 ||
-        char_array2[2] != -100) {
+    if (char_array2[0] != -5 || char_array2[1] != 88 || char_array2[2] != -100) {
         return 3;
     }
 

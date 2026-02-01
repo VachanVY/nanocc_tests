@@ -8,8 +8,8 @@ int test_static(void) {
             !(static_arr[2] || static_arr[3] || static_arr[4]));
 }
 
-static signed char nested_static_arr[3][4] = {
-    "", "bc"};  // empty string just initializes to null byte
+static signed char nested_static_arr[3][4] = {"",
+                                              "bc"}; // empty string just initializes to null byte
 int test_static_nested(void) {
     for (int i = 0; i < 3; i = i + 1)
         for (int j = 0; j < 4; j = j + 1) {
@@ -25,11 +25,11 @@ int test_static_nested(void) {
             }
 
             if (c != expected) {
-                return 0;  // failure
+                return 0; // failure
             }
         }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int test_automatic(void) {
@@ -60,12 +60,12 @@ int test_automatic_nested(void) {
                 }
 
                 if (c != expected) {
-                    return 0;  // failure
+                    return 0; // failure
                 }
             }
         }
     }
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {

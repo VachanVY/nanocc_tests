@@ -23,15 +23,15 @@ int reset_globals(void) {
     return 0;
 }
 
-int flag = 1;  // make this static to prevent copy propagation
+int flag = 1; // make this static to prevent copy propagation
 
 int target(void) {
     /* define some values - must be in callee-saved regs */
-    int a = glob0;  // 0
-    int b = glob1;  // 1
-    int c = glob2;  // 2
-    int d = glob3;  // 3
-    int e = glob4;  // 4
+    int a = glob0; // 0
+    int b = glob1; // 1
+    int c = glob2; // 2
+    int d = glob3; // 3
+    int e = glob4; // 4
     int f;
     int g;
     int h;
@@ -39,16 +39,16 @@ int target(void) {
     int j;
     // put this in conditional so copy prop doesn't get rid of these copies
     if (flag) {
-        reset_globals();  // force a-e into callee-saved regs
-        f = a;            // now f interferes w/ b, c, d, and e but not a
+        reset_globals(); // force a-e into callee-saved regs
+        f = a;           // now f interferes w/ b, c, d, and e but not a
         check_one_int(a, 0);
-        g = b;  // now g interferes w/ c, d, e, f but not a, b
+        g = b; // now g interferes w/ c, d, e, f but not a, b
         check_one_int(b, 1);
-        h = c;  // h interferes with d, e, f, g, h but not a, b or c
+        h = c; // h interferes with d, e, f, g, h but not a, b or c
         check_one_int(c, 2);
-        i = d;  // i interferes with e, f, g, h but not a, b, c, or d
+        i = d; // i interferes with e, f, g, h but not a, b, c, or d
         check_one_int(d, 3);
-        j = e;  // j interferes with f, g, h, i but not a, b, c, d, or e
+        j = e; // j interferes with f, g, h, i but not a, b, c, d, or e
         check_one_int(e, 4);
     } else {
         e = 0;

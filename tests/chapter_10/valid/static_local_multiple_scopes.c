@@ -2,7 +2,7 @@
  * in the same function are distinct from each other.
  */
 
-int putchar (int ch);
+int putchar(int ch);
 
 int print_letters(void) {
     /* declare a static variable, initialize to ASCII 'A' */
@@ -26,7 +26,7 @@ int print_letters(void) {
 }
 
 int main(void) {
-    //print uppercase and lowercase version of each letter in the alphabet
+    // print uppercase and lowercase version of each letter in the alphabet
     for (int i = 0; i < 26; i = i + 1)
         print_letters();
 }

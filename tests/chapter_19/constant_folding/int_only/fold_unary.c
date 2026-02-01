@@ -1,24 +1,14 @@
 /* Test that we can constant-fold !, -, and ~ expressions. */
 
-int target_negate(void) {
-    return -3;
-}
+int target_negate(void) { return -3; }
 
-int target_negate_zero(void) {
-    return -0;
-}
+int target_negate_zero(void) { return -0; }
 
-int target_not(void) {
-    return !1024;
-}
+int target_not(void) { return !1024; }
 
-int target_not_zero(void) {
-    return !0;
-}
+int target_not_zero(void) { return !0; }
 
-int target_complement(void) {
-    return ~1;
-}
+int target_complement(void) { return ~1; }
 
 int three = 3;
 int two = 2;
@@ -44,5 +34,5 @@ int main(void) {
         return 5;
     }
 
-    return 0;  // success
+    return 0; // success
 }

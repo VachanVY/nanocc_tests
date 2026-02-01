@@ -1,6 +1,6 @@
 struct s {
-  double d;
-  void *arr[3];
+    double d;
+    void* arr[3];
 };
 
 // can't initialize a nested element of type void * with a constant of type double

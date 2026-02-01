@@ -8,6 +8,4 @@ int target(void) {
     return 99;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

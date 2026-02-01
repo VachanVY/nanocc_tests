@@ -22,7 +22,7 @@ int main(void) {
     // visit this block at all, and we won't see the call to f(),
     // which kills this copy
     if (flag) {
-        f();  // kill copy to global
+        f(); // kill copy to global
     }
 
     // If we didn't visit that if statement, we'll incorrectly

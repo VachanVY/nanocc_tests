@@ -37,11 +37,10 @@ int target(void) {
         // so a and z don't interfere, but they will if we coalesce tmp and a.
         // Briggs test should prevent them from being coalesced.
         // we put this in an if statement to prevent copy prop of 1-z
-       a = 1 - z;
+        a = 1 - z;
     } else {
         a = 5;
     }
-
 
     // validate callee-saved regs
     check_one_int(one, 1);

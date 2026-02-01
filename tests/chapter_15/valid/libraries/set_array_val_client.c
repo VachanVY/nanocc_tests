@@ -1,7 +1,7 @@
 /* Make sure we can pass pointers to array elements,
  * including nested array elements, as function arguments. */
 
-int set_nth_element(double *arr, int idx);
+int set_nth_element(double* arr, int idx);
 int set_nested_element(int (*arr)[2], int i, int j);
 
 int main(void) {

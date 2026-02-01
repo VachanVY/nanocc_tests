@@ -4,6 +4,6 @@
 int main(void) {
     int x = 0;
     int y = 0;
-    int *ptr = &(x = y);
+    int* ptr = &(x = y);
     return 0;
 }

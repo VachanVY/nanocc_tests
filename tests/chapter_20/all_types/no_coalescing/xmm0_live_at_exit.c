@@ -15,7 +15,7 @@ double glob2 = 0.0;
 // coalesce the temporary that holds x + glob into XMM0, clobbering x.
 
 double target(void) {
-    double x = glob + 1.0;  // 11.0
+    double x = glob + 1.0; // 11.0
     glob2 = x + glob;
     return x;
 }

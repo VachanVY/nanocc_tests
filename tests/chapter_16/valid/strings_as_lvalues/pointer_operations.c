@@ -6,7 +6,6 @@
 #pragma clang diagnostic ignored "-Wstring-plus-int"
 #endif
 
-
 int main(void) {
     // subscript a string literal
     if ("abcdefg"[2] != 'c') {
@@ -14,7 +13,7 @@ int main(void) {
     }
 
     // pointer arithmetic on a string literal
-    char *ptr = "This is a string!" + 10;  // point to "string."
+    char* ptr = "This is a string!" + 10; // point to "string."
     if (*ptr != 's') {
         return 2;
     }
@@ -23,7 +22,7 @@ int main(void) {
         return 3;
     }
 
-    if (ptr[7]) {  // null byte
+    if (ptr[7]) { // null byte
         return 4;
     }
 

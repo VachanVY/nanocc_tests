@@ -18,7 +18,7 @@ int main(void) {
     }
 
     // assign/read through pointer
-    union u *ptr = &x;
+    union u* ptr = &x;
     ptr->l = -1l;
     if (ptr->l != -1l) {
         return 2; // fail

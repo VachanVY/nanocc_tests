@@ -24,7 +24,7 @@ int test_auto(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // test 2: copy one struct with static storage duration to another
@@ -36,7 +36,7 @@ int test_static(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // test 3: copy a struct w/ uneven size
@@ -51,13 +51,11 @@ int test_wonky_size(void) {
     if (strcmp(y.arr, "abcdef")) {
         return 0;
     }
-    return 1;  // success
+    return 1; // success
 }
 
 // test 4: assign result of conditional expression to struct
-int true_flag(void) {
-    return 1;
-}
+int true_flag(void) { return 1; }
 
 int test_conditional(void) {
     static struct s x = {"xy", {1234, 5678}};
@@ -68,7 +66,7 @@ int test_conditional(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {

@@ -1,11 +1,11 @@
-/* Test that we've properly implemented the calling convention for double parameters passed in registers */
+/* Test that we've properly implemented the calling convention for double parameters passed in
+ * registers */
 int check_arguments(double a, double b, double c, double d, double e, double f, double g, double h);
 
-int main(void) {
-    return check_arguments(1.0, 2.0, 3.0, 4.0, -1.0, -2.0, -3.0, -4.0);
-}
+int main(void) { return check_arguments(1.0, 2.0, 3.0, 4.0, -1.0, -2.0, -3.0, -4.0); }
 
-int check_arguments(double a, double b, double c, double d, double e, double f, double g, double h) {
+int check_arguments(double a, double b, double c, double d, double e, double f, double g,
+                    double h) {
     if (a != 1.0) {
         return 1;
     }

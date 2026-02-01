@@ -7,7 +7,7 @@
 int main(void) {
 
     // sizeof result is a ulong, so _its_ size is 8
-    if (sizeof sizeof (char) != 8) {
+    if (sizeof sizeof(char) != 8) {
         return 1;
     }
 

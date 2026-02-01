@@ -9,10 +9,8 @@ struct outer {
 };
 
 int main(void) {
-    struct outer array[4] = {{1, {{2, 3, 4}}},
-                             {5, {{6, 7, 8}}},
-                             {9, {{10, 11, 12}}},
-                             {13, {{14, 15, 16}}}};
+    struct outer array[4] = {
+        {1, {{2, 3, 4}}}, {5, {{6, 7, 8}}}, {9, {{10, 11, 12}}}, {13, {{14, 15, 16}}}};
 
     int i = -array[2].b.inner_arr[1];
     return i == -11;

@@ -46,8 +46,8 @@ int target(double a) {
     glob = one;
 
     // validate others/make them conflict with XMM0
-    check_14_doubles(1, two, three, four, five, six, seven, eight, nine, ten,
-                     eleven, twelve, thirteen, fourteen, 1);
+    check_14_doubles(1, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve,
+                     thirteen, fourteen, 1);
 
     // validate one
     check_one_double(glob, 1.0);

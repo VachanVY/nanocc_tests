@@ -4,12 +4,14 @@
 
 int switch_on_long(long l) {
     switch (l) {
-        case 0: return 0;
-        case 100: return 1;
-        case 8589934592l: // 2^33
-            return 2;
-        default:
-            return -1;
+    case 0:
+        return 0;
+    case 100:
+        return 1;
+    case 8589934592l: // 2^33
+        return 2;
+    default:
+        return -1;
     }
 }
 

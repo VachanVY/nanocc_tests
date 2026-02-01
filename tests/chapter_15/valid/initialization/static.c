@@ -3,7 +3,7 @@
 // fully initialized
 double double_arr[3] = {1.0, 2.0, 3.0};
 
-int check_double_arr(double *arr) {
+int check_double_arr(double* arr) {
     if (arr[0] != 1.0) {
         return 1;
     }
@@ -26,7 +26,7 @@ unsigned uint_arr[5] = {
     2147497230u,
 };
 
-int check_uint_arr(unsigned *arr) {
+int check_uint_arr(unsigned* arr) {
     if (arr[0] != 1u) {
         return 4;
     }
@@ -48,7 +48,7 @@ int check_uint_arr(unsigned *arr) {
 // uninitialized; should be all zeros
 long long_arr[1000];
 
-int check_long_arr(long *arr) {
+int check_long_arr(long* arr) {
     for (int i = 0; i < 1000; i = i + 1) {
         if (arr[i]) {
             return 8;
@@ -58,11 +58,9 @@ int check_long_arr(long *arr) {
 }
 
 // initialized w/ values of different types
-unsigned long ulong_arr[4] = {
-    100.0, 11, 12345l, 4294967295U
-};
+unsigned long ulong_arr[4] = {100.0, 11, 12345l, 4294967295U};
 
-int check_ulong_arr(unsigned long *arr) {
+int check_ulong_arr(unsigned long* arr) {
     if (arr[0] != 100ul) {
         return 9;
     }
@@ -118,9 +116,7 @@ int test_local(void) {
     static long local_long_arr[1000];
 
     // initialized w/ values of different types
-    static unsigned long local_ulong_arr[4] = {
-        100.0, 11, 12345l, 4294967295U
-    };
+    static unsigned long local_ulong_arr[4] = {100.0, 11, 12345l, 4294967295U};
 
     // validate
     int check = check_double_arr(local_double_arr);

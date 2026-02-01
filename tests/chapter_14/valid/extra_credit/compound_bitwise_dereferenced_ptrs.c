@@ -6,7 +6,7 @@ unsigned long ul = 18446460386757245432ul; // 0xfffe_fdfc_fbfa_f9f8
 
 int main(void) {
 
-    unsigned long *ul_ptr = &ul;
+    unsigned long* ul_ptr = &ul;
     *ul_ptr &= -1000;
     if (ul != 18446460386757244952ul /* 0xfffe_fdfc_fbfa_f818 */) {
         return 1; // fail
@@ -18,9 +18,9 @@ int main(void) {
     }
     int i = 123456;
     unsigned int ui = 4042322160u; // 0xf0f0_f0f0
-    long l = -252645136; // 0xffff_ffff_f0f0_f0f0
-    unsigned int *ui_ptr = &ui;
-    long *l_ptr = &l;
+    long l = -252645136;           // 0xffff_ffff_f0f0_f0f0
+    unsigned int* ui_ptr = &ui;
+    long* l_ptr = &l;
     if (*ui_ptr ^= *l_ptr) {
         return 3; // fail
     }

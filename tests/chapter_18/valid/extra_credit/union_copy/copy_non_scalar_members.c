@@ -7,7 +7,7 @@ void* calloc(unsigned long nmemb, unsigned long size);
 int test_dot(void) {
     // Test reading/writing whole nested unions/structs w/ . operator
     // first, assign a union to a struct member
-    struct struct_with_union my_struct = { {0}, 100000l };
+    struct struct_with_union my_struct = {{0}, 100000l};
     union simple my_simple_union;
     my_simple_union.l = -1;
     my_struct.u = my_simple_union;
@@ -54,12 +54,13 @@ int test_arrow(void) {
     union has_union another_union = *my_union_ptr->u_ptr;
 
     // compare pointers & pointers' dereferenced values
-    if (another_union.u_ptr != my_union_ptr->u_ptr->u_ptr || another_union.u_ptr->c != my_union_ptr->u_ptr->u_ptr->c) {
+    if (another_union.u_ptr != my_union_ptr->u_ptr->u_ptr ||
+        another_union.u_ptr->c != my_union_ptr->u_ptr->u_ptr->c) {
         return 0; // fail
     }
 
     // define another object to assign through arrow
-    union simple small_union = { -9999 };
+    union simple small_union = {-9999};
     my_union_ptr->u_ptr->u = small_union;
     if (my_union_ptr->u_ptr->u.i != -9999) {
         return 0; // fail

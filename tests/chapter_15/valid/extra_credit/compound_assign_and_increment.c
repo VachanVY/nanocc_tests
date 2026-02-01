@@ -1,12 +1,12 @@
 // Combination of compound assignment and increment/decrement with subscript expressions
 int main(void) {
     int arr[4] = {-1, -2, -3, -4};
-    int *ptr = arr;
+    int* ptr = arr;
     int idx = 2;
 
     // arr[2] *= -3;
     // after expression, ptr points to arr[1] and idx is 3
-    if ((ptr++[idx++] *= 3) != -9) {
+    if ((ptr++ [idx++] *= 3) != -9) {
         return 1; // fail
     }
     if (*ptr != -2) {

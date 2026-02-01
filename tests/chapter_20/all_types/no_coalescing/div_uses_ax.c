@@ -38,5 +38,5 @@ int main(void) {
     // validate rem
     check_one_uint(rem, 0);
 
-    return 0;  // success
+    return 0; // success
 }

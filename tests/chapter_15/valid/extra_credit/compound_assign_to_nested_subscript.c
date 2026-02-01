@@ -7,10 +7,10 @@ unsigned unsigned_index = 10;
 int main(void) {
     // nested long array
     if ((long_nested_arr[1][unsigned_index - 8] *= -1) != -6) {
-        return 1;  // fail
+        return 1; // fail
     }
     if (long_nested_arr[1][2] != -6) {
-        return 2;  // fail
+        return 2; // fail
     }
 
     // make sure other five elements are unchanged
@@ -22,14 +22,14 @@ int main(void) {
             }
             long expected = i * 3 + j + 1;
             if (long_nested_arr[i][j] != expected) {
-                return 3;  // fail
+                return 3; // fail
             }
         }
     }
 
     // another nested array
     if ((dbl_nested_arr[1][1] += 100.0) != 203.0) {
-        return 4;  // fail
+        return 4; // fail
     }
 
     // make sure the other elements of dbl_nested_arr are unchanged
@@ -41,10 +41,10 @@ int main(void) {
             }
             int expected = 100 + i * 2 + j;
             if (dbl_nested_arr[i][j] != expected) {
-                return 5;  // fail
+                return 5; // fail
             }
         }
     }
 
-    return 0;  // success
+    return 0; // success
 }

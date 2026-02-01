@@ -40,8 +40,8 @@ struct s3 {
 // both of these functions print an error message and exit if
 // arguments don't have the expected values
 int callee(struct s1 a, struct s2 b, char c, struct s3 in_mem);
-int check_some_args(int one, long two, unsigned int three, unsigned long four,
-                    char five, unsigned char six, signed char seven);
+int check_some_args(int one, long two, unsigned int three, unsigned long four, char five,
+                    unsigned char six, signed char seven);
 
 // Global variables
 int glob1;
@@ -134,9 +134,8 @@ int target(int one, int two, int three, double one_d, double two_d) {
 
     // validate globals
     check_some_args(glob1, glob2, glob3, glob4, glob5, glob6, glob7);
-    check_14_doubles(glob1_d, glob2_d, glob3_d, glob4_d, glob5_d, glob6_d,
-                     glob7_d, glob8_d, glob9_d, glob10_d, 11.0, 12.0, 13., 14.,
-                     1);
+    check_14_doubles(glob1_d, glob2_d, glob3_d, glob4_d, glob5_d, glob6_d, glob7_d, glob8_d,
+                     glob9_d, glob10_d, 11.0, 12.0, 13., 14., 1);
 
-    return 0;  // success
+    return 0; // success
 }

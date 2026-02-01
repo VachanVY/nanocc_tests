@@ -1,5 +1,5 @@
 // can't apply postfix ++/-- to string literals
 int main(void) {
-    "foo"++;
+    "foo" ++;
     return 0;
 }

@@ -30,7 +30,7 @@ int main(void) {
     /* Calculations that result in infinity */
 
     /* Multiplication result is too large to represent as finite value */
-    if(very_large * 10.0 != inf) {
+    if (very_large * 10.0 != inf) {
         return 3;
     }
 

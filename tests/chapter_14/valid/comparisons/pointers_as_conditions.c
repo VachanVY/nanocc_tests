@@ -8,16 +8,12 @@
 #endif
 #endif
 
+long* get_null_pointer(void) { return 0; }
 
-long *get_null_pointer(void) {
-    return 0;
-}
-
-int main(void)
-{
+int main(void) {
     long x;
-    long *ptr = &x;
-    long *null_ptr = get_null_pointer();
+    long* ptr = &x;
+    long* null_ptr = get_null_pointer();
 
     // note that pointers can appear in boolean expressions
     // with operands of any other type
@@ -53,8 +49,7 @@ int main(void)
 
     // use a pointer as the controlling condition in a loop
     int i = 0;
-    while (ptr)
-    {
+    while (ptr) {
         if (i >= 10) {
             ptr = 0;
             continue;

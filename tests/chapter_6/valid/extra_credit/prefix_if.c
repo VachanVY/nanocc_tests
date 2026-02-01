@@ -7,5 +7,4 @@ int main(void) {
     else if (++a) // we do take this branch
         return 1;
     return 0; // failure
-
 }

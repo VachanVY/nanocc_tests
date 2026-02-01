@@ -1,7 +1,7 @@
 // A union type can't have itself as a member but can have a pointer
 // to itself as a member
 union self_ptr {
-    union self_ptr *ptr;
+    union self_ptr* ptr;
     long l;
 };
 

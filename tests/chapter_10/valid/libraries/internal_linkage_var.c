@@ -5,9 +5,7 @@
  */
 static int x;
 
-int read_x(void) {
-    return x;
-}
+int read_x(void) { return x; }
 
 int update_x(int new_val) {
     /* this declaration refers to the 'x'
@@ -18,7 +16,6 @@ int update_x(int new_val) {
     x = new_val;
     return 0;
 }
-
 
 /* since a declaration of x with internal linkage is already in scope,
  * this takes on that linkage.

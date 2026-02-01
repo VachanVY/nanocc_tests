@@ -5,7 +5,8 @@
  * Part III, these are either optimized away entirely in earlier chapters' test
  * programs, or their operands are all hard registers.
  *
- * This test program is generated from templates/chapter_20_templates/rewrite_regression_test.c.jinja
+ * This test program is generated from
+ * templates/chapter_20_templates/rewrite_regression_test.c.jinja
  * */
 
 #include "../util.h"
@@ -42,8 +43,7 @@ int target(void) {
 
     // validate one through twelve
     // (this makes them all live at this point)
-    check_12_ints(one, two, three, four, five, six, seven, eight, nine, ten,
-                  eleven, twelve, 1);
+    check_12_ints(one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, 1);
     // create another clique of twelve pseudos that interfere with each other
     // and imul, add, and sub results, so imul, add, and sub results will have
     // more conflicts than other pseudoregisters
@@ -62,9 +62,8 @@ int target(void) {
 
     // validate thirteen through twenty-four
     // (this makes them all live at this point)
-    check_12_ints(thirteen, fourteen, fifteen, sixteen, seventeen, eighteen,
-                  nineteen, twenty, twenty_one, twenty_two, twenty_three,
-                  twenty_four, 13);
+    check_12_ints(thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty,
+                  twenty_one, twenty_two, twenty_three, twenty_four, 13);
 
     if (imul_result != 12) {
         return 100;
@@ -76,5 +75,5 @@ int target(void) {
         return 102;
     }
 
-    return 0;  // success
+    return 0; // success
 }

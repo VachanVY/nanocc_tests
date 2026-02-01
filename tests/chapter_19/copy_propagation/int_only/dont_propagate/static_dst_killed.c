@@ -7,9 +7,9 @@ int update_x(void) {
 }
 
 int target(void) {
-    x = 3;       // generate x = 3
-    update_x();  // kill x = 3
-    return x;    // can't propagte b/c it's static
+    x = 3;      // generate x = 3
+    update_x(); // kill x = 3
+    return x;   // can't propagte b/c it's static
 }
 
 int main(void) {
@@ -22,5 +22,5 @@ int main(void) {
         return 2;
     }
 
-    return 0;  // success
+    return 0; // success
 }

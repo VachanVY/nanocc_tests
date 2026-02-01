@@ -1,4 +1,1 @@
-label:
-int main(void) {
-    return 0;
-}
+label : int main(void) { return 0; }

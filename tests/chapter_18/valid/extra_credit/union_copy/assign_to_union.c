@@ -11,8 +11,8 @@ union u {
 };
 
 int main(void) {
-    union u x = { {1, 2} };
-    union u y = { {0, 0} };
+    union u x = {{1, 2}};
+    union u y = {{0, 0}};
     y = x;
     if (y.str.a != 1) {
         return 1; // fail

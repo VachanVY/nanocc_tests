@@ -1,18 +1,16 @@
 /* Test conversions from narrower to wider types */
 
 int int_to_ulong(int i, unsigned long expected) {
-    unsigned long result = (unsigned long) i;
+    unsigned long result = (unsigned long)i;
     return result == expected;
 }
 
 int uint_to_long(unsigned int ui, long expected) {
-    long result = (long) ui;
+    long result = (long)ui;
     return result == expected;
 }
 
-int uint_to_ulong(unsigned ui, unsigned long expected){
-    return (unsigned long) ui == expected;
-}
+int uint_to_ulong(unsigned ui, unsigned long expected) { return (unsigned long)ui == expected; }
 
 int main(void) {
     /* Converting a positive int to an unsigned long preserves its value */
@@ -40,7 +38,7 @@ int main(void) {
      * from an unsigned int to an unsigned long
      * to test the assembly rewrite rule for MovZeroExtend
      */
-    if ((unsigned long) 4294967200u != 4294967200ul) {
+    if ((unsigned long)4294967200u != 4294967200ul) {
         return 5;
     }
     return 0;

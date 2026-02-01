@@ -9,10 +9,8 @@ double fun(double x) {
         return x;
     else {
         double ret = fun(x + 2); // ret = 3.0
-        return ret + x; // return 4.0
+        return ret + x;          // return 4.0
     }
 }
 
-int main(void) {
-    return fun(1.0);
-}
+int main(void) { return fun(1.0); }

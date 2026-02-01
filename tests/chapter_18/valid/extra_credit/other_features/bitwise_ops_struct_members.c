@@ -7,7 +7,7 @@ struct inner {
 
 struct outer {
     unsigned long l;
-    struct inner *in_ptr;
+    struct inner* in_ptr;
     int bar;
     struct inner in;
 };
@@ -17,19 +17,19 @@ int main(void) {
     struct outer o = {9223372036854775810ul, &i, 100, {-80, 4294967295U}};
 
     if ((i.b | o.l) != 9223372036854775907ul) {
-        return 1;  // fail
+        return 1; // fail
     }
 
     if ((o.bar ^ i.u) != 100036u) {
-        return 2;  // fail
+        return 2; // fail
     }
 
     if ((o.in_ptr->b & o.in.b) != 32) {
-        return 3;  // fail
+        return 3; // fail
     }
 
     if ((o.l >> 26) != 137438953472ul) {
-        return 4;  // fail
+        return 4; // fail
     }
 
     o.bar = 12;

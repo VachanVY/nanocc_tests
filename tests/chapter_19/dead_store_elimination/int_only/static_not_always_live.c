@@ -4,12 +4,12 @@
  * by caling the exit function indirectly)
  * */
 
-int exit_wrapper(int status);  // defined in chapter_19/libraries/exit.c
+int exit_wrapper(int status); // defined in chapter_19/libraries/exit.c
 
 int i;
 
 int target(void) {
-    i = 30;  // dead store!
+    i = 30; // dead store!
     // i isn't killed in this block but it's killed on all paths to function
     // call
     int counter = 0;
@@ -28,6 +28,4 @@ int target(void) {
     return 0;
 }
 
-int main(void) {
-    target();
-}
+int main(void) { target(); }

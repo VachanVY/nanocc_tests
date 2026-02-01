@@ -1,11 +1,7 @@
 /* Test conversions from unsigned integer types to doubles */
-double uint_to_double(unsigned int ui) {
-    return (double) ui;
-}
+double uint_to_double(unsigned int ui) { return (double)ui; }
 
-double ulong_to_double(unsigned long ul) {
-    return (double) ul;
-}
+double ulong_to_double(unsigned long ul) { return (double)ul; }
 
 int main(void) {
 

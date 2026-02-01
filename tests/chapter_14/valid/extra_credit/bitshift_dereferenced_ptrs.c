@@ -4,9 +4,7 @@
 
 unsigned int ui = 4294967295; // 2^32 - 1
 
-unsigned int *get_ui_ptr(void){
-    return &ui;
-}
+unsigned int* get_ui_ptr(void) { return &ui; }
 
 int shiftcount = 5;
 
@@ -22,7 +20,7 @@ int main(void) {
     }
 
     // also use dereferenced pointer as right operand
-    int *shiftcount_ptr = &shiftcount;
+    int* shiftcount_ptr = &shiftcount;
     if ((1000000u >> *shiftcount_ptr) != 31250) {
         return 3;
     }
@@ -30,5 +28,5 @@ int main(void) {
         return 4;
     }
 
-    return 0;  // success
+    return 0; // success
 }

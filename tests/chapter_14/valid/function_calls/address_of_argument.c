@@ -2,7 +2,7 @@
  * not just variables */
 
 int addr_of_arg(int a) {
-    int *ptr = &a;
+    int* ptr = &a;
     *ptr = 10;
     return a;
 }

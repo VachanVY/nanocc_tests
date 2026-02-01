@@ -31,8 +31,8 @@ int target(void) {
         // we'll know that isn't safe.
         keep_looping = callee(y);
         y = 4;
-    } while (keep_looping);  // loop should terminate after first iteration
-    return y;                // should become return 4
+    } while (keep_looping); // loop should terminate after first iteration
+    return y;               // should become return 4
 }
 
 int main(void) {
@@ -43,5 +43,5 @@ int main(void) {
     if (called_counter != 2) {
         return 2;
     }
-    return 0;  // success
+    return 0; // success
 }

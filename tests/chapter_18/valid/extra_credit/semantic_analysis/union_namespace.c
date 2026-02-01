@@ -22,7 +22,7 @@ int test_shared_member_names(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // you can use the same identiifer as a struct tag, member name, and variable
@@ -36,13 +36,11 @@ int test_same_name_var_member_and_tag(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // you can use the same identifier as a union tag and function name
-int f(void) {
-    return 10;
-}
+int f(void) { return 10; }
 
 union f {
     int f;
@@ -52,24 +50,24 @@ int test_same_name_fun_and_tag(void) {
     union f x;
     x.f = f();
     if (x.f != 10) {
-        return 0;  // fail
+        return 0; // fail
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {
     if (!test_shared_member_names()) {
-        return 1;  // fail
+        return 1; // fail
     }
 
     if (!test_same_name_var_member_and_tag()) {
-        return 2;  // fail
+        return 2; // fail
     }
 
     if (!test_same_name_fun_and_tag()) {
-        return 3;  // fail
+        return 3; // fail
     }
 
-    return 0;  // success
+    return 0; // success
 }

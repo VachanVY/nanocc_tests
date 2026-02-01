@@ -2,6 +2,6 @@
 
 int main(void) {
     double d = 0.0;
-    int *x = (int *) d;
+    int* x = (int*)d;
     return 0;
 }

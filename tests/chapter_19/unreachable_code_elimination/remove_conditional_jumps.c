@@ -14,6 +14,4 @@ int target(int a) {
     return x + y;
 }
 
-int main(void) {
-    return target(10);
-}
+int main(void) { return target(10); }

@@ -1,6 +1,6 @@
 int accept_unsigned(unsigned int a, unsigned int b, unsigned long c, unsigned long d,
-                 unsigned int e, unsigned int f, unsigned long g, unsigned int h,
-                 unsigned long i) {
+                    unsigned int e, unsigned int f, unsigned long g, unsigned int h,
+                    unsigned long i) {
     /* Make sure unsigned arguments are passed correctly */
     if (a != 1u) {
         return 1;

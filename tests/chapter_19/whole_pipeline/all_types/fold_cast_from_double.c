@@ -3,13 +3,9 @@
  * them.
  * */
 
-char target_to_char(void) {
-    return (char)-126.5;
-}
+char target_to_char(void) { return (char)-126.5; }
 
-int target_to_int(void) {
-    return (int)-5.9;
-}
+int target_to_int(void) { return (int)-5.9; }
 
 long target_to_long(void) {
     // nearest representable double is -9223372036854774784.0,

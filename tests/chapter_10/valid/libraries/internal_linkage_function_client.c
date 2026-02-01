@@ -25,6 +25,4 @@ int main(void) {
     return 0;
 }
 
-int my_fun(void) {
-    return 100;
-}
+int my_fun(void) { return 100; }

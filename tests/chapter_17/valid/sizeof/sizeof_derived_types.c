@@ -1,7 +1,7 @@
 /* Make sure we accurately calculate the size of derived (pointer and array)
  * types */
 
-void *malloc(unsigned long size);
+void* malloc(unsigned long size);
 
 int main(void) {
     // start with a simple array type
@@ -26,16 +26,15 @@ int main(void) {
 
     // now try some pointer types; these are always 8 bytes no matter what they
     // point to
-    if (sizeof(int *) != 8) {
+    if (sizeof(int*) != 8) {
         return 4;
     }
 
-    if (sizeof(int(*)[2][4][6]) !=
-        8) {  // pointer to a big array is still a pointer
+    if (sizeof(int(*)[2][4][6]) != 8) { // pointer to a big array is still a pointer
         return 5;
     }
 
-    if (sizeof(char *) != 8) {
+    if (sizeof(char*) != 8) {
         return 6;
     }
 

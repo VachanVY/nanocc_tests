@@ -6,6 +6,4 @@ int main(void) {
     return foo();
 }
 
-static int foo(void) {
-    return 0;
-}
+static int foo(void) { return 0; }

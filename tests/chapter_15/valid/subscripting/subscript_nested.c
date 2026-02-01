@@ -16,26 +16,20 @@ int read_nested_negated(int (*nested_arr)[3], int i, int j, int expected) {
     return (nested_arr[-i][j] == expected);
 }
 
-
 // get address of nested subscript
-int get_nested_addr(int nested_arr[2][3], int i, int j, int *expected) {
+int get_nested_addr(int nested_arr[2][3], int i, int j, int* expected) {
     return &nested_arr[i][j] == expected;
 }
 
 // nested access to a static array
-static int nested_arr[4][3][5] = {
-    {{1, 2}, {3}},
-    {{4}, {5}}
-};
+static int nested_arr[4][3][5] = {{{1, 2}, {3}}, {{4}, {5}}};
 
 int read_static_nested(int i, int j, int k, int expected) {
     return nested_arr[i][j][k] == expected;
 }
 
 // write a nested element using more complex expression to get array
-int (*get_array(void))[3][5] {
-    return nested_arr;
-}
+int (*get_array(void))[3][5] { return nested_arr; }
 
 int write_nested_complex(int i, int j, int k, int val) {
     get_array()[i][j][k] = val;
@@ -43,9 +37,7 @@ int write_nested_complex(int i, int j, int k, int val) {
 }
 
 // only subscript first dimension to return pointer to sub-array
-int *get_subarray(int nested[2][3], int i) {
-    return nested[i];
-}
+int* get_subarray(int nested[2][3], int i) { return nested[i]; }
 
 int main(void) {
     int nested_arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
@@ -62,7 +54,7 @@ int main(void) {
         return 3;
     }
 
-    int *ptr = (nested_arr[0]) + 1;
+    int* ptr = (nested_arr[0]) + 1;
     if (!get_nested_addr(nested_arr, 0, 1, ptr)) {
         return 4;
     }
@@ -76,7 +68,7 @@ int main(void) {
         return 6;
     }
 
-    int *row_1 = get_subarray(nested_arr, 1);
+    int* row_1 = get_subarray(nested_arr, 1);
     if (row_1 + 1 != &nested_arr[1][1]) {
         return 7;
     }

@@ -1,3 +1,1 @@
-int main(void){
-    retur n 0;
-}
+int main(void) { retur n 0; }

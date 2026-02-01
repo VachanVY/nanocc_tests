@@ -19,6 +19,4 @@ int target(void) {
     return z;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

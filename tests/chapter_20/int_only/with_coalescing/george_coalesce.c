@@ -118,13 +118,12 @@ int target(int a, int b, int c, int d, int e, int f) {
     // parameter-passing registers. Calculate using glob so we can't
     // copy prop or constant fold them, and don't need to mov values
     // between registers to calculate them.
-    int s = glob - 3;  // 1
-    int t = glob - 2;  // 2
-    int u = glob - 1;  // 3
-    int v = glob * 2 - 4;  // 4
-    int w = glob + 1;  // 5
+    int s = glob - 3;     // 1
+    int t = glob - 2;     // 2
+    int u = glob - 1;     // 3
+    int v = glob * 2 - 4; // 4
+    int w = glob + 1;     // 5
     check_5_ints(s, t, u, v, w, 1);
-
 
     // make sure return value is coalesced into EAX
     return check_one_int(glob, 4);

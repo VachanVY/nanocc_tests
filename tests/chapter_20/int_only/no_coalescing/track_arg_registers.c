@@ -60,8 +60,8 @@ int target(int one, int two, int three) {
     callee(ten, eleven, twelve);
 
     // validate globals
-    check_12_ints(glob1, glob2, glob3, glob4, glob5, glob6, glob7, glob8, glob9,
-                  ten, eleven, twelve, 1);
+    check_12_ints(glob1, glob2, glob3, glob4, glob5, glob6, glob7, glob8, glob9, ten, eleven,
+                  twelve, 1);
 
     return 0;
 }

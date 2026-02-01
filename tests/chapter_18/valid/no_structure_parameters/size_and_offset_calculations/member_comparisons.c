@@ -21,21 +21,21 @@ int main(void) {
     }
 
     // do the same with a relational operator
-    if (!((int *)my_struct <= &my_struct->a)) {
+    if (!((int*)my_struct <= &my_struct->a)) {
         return 2; // fail
     }
 
     // compare earlier to later members using a few different relational operators
     if (&my_struct->c <= &my_struct->a) {
-        return 3;  // fail
+        return 3; // fail
     }
 
     if (&my_struct->b > &my_struct->c) {
-        return 4;  // fail
+        return 4; // fail
     }
 
     if (!(&my_struct->b > &my_struct->a)) {
-        return 5;  // fail
+        return 5; // fail
     }
 
     return 0; // success

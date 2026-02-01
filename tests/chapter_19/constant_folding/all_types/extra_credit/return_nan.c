@@ -2,9 +2,7 @@
 
 int double_isnan(double d); // defined in tests/chapter_13/helper_libs/nan.c
 
-double target(void) {
-    return 0.0 / 0.0;
-}
+double target(void) { return 0.0 / 0.0; }
 
 int main(void) {
     double nan = target();

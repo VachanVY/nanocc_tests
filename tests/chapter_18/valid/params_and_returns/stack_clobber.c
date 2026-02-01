@@ -21,7 +21,7 @@
 #endif
 #endif
 
-int strcmp(char *s1, char *s2);
+int strcmp(char* s1, char* s2);
 void exit(int status);
 
 struct stack_bytes {
@@ -86,8 +86,7 @@ struct two_int_regs {
 };
 
 struct two_int_regs return_two_int_struct(void) {
-    struct two_int_regs retval = {
-        {20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34}};
+    struct two_int_regs retval = {{20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34}};
     return retval;
 }
 
@@ -227,9 +226,8 @@ struct stack {
 };
 
 struct stack return_stack_struct(void) {
-    struct stack retval = {{90,  91,  92,  93,  94,  95,  96,  97,  98,  99,
-                            100, 101, 102, 103, 104, 105, 106, 107, 108, 109,
-                            110, 111, 112, 113, 114, 115, 116, 117}};
+    struct stack retval = {{90,  91,  92,  93,  94,  95,  96,  97,  98,  99,  100, 101, 102, 103,
+                            104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117}};
     return retval;
 }
 
@@ -265,8 +263,8 @@ struct stack_irregular {
 };
 
 struct stack_irregular return_irregular_stack_struct(void) {
-    struct stack_irregular retval = {{70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
-                                      80, 81, 82, 83, 84, 85, 86, 87, 88}};
+    struct stack_irregular retval = {
+        {70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88}};
     return retval;
 }
 

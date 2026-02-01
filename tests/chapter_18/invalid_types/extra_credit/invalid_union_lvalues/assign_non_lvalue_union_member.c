@@ -9,7 +9,7 @@ union u {
     union inner i;
 };
 
-union u return_union(void){
+union u return_union(void) {
     union u result = {1};
     return result;
 }

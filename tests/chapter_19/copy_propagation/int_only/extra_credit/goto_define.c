@@ -8,6 +8,4 @@ int target(int flag) {
     return x; // return 20
 }
 
-int main(void) {
-    return target(0);
-}
+int main(void) { return target(0); }

@@ -7,7 +7,7 @@
 #endif
 #endif
 
-int putchar(int c);  // from standard library
+int putchar(int c); // from standard library
 
 void print_some_chars(char a, char b, char c, char d) {
     putchar(a);
@@ -16,9 +16,7 @@ void print_some_chars(char a, char b, char c, char d) {
     putchar(d);
 }
 
-int callee(char c, signed char s) {
-    return c == s;
-}
+int callee(char c, signed char s) { return c == s; }
 
 int target(char c, signed char s) {
     // first, call another function, with these arguments
@@ -26,13 +24,11 @@ int target(char c, signed char s) {
     // coalesce them with the param-passing registers or each other
     print_some_chars(67, 66, c, s);
 
-    s = c;  // generate s = c - we can do this because for the purposes of copy
-            // propagation, we consider char and signed char the same type
+    s = c; // generate s = c - we can do this because for the purposes of copy
+           // propagation, we consider char and signed char the same type
 
     // both arguments to callee should be the same
     return callee(s, c);
 }
 
-int main(void) {
-    return target(65, 64);
-}
+int main(void) { return target(65, 64); }

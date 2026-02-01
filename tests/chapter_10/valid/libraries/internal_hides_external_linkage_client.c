@@ -31,7 +31,4 @@ int main(void) {
 // this refers to the 'x' variable defines in this file with internal linkage
 extern int x;
 
-int read_internal_x(void) {
-    return x;
-
-}
+int read_internal_x(void) { return x; }

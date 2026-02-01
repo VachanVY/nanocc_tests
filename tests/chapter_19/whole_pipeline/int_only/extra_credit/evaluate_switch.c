@@ -4,30 +4,26 @@
  * function to a single return statement
  */
 
-int callee(void){
-    return 0;
-}
+int callee(void) { return 0; }
 
 int target(void) {
     int switch_var = 10;
     int retval = -1;
-    switch(switch_var) {
-        case 1:
-            callee();
-            return 1;
-        case 2:
-            retval = -2;
-            break;
-        case 10: // case we'll actually take
-            retval = 0;
-            break;
-        default:
-            retval = 1000;
-            break;
+    switch (switch_var) {
+    case 1:
+        callee();
+        return 1;
+    case 2:
+        retval = -2;
+        break;
+    case 10: // case we'll actually take
+        retval = 0;
+        break;
+    default:
+        retval = 1000;
+        break;
     }
     return retval;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

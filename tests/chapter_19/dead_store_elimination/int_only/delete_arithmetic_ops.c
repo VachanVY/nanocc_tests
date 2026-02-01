@@ -16,6 +16,4 @@ int target(void) {
     return 5;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

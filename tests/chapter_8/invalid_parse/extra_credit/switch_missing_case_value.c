@@ -1,5 +1,6 @@
 int main(void) {
-    switch(0) {
-        case: return 0;
+    switch (0) {
+    case:
+        return 0;
     }
 }

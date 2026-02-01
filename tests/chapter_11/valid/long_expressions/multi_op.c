@@ -13,6 +13,4 @@ int target(long a) {
     return 0;
 }
 
-int main(void) {
-    return target(4294967290l);
-}
+int main(void) { return target(4294967290l); }

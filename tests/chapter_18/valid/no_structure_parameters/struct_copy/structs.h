@@ -7,8 +7,8 @@
 #endif
 #endif
 
-int strcmp(char *s1, char *s2);
-void *malloc(unsigned long size);
+int strcmp(char* s1, char* s2);
+void* malloc(unsigned long size);
 
 struct small {
     int a;

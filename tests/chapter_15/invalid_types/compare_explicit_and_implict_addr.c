@@ -1,5 +1,4 @@
-int main(void)
-{
+int main(void) {
     int arr[10];
     /* It's illegal to compare these expressions because
      * they have different types: arr is converted to type int *,

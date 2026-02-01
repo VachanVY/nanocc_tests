@@ -44,8 +44,7 @@ int target(int a) {
     glob = one;
 
     // validate others/make them conflict with EDI
-    check_12_ints(1, two, three, four, five, six, seven, eight, nine, ten,
-                  eleven, twelve, 1);
+    check_12_ints(1, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, 1);
 
     // validate one
     check_one_int(glob, 1);

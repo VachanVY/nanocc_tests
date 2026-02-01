@@ -1,7 +1,5 @@
 /* Test that we eliminate any code after a return statement. */
-int callee(void) {
-    return 1;
-}
+int callee(void) { return 1; }
 
 int target(void) {
     return 2;
@@ -17,6 +15,4 @@ int target(void) {
     return x + y;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

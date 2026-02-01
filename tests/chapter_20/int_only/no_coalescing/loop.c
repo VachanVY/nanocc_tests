@@ -27,7 +27,7 @@ int target(void) {
             z = times_two(a);
         // z is live, a is dead below here
         update_expected_a(); // force z to be callee-saved
-        a = 1 - z; // a is live, z is dead from here to start of loop
+        a = 1 - z;           // a is live, z is dead from here to start of loop
         check_one_int(a, expected_a);
         counter = counter - 1;
     }
@@ -46,6 +46,4 @@ int update_expected_a(void) {
     return 0;
 }
 
-int times_two(int x) {
-    return x * 2;
-}
+int times_two(int x) { return x * 2; }

@@ -18,11 +18,11 @@ int target(void) {
     // validate them/call function to force them into callee-saved regs
     check_5_ints(a, b, c, d, e, 2);
 
-    int f = a * a;  // now f interferes w/ b, c, d, e but not a
-    int g = b + b;  // now g interferes w/ d, c, e, f but not a or b
-    int h = c - c;  // h interferes with d, e, f, g but not a, b, or c
-    int i = d * d;  // i interferes with e, f, g, h but not a, b, c, d
-    int j = e + e;  // j interferes with f, g, h, i, but not a, b, c, d
+    int f = a * a; // now f interferes w/ b, c, d, e but not a
+    int g = b + b; // now g interferes w/ d, c, e, f but not a or b
+    int h = c - c; // h interferes with d, e, f, g but not a, b, or c
+    int i = d * d; // i interferes with e, f, g, h but not a, b, c, d
+    int j = e + e; // j interferes with f, g, h, i, but not a, b, c, d
 
     // another function call to make sure f-j are callee-saved
     check_one_int(0, 0);

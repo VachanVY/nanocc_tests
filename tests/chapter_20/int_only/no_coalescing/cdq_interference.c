@@ -9,7 +9,7 @@ int target(int a, int b, int c) {
 
     // validate a and b
     if (a || b) {
-        return 0;  // fail
+        return 0; // fail
     }
 
     /*  mov   i(%rip), %eax

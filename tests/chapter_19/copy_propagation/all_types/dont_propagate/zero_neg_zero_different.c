@@ -5,9 +5,9 @@
 double copysign(double x, double y);
 
 double target(int flag) {
-    double result = 0.0;  // gen result = 0.0
+    double result = 0.0; // gen result = 0.0
     if (flag) {
-        result = -0.0;  // gen result = -0.0
+        result = -0.0; // gen result = -0.0
     }
 
     // can't propagate value of result because it has

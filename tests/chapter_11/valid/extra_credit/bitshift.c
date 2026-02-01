@@ -20,7 +20,7 @@ int main(void) {
 
     // try shift count > 32 (shift count between 32 and 64 is undefined when
     // shifting an int, well-defined when shifting a long)
-    if ((40l << 40) !=  43980465111040l) {
+    if ((40l << 40) != 43980465111040l) {
         return 4;
     }
 

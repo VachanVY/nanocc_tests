@@ -8,14 +8,14 @@ int main(void) {
     // if we performed the bitwise op first and then sign-extended,
     // we'd get a different result
     if ((uc & c) != 132) {
-        return 1;  // fail
+        return 1; // fail
     }
 
     // Make sure we FIRST promote, THEN perform bitwise op
     // if we performed the bitwise op first and then zero-extended,
     // we'd get a different result
     if ((uc | c) != -113) {
-        return 2;  // fail
+        return 2; // fail
     }
 
     // make sure we do usual conversion to common type

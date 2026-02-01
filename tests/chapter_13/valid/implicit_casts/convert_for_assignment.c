@@ -6,9 +6,7 @@
 #endif
 /* Test that we correctly perform conversion as if by assignment */
 
-int check_args(long l, double d) {
-    return l == 2 && d == -6.0;
-}
+int check_args(long l, double d) { return l == 2 && d == -6.0; }
 
 double return_double(void) {
     /* Implicitly convert this integer to the nearest double,

@@ -46,12 +46,11 @@ int check_long_arr(long (*arr)[50][40]) {
 
 // partially initialized using values of different types
 
-unsigned long ulong_arr[4][6][2] = {
-    {{
-         1000.3,
-     }, // truncated to 1000
-     {12u}},
-    {{2}}};
+unsigned long ulong_arr[4][6][2] = {{{
+                                         1000.3,
+                                     }, // truncated to 1000
+                                     {12u}},
+                                    {{2}}};
 
 int check_ulong_arr(unsigned long (*arr)[6][2]) {
     for (int i = 0; i < 4; i = i + 1) {
@@ -117,12 +116,11 @@ int test_local(void) {
         return 100 + check;
     }
 
-    static unsigned long local_ulong_arr[4][6][2] = {
-        {{
-            1000.3,
-        }, // truncated to 1000
-        {12u}},
-        {{2}}};
+    static unsigned long local_ulong_arr[4][6][2] = {{{
+                                                          1000.3,
+                                                      }, // truncated to 1000
+                                                      {12u}},
+                                                     {{2}}};
     check = check_ulong_arr(local_ulong_arr);
     if (check) {
         return 100 + check;

@@ -10,19 +10,19 @@
 #endif
 #endif
 
-void *malloc(unsigned long size);
-void free(void *ptr);
-void *memcpy(void *s1, void *s2, unsigned long n);
+void* malloc(unsigned long size);
+void free(void* ptr);
+void* memcpy(void* s1, void* s2, unsigned long n);
 
 int main(void) {
     // start with casts between void * and other types
 
-    void *ptr = malloc(4 * sizeof(double));
+    void* ptr = malloc(4 * sizeof(double));
     // cast void * to double *
-    double *double_ptr = (double *)ptr;
+    double* double_ptr = (double*)ptr;
     double_ptr[2] = 10.0;
     // cast double * back to void * - should round trip
-    if ((void *)double_ptr != ptr) {
+    if ((void*)double_ptr != ptr) {
         return 1;
     }
     double result = double_ptr[2];
@@ -44,11 +44,11 @@ int main(void) {
 
     // can also cast 0 to null pointer and back
     long zero = 0;
-    ptr = (void *) zero;
+    ptr = (void*)zero;
     if (ptr) {
         return 4;
     }
-    zero = (long) ptr;
+    zero = (long)ptr;
     if (zero) {
         return 5;
     }

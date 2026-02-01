@@ -14,8 +14,7 @@ int main(void) {
     }
 
     // get members thru pointer in nested struct
-    if (return_nested_struct().ptr->x != 12 ||
-        return_nested_struct().ptr->y != 13) {
+    if (return_nested_struct().ptr->x != 12 || return_nested_struct().ptr->y != 13) {
         return 4;
     }
 
@@ -24,10 +23,9 @@ int main(void) {
     return_nested_struct().ptr->y = 71;
 
     // validate updated values
-    if (return_nested_struct().ptr->x != 70 ||
-        return_nested_struct().ptr->y != 71) {
+    if (return_nested_struct().ptr->x != 70 || return_nested_struct().ptr->y != 71) {
         return 5;
     }
 
-    return 0;  // success
+    return 0; // success
 }

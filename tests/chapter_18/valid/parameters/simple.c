@@ -10,7 +10,7 @@ double test_struct_param(struct pair p) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {
@@ -18,5 +18,5 @@ int main(void) {
     if (!test_struct_param(x)) {
         return 1;
     }
-    return 0;  // success
+    return 0; // success
 }

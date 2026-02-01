@@ -6,7 +6,7 @@ int main(void) {
     goto inner;
     {
         int x = 0;
-        inner:
+    inner:
         x = 1;
         return x;
     }

@@ -14,9 +14,9 @@ int flag = 1;
 int target(void) {
     int x = 2;
     if (flag) {
-        x = 20;  // this will be a dead store after we remove branch below
-                 // wrap this in an if statement so we don't propagate 20 into
-                 // controlling condition
+        x = 20; // this will be a dead store after we remove branch below
+                // wrap this in an if statement so we don't propagate 20 into
+                // controlling condition
     }
 
     if (x)
@@ -26,6 +26,4 @@ int target(void) {
     return 10;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

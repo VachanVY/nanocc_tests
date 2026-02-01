@@ -7,10 +7,10 @@
 #endif
 #endif
 
-int strcmp(char *s1, char *s2);
+int strcmp(char* s1, char* s2);
 
 int main(void) {
-    char *strings[4] = {"yes", "no", "maybe"};
+    char* strings[4] = {"yes", "no", "maybe"};
     if (strcmp(strings[0], "yes")) {
         return 1;
     }

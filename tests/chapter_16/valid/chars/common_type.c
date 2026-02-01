@@ -12,21 +12,17 @@ long ternary(int flag, char c) {
 }
 
 int char_lt_int(char c, int i) {
-    return c < i;  // common type is int
+    return c < i; // common type is int
 }
 
 int uchar_gt_long(unsigned char uc, long l) {
-    return uc > l;  // common type is long
+    return uc > l; // common type is long
 }
 
 /* On operations with two character types, both are promoted to int */
-int char_lt_uchar(char c, unsigned char u) {
-    return c < u;
-}
+int char_lt_uchar(char c, unsigned char u) { return c < u; }
 
-int signed_char_le_char(signed char s, char c) {
-    return s <= c;
-}
+int signed_char_le_char(signed char s, char c) { return s <= c; }
 
 char ten = 10;
 int multiply(void) {

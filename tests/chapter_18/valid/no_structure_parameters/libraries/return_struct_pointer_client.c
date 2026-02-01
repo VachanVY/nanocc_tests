@@ -6,7 +6,7 @@
 
 // case 1: use a struct pointer returned from a function call
 int test_get_struct_ptr(void) {
-    struct inner *inner_ptr = make_struct_inner(11);
+    struct inner* inner_ptr = make_struct_inner(11);
 
     if (inner_ptr->d != 11 || inner_ptr->i != 11) {
         return 0;
@@ -15,12 +15,12 @@ int test_get_struct_ptr(void) {
     // assign struct pointer to member
     struct outermost o = {0, 0, {0, 0, {0, 0}}};
     o.nested_ptr = make_struct_outer(20);
-    if (o.nested_ptr->a != 20 || o.nested_ptr->b != 21 ||
-        o.nested_ptr->substruct.d != 22 || o.nested_ptr->substruct.i != 23) {
+    if (o.nested_ptr->a != 20 || o.nested_ptr->b != 21 || o.nested_ptr->substruct.d != 22 ||
+        o.nested_ptr->substruct.i != 23) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 2: apply member access operations to funcall expression
@@ -37,12 +37,12 @@ int test_get_struct_pointer_member(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 3: update static structure member through pointer returned by funcall
 // f()->member = val
-struct outer *get_static_struct_ptr(void) {
+struct outer* get_static_struct_ptr(void) {
     static struct outer s;
     return &s;
 }
@@ -51,12 +51,12 @@ int test_update_member_thru_retval(void) {
     get_static_struct_ptr()->a = 10;
     get_static_struct_ptr()->substruct.d = 20.0;
 
-    struct outer *ptr = get_static_struct_ptr();
+    struct outer* ptr = get_static_struct_ptr();
     if (ptr->a != 10 || ptr->substruct.d != 20.0) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 4: update whole structure member through pointer returned by funcall
@@ -71,7 +71,7 @@ int test_update_nested_struct_thru_retval(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {

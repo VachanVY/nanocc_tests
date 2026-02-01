@@ -18,7 +18,7 @@ int main(void) {
 
     uc -= 250.0; // convert uc to double, do operation, convert back
     if (uc != 4) {
-         return 3;  // fail
+        return 3; // fail
     }
 
     static signed char sc = 70;

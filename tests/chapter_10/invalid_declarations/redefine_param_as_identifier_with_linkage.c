@@ -6,6 +6,4 @@ int f(int i) {
     return i;
 }
 
-int main(void) {
-    return 0;
-}
+int main(void) { return 0; }

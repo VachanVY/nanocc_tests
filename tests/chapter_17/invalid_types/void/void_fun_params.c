@@ -2,6 +2,4 @@
 // but there is no conceivable reason to allow them
 void foo(void x);
 
-int main(void) {
-    return 0;
-}
+int main(void) { return 0; }

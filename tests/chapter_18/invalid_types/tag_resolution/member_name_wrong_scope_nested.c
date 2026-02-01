@@ -14,8 +14,8 @@ int main(void) {
         int b;
     };
 
-    struct outer *ptr = &foo;
+    struct outer* ptr = &foo;
 
-    return ptr->inner.b;  // foo.inner belongs to first struct s type, which
-                          // doesn't have member 'b'
+    return ptr->inner.b; // foo.inner belongs to first struct s type, which
+                         // doesn't have member 'b'
 }

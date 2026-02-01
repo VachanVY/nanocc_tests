@@ -1,7 +1,7 @@
 /* Make sure we can dereference any expression of pointer type,
  * not just variables */
 
-int *return_pointer(void) {
+int* return_pointer(void) {
     static int var = 10;
     return &var;
 }
@@ -10,7 +10,7 @@ int one = 1;
 
 int main(void) {
     int val = 100;
-    int *ptr_var = &val;
+    int* ptr_var = &val;
 
     // First try reading pointers that result from function call
     if (*return_pointer() != 10) {
@@ -25,9 +25,8 @@ int main(void) {
         return 3;
     }
 
-
     // now dereference result of assignment expression
-    int *ptr_to_one = &one;
+    int* ptr_to_one = &one;
     if (*(ptr_var = ptr_to_one) != 1) {
         return 4;
     }

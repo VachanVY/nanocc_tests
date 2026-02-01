@@ -11,7 +11,7 @@ int (*ptr_to_arr)[3][6l];
 int((*(ptr_to_arr))[3l])[6u] = 0;
 
 // an array of pointers
-int *array_of_pointers[3] = {0, 0, 0};
+int* array_of_pointers[3] = {0, 0, 0};
 
 // helper function to make sure arr has the values we just initialized
 int test_arr(void) {
@@ -38,9 +38,9 @@ int test_ptr_to_arr(void) {
     return 0; // success
 }
 
-int test_array_of_pointers(int *ptr) {
+int test_array_of_pointers(int* ptr) {
 
-    extern int *((array_of_pointers)[3]); // make sure we can redeclare this locally
+    extern int*((array_of_pointers)[3]); // make sure we can redeclare this locally
 
     // make sure every array element is null
     // then assign ptr to each of them
@@ -63,11 +63,9 @@ int test_array_of_pointers(int *ptr) {
         }
     }
     return 0;
-
 }
 
-int main(void)
-{
+int main(void) {
     // make sure arr has the right type/initial values;
     int check = test_arr();
     if (check) {

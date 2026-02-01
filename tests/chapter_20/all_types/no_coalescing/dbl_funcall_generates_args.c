@@ -37,6 +37,4 @@ int target(void) {
     return 0;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

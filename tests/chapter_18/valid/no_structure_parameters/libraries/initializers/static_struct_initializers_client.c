@@ -27,10 +27,10 @@ struct s partial_with_array = {3.0, "!", {1}, 2};
 
 // case 4: implicit conversion of scalar elements
 struct s converted = {
-    1152921504606846977l,  // 1152921504606846976.0
-    0l,                    // null ptr
-    "abc",                 // {'a', 'b', 'c'}
-    17179869189l           // 5
+    1152921504606846977l, // 1152921504606846976.0
+    0l,                   // null ptr
+    "abc",                // {'a', 'b', 'c'}
+    17179869189l          // 5
 };
 
 int main(void) {
@@ -50,5 +50,5 @@ int main(void) {
         return 4;
     }
 
-    return 0;  // success
+    return 0; // success
 }

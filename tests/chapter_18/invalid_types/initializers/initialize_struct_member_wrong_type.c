@@ -1,5 +1,5 @@
 struct s {
-    signed char *char_ptr;
+    signed char* char_ptr;
 };
 
 int main(void) {

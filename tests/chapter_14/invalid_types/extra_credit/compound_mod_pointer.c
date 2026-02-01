@@ -3,7 +3,7 @@
  */
 int main(void) {
     int i = 10;
-    int *ptr = &i;
+    int* ptr = &i;
     i %= ptr;
     return 0;
 }

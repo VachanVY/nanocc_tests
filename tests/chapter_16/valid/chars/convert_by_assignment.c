@@ -15,53 +15,32 @@
 #endif
 
 // helper functions
-int check_int(int converted, int expected) {
-    return (converted == expected);
-}
+int check_int(int converted, int expected) { return (converted == expected); }
 
-int check_uint(unsigned int converted, unsigned int expected) {
-    return (converted == expected);
-}
+int check_uint(unsigned int converted, unsigned int expected) { return (converted == expected); }
 
-int check_long(long converted, long expected) {
-    return (converted == expected);
-}
+int check_long(long converted, long expected) { return (converted == expected); }
 
-int check_ulong(unsigned long converted, unsigned long expected) {
-    return (converted == expected);
-}
+int check_ulong(unsigned long converted, unsigned long expected) { return (converted == expected); }
 
-int check_double(double converted, double expected) {
-    return (converted == expected);
-}
+int check_double(double converted, double expected) { return (converted == expected); }
 
-int check_char(char converted, char expected) {
-    return (converted == expected);
-}
+int check_char(char converted, char expected) { return (converted == expected); }
 
-int check_uchar(unsigned char converted, unsigned char expected) {
-    return (converted == expected);
-}
+int check_uchar(unsigned char converted, unsigned char expected) { return (converted == expected); }
 
-int check_char_on_stack(signed char expected, int dummy1, int dummy2,
-                        int dummy3, int dummy4, int dummy5, int dummy6,
-                        signed char converted) {
+int check_char_on_stack(signed char expected, int dummy1, int dummy2, int dummy3, int dummy4,
+                        int dummy5, int dummy6, signed char converted) {
     return converted == expected;
 }
 
 // implicitly convert a return value from a character type to another type
-int return_extended_uchar(unsigned char c) {
-    return c;
-}
+int return_extended_uchar(unsigned char c) { return c; }
 
-unsigned long return_extended_schar(signed char sc) {
-    return sc;
-}
+unsigned long return_extended_schar(signed char sc) { return sc; }
 
 // implicitly truncate a return value from int to unsigned char
-unsigned char return_truncated_long(long l) {
-    return l;
-}
+unsigned char return_truncated_long(long l) { return l; }
 
 int main(void) {
     /* Function arguments */
@@ -73,7 +52,7 @@ int main(void) {
     }
 
     // converting to an unsigned type works the same as for other signed ints
-    if (!check_uint(sc, 4294967286u)) {  // UINT_MAX - 10
+    if (!check_uint(sc, 4294967286u)) { // UINT_MAX - 10
         return 2;
     }
 
@@ -135,11 +114,11 @@ int main(void) {
         return 13;
     }
 
-    if (return_extended_schar(sc) != 18446744073709551606ul) {  // UINT_MAX - 10
+    if (return_extended_schar(sc) != 18446744073709551606ul) { // UINT_MAX - 10
         return 14;
     }
 
-    if (return_truncated_long(5369233654l) != uc) {  // 2^19 + 2^30 + 2^32 - 10
+    if (return_truncated_long(5369233654l) != uc) { // 2^19 + 2^30 + 2^32 - 10
         return 15;
     }
 
@@ -151,12 +130,12 @@ int main(void) {
     char array[3] = {0, 0, 0};
 
     // update middle element, make sure other elements are unchanged
-    array[1] = 128;  // int
+    array[1] = 128; // int
     if (array[0] || array[2] || array[1] != -128) {
         return 16;
     }
 
-    array[1] = 9224497936761618562ul;  // unsigned long - truncated to -126
+    array[1] = 9224497936761618562ul; // unsigned long - truncated to -126
     if (array[0] || array[2] || array[1] != -126) {
         return 17;
     }
@@ -169,12 +148,12 @@ int main(void) {
     // assign to unsigned char - same idea as for signed char
     unsigned char uchar_array[3] = {0, 0, 0};
 
-    uchar_array[1] = 17592186044416l;  // long
+    uchar_array[1] = 17592186044416l; // long
     if (uchar_array[0] || uchar_array[2] || uchar_array[1] != 0) {
         return 19;
     }
 
-    uchar_array[1] = 2147483898u;  // unsigned int
+    uchar_array[1] = 2147483898u; // unsigned int
     if (uchar_array[0] || uchar_array[2] || uchar_array[1] != 250) {
         return 20;
     }
@@ -182,8 +161,7 @@ int main(void) {
     // assign char and uchar to other types - make sure value is sign- or
     // zero-extended to whole value
     unsigned int ui = 4294967295U;
-    static unsigned char
-        uc_static;  // this is static so it can't be copy propped in Part III
+    static unsigned char uc_static; // this is static so it can't be copy propped in Part III
     ui = uc_static;
 
     if (ui) {
@@ -191,8 +169,7 @@ int main(void) {
     }
 
     signed long l = -1;
-    static signed s_static =
-        0;  // this is static so it can't be copy propped in Part III
+    static signed s_static = 0; // this is static so it can't be copy propped in Part III
     l = s_static;
     if (l) {
         return 22;

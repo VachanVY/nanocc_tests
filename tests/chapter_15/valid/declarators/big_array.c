@@ -4,6 +4,4 @@
 
 extern int x[4294967297L][100000000];
 
-int main(void) {
-    return 0;
-}
+int main(void) { return 0; }

@@ -8,37 +8,23 @@
 
 // basic arithmetic (these chars will be promoted to ints,
 // but this test case doesn't focus on that; we handle that in a different test)
-int add_chars(char c1, char c2) {
-    return c1 + c2;
-}
+int add_chars(char c1, char c2) { return c1 + c2; }
 
-int divide_chars(unsigned char c1, unsigned char c2) {
-    return c1 / c2;
-}
+int divide_chars(unsigned char c1, unsigned char c2) { return c1 / c2; }
 
 // compare chars
-int le(char c1, char c2) {
-    return c1 <= c2;
-}
+int le(char c1, char c2) { return c1 <= c2; }
 
 // use chars in subscript expressions
-int subscript_char(int *ptr, char idx){
-    return ptr[idx];
-}
+int subscript_char(int* ptr, char idx) { return ptr[idx]; }
 
 // use chars in pointer arithmetic
-int *sub_char_from_pointer(int *ptr, signed char idx) {
-    return ptr - idx;
-}
+int* sub_char_from_pointer(int* ptr, signed char idx) { return ptr - idx; }
 
 // use char in logical operations
-int and_char(signed char c1, int i) {
-    return c1 && i;
-}
+int and_char(signed char c1, int i) { return c1 && i; }
 
-int or_char(signed char c1, unsigned char c2) {
-    return c1 || c2;
-}
+int or_char(signed char c1, unsigned char c2) { return c1 || c2; }
 
 // declare/use char in controlling expression
 int test_for_loop_char(void) {
@@ -54,7 +40,7 @@ int main(void) {
     // arithmetic
     char c1 = 8;
     char c2 = 4;
-    if (add_chars(c1, c2) != 12)  {
+    if (add_chars(c1, c2) != 12) {
         return 1;
     }
 

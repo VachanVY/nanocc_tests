@@ -5,11 +5,9 @@
  */
 int i;
 
-long *return_long_pointer(void) {
-    return &i;
-}
+long* return_long_pointer(void) { return &i; }
 
 int main(void) {
-    long *l = return_long_pointer();
+    long* l = return_long_pointer();
     return 0;
 }

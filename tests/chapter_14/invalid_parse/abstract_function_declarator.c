@@ -7,6 +7,6 @@ int main(void) {
      * with no parameters that returns an int,
      * but you can't cast an expression to a function type.
      */
-    (int (void)) 0;
+    (int(void))0;
     return 0;
 }

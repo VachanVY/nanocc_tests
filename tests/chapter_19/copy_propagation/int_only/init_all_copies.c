@@ -18,7 +18,7 @@ int target(void) {
         // that y = 3 reaches this block (and its successor)
         increment_counter();
     } while (counter < 5);
-    return y;  // this should become return 3
+    return y; // this should become return 3
 }
 
 int main(void) {
@@ -32,5 +32,5 @@ int main(void) {
         return 2;
     }
 
-    return 0;  // success
+    return 0; // success
 }

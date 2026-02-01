@@ -11,13 +11,13 @@
 #endif
 #endif
 
-int strcmp(char *s1, char *s2);
+int strcmp(char* s1, char* s2);
 
 // from Listing 18-39
 struct twelve_bytes {
     int i;
     char arr[8];
-};  // two INTEGER eightbytes
+}; // two INTEGER eightbytes
 
 // from Listing 18-40
 struct inner {
@@ -28,36 +28,36 @@ struct inner {
 struct nested_ints {
     char ch1;
     struct inner nested;
-};  // two INTEGER eightbytes
+}; // two INTEGER eightbytes
 
 // from Listing 18-41
 struct flattened_ints {
     char c;
     int i;
     char a;
-};  // two INTEGER eightbytes
+}; // two INTEGER eightbytes
 
 // From uncaptioned listing in "Classifying Eightbytes" section
 struct large {
     int i;
     double d;
     char arr[10];
-};  // four MEMORY eightbytes
+}; // four MEMORY eightbytes
 
 // Three structure declarations from Listing 18-42
 struct two_ints {
     int i;
     int i2;
-};  // one INTEGER eightbyte
+}; // one INTEGER eightbyte
 
 struct nested_double {
     double array[1];
-};  // one SSE eightbyte
+}; // one SSE eightbyte
 
 struct two_eightbytes {
     double d;
     char c;
-};  // one SSE eightbyte, one INTEGER eightbyte
+}; // one SSE eightbyte, one INTEGER eightbyte
 
 // From Listing 18-47
 struct pass_in_memory {
@@ -65,7 +65,7 @@ struct pass_in_memory {
     double x;
     int y;
     long z;
-};  // four MEMORY eightbytes
+}; // four MEMORY eightbytes
 
 // validation functions defined in library
 int test_twelve_bytes(struct twelve_bytes s);

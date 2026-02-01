@@ -7,9 +7,7 @@
 #endif
 #endif
 
-int static foo(void) {
-    return 3;
-}
+int static foo(void) { return 3; }
 
 int static bar = 4;
 

@@ -3,12 +3,12 @@
 int main(void) {
     int a = 10;
     switch (a) {
-        case 1:
-            break;
+    case 1:
+        break;
 
-        default:
-            return b;
-            break;
+    default:
+        return b;
+        break;
     }
     return 0;
 }

@@ -12,5 +12,5 @@ int main(void) {
         if (i > 10) {
             exit_wrapper(i);
         }
-    } while(1);
+    } while (1);
 }

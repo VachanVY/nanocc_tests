@@ -13,12 +13,11 @@
 // struct s uninitialized;
 int test_uninitialized(void) {
     // make sure all elements are zero
-    if (uninitialized.one_d || uninitialized.two_msg ||
-        uninitialized.three_arr[0] || uninitialized.three_arr[1] ||
-        uninitialized.three_arr[2] || uninitialized.four_i) {
+    if (uninitialized.one_d || uninitialized.two_msg || uninitialized.three_arr[0] ||
+        uninitialized.three_arr[1] || uninitialized.three_arr[2] || uninitialized.four_i) {
         return 0;
     }
-    return 1;  // success
+    return 1; // success
 }
 
 // case 2: partially initialized struct
@@ -30,22 +29,19 @@ int test_partially_initialized(void) {
     }
 
     // validate that remaining elements are zero
-    if (partial.three_arr[0] || partial.three_arr[1] || partial.three_arr[2] ||
-        partial.four_i) {
+    if (partial.three_arr[0] || partial.three_arr[1] || partial.three_arr[2] || partial.four_i) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 3: partially initialized array w/in struct
 // struct s partial with_array = {3.0, "!", {1}, 2};
 int test_partial_inner_init(void) {
     // validate explicitly initialzed elements
-    if (partial_with_array.one_d != 3.0 ||
-        strcmp(partial_with_array.two_msg, "!") ||
-        partial_with_array.three_arr[0] != 1 ||
-        partial_with_array.four_i != 2) {
+    if (partial_with_array.one_d != 3.0 || strcmp(partial_with_array.two_msg, "!") ||
+        partial_with_array.three_arr[0] != 1 || partial_with_array.four_i != 2) {
         return 0;
     }
 
@@ -54,7 +50,7 @@ int test_partial_inner_init(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 4: implicit conversion of scalar elements
@@ -74,5 +70,5 @@ int test_implicit_conversion(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }

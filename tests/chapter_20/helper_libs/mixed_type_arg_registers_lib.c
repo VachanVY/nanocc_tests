@@ -52,24 +52,21 @@ int callee(struct s1 a, struct s2 b, char c, struct s3 in_mem) {
     }
 
     if (in_mem.d1 != 13.0) {
-        printf("Expected in_mem.d1 to have value 13.0, actual value was %f\n",
-               in_mem.d1);
+        printf("Expected in_mem.d1 to have value 13.0, actual value was %f\n", in_mem.d1);
     }
 
     if (in_mem.d2 != 14.0) {
-        printf("Expected in_mem.d2 to have value 14.0, actual value was %f\n",
-               in_mem.d2);
+        printf("Expected in_mem.d2 to have value 14.0, actual value was %f\n", in_mem.d2);
     }
     if (in_mem.s != 11) {
-        printf("Expected in_mem.s to have value 11, actual value was %d\n",
-               (int)in_mem.s);
+        printf("Expected in_mem.s to have value 11, actual value was %d\n", (int)in_mem.s);
     }
 
     return 0;
 }
 
-int check_some_args(int one, long two, unsigned int three, unsigned long four,
-                    char five, unsigned char six, signed char seven) {
+int check_some_args(int one, long two, unsigned int three, unsigned long four, char five,
+                    unsigned char six, signed char seven) {
     if (one != 1) {
         printf("Expected one to have value 1, actual value was %d\n", one);
         exit(-1);
@@ -91,8 +88,7 @@ int check_some_args(int one, long two, unsigned int three, unsigned long four,
     }
 
     if (five != 5) {
-        printf("Expected five to have value 5, actual value was %d\n",
-               (int)five);
+        printf("Expected five to have value 5, actual value was %d\n", (int)five);
         exit(-1);
     }
 
@@ -102,8 +98,7 @@ int check_some_args(int one, long two, unsigned int three, unsigned long four,
     }
 
     if (seven != 7) {
-        printf("Expected seven to have value 7, actual value was %d\n",
-               (int)seven);
+        printf("Expected seven to have value 7, actual value was %d\n", (int)seven);
         exit(-1);
     }
 

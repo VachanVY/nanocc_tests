@@ -7,9 +7,9 @@ int main(void) {
     unsigned char uc = 255;
 
     // uc is promoted to int
-    //if ((uc << 20) != 267386880) {
+    // if ((uc << 20) != 267386880) {
     //    return 1; // fail
-   // }
+    // }
 
     // uc is promoted to int, then shifted
     if ((uc >> 3) != 31) {
@@ -20,12 +20,12 @@ int main(void) {
     char c = 5;
     // sc is promoted to int, then shifted
     if ((sc >> c) != -4) {
-        return 3;  // fail
+        return 3; // fail
     }
 
     // make sure c << 3ul is promoted to int, not unsigned long
     if (((-(c << 3ul)) >> 3) != -5) {
-        return 4;  // fail
+        return 4; // fail
     }
 
     // make sure uc << 5u is promoted to int, not unsigned int
@@ -34,5 +34,4 @@ int main(void) {
     }
 
     return 0; // fail
-
 }

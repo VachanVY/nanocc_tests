@@ -8,9 +8,12 @@ int target(int flag) {
         static int x = 0;
         for (int i = 0; i < flag; i = i + 1) {
             switch (i) {
-            case 1: x = x + 1;
-            case 2: x = x + 2;
-            default: x = x * 3;
+            case 1:
+                x = x + 1;
+            case 2:
+                x = x + 2;
+            default:
+                x = x * 3;
             }
         }
         return x;
@@ -19,6 +22,4 @@ int target(int flag) {
     return 0;
 }
 
-int main(void) {
-    return target(20);
-}
+int main(void) { return target(20); }

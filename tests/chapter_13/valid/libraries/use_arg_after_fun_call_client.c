@@ -2,6 +2,4 @@
  * but split across two files */
 double fun(double x);
 
-int main(void) {
-    return fun(1.0);
-}
+int main(void) { return fun(1.0); }

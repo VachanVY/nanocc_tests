@@ -14,19 +14,19 @@ int target(int flag) {
     if (flag) {
         i = 3;
     }
-    i = i;  // this is a no-op, but it doesn't kill i
-            // if we treat this as a kill instead of a gen,
-            // we'll incorrectly eliminate both earlier copies to i
-            // as dead stores
+    i = i; // this is a no-op, but it doesn't kill i
+           // if we treat this as a kill instead of a gen,
+           // we'll incorrectly eliminate both earlier copies to i
+           // as dead stores
     return i;
 }
 
 int main(void) {
     if (target(0) != 2) {
-        return 1;  // fail
+        return 1; // fail
     }
     if (target(1) != 3) {
-        return 2;  // fail
+        return 2; // fail
     }
-    return 0;  // success
+    return 0; // success
 }

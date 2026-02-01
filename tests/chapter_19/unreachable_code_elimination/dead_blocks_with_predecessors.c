@@ -6,9 +6,7 @@
 #pragma GCC diagnostic ignored "-Wdiv-by-zero"
 #endif
 
-int callee(void) {
-    return 1 / 0;
-}
+int callee(void) { return 1 / 0; }
 
 int target(void) {
     int x = 5;
@@ -23,6 +21,4 @@ int target(void) {
     return x;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

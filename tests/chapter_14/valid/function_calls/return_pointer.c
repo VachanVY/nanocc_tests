@@ -1,11 +1,9 @@
 /* Test returning a pointer from a function */
-int *return_pointer(int *in) {
-    return in;
-}
+int* return_pointer(int* in) { return in; }
 
 int main(void) {
     int x = 10;
-    int *x_ptr = return_pointer(&x);
+    int* x_ptr = return_pointer(&x);
 
     if (*x_ptr != 10)
         return 1;

@@ -1,7 +1,5 @@
 // Can't perform bitshift operations with void operands
-void f(void){
-    return;
-}
+void f(void) { return; }
 
 int main(void) {
     int x = 10;

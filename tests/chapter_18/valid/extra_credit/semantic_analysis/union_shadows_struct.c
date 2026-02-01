@@ -14,10 +14,10 @@ int main(void) {
     };
     union tag local_union = {100};
     if (global_struct.a != 1) {
-        return 1;  // fail
+        return 1; // fail
     }
     if (local_union.x != 100) {
-        return 2;  // fail
+        return 2; // fail
     }
-    return 0;  // success
+    return 0; // success
 }

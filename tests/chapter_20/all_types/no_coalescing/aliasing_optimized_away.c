@@ -8,6 +8,6 @@
 
 // shouldn't need to place any pseudos in this function on the stack
 int target(int arg) {
-    int *optimized_away = &arg; // dead store; will get optimized away
+    int* optimized_away = &arg; // dead store; will get optimized away
     return arg + 10;
 }

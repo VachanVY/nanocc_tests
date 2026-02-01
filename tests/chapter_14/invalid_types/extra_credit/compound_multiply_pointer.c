@@ -2,7 +2,7 @@
  * of the *=, /=, or %= operator
  */
 int main(void) {
-    int *x = 0;
+    int* x = 0;
     x *= 2;
     return 0;
 }

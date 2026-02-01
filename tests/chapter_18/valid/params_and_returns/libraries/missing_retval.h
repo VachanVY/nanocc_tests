@@ -6,4 +6,4 @@ struct big {
     char arr[25];
 };
 
-struct big missing_return_value(int *i);
+struct big missing_return_value(int* i);

@@ -10,10 +10,10 @@
 int j = 3;
 int target(void) {
     static int i;
-    i = 10;  // dead store, b/c i is killed on path to exit
-             // but if we initially think i is live at the start of the
-             // while loop, our analysis will never figure out that it's dead
-             // here
+    i = 10; // dead store, b/c i is killed on path to exit
+            // but if we initially think i is live at the start of the
+            // while loop, our analysis will never figure out that it's dead
+            // here
     while (j > 0) {
         j = j - 1;
     }
@@ -23,5 +23,5 @@ int target(void) {
 
 int main(void) {
     target();
-    return (j == 0);  // just make sure target() actually did something
+    return (j == 0); // just make sure target() actually did something
 }

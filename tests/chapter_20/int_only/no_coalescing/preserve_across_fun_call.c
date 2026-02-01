@@ -27,11 +27,11 @@ int callee(int a, int b, int c, int d, int e) {
 
 int target(void) {
     // Define some variables that must persist across function call.
-    int a = 99 * glob1;               // 99
-    int b = 200 / glob2;              // 100
-    int c = glob3 ? 104 - glob3 : 0;  // 101
-    int d = c + (glob4 || glob1);     // 102
-    int e = 108 - glob5;              // 103
+    int a = 99 * glob1;              // 99
+    int b = 200 / glob2;             // 100
+    int c = glob3 ? 104 - glob3 : 0; // 101
+    int d = c + (glob4 || glob1);    // 102
+    int e = 108 - glob5;             // 103
 
     // Note that even once we have register coalescing, we won't coalesce
     // any of these arguments into parameter passing registers,
@@ -76,5 +76,5 @@ int target(void) {
     // validate globals w/ values of f-h
     check_5_ints(glob1, glob2, glob3, glob4, glob5, -1);
 
-    return 0;  // success
+    return 0; // success
 }

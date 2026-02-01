@@ -1,12 +1,8 @@
 /* Test conversions from double to unsigned integer types */
 
-unsigned int double_to_uint(double d) {
-    return (unsigned int) d;
-}
+unsigned int double_to_uint(double d) { return (unsigned int)d; }
 
-unsigned long double_to_ulong(double d) {
-    return (unsigned long) d;
-}
+unsigned long double_to_ulong(double d) { return (unsigned long)d; }
 
 int main(void) {
 
@@ -33,5 +29,4 @@ int main(void) {
     }
 
     return 0;
-
 }

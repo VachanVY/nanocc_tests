@@ -7,9 +7,10 @@
  * */
 
 int main(void) {
-    int dead_div_by_zero = 1 || (1 / 0); // we short-circuit before evaluating 1 / 0
+    int dead_div_by_zero = 1 || (1 / 0);      // we short-circuit before evaluating 1 / 0
     int dead_zero_remainder = 0 && (100 % 0); // we short-circuit before evaluating 100 % 0
-    int overflow = 0 ? (2147483647 + 10) : 100; // 2147483647 + 10 would overflow, but we skip it and just evaluate 100
+    int overflow = 0 ? (2147483647 + 10)
+                     : 100; // 2147483647 + 10 would overflow, but we skip it and just evaluate 100
 
     if (dead_div_by_zero != 1) {
         return 1;
@@ -22,5 +23,5 @@ int main(void) {
         return 3;
     }
 
-    return 0;  // success
+    return 0; // success
 }

@@ -48,8 +48,7 @@ int target(long one, long two, long three, long four, long five, long six) {
     glob12 = twelve;
 
     // Validate arguments
-    check_12_longs(one, two, three, four, five, six, 7l, 8l, 9l, 10l, 11l, 12l,
-                   1l);
+    check_12_longs(one, two, three, four, five, six, 7l, 8l, 9l, 10l, 11l, 12l, 1l);
 
     // Validate globals
     check_one_long(glob7, 7l);

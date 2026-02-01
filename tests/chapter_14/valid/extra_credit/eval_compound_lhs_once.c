@@ -3,12 +3,12 @@
 int i = 0;
 
 int putchar(int c);
-int *print_A(void) {
+int* print_A(void) {
     putchar(65); // write A to stdout
     return &i;
 }
 
-int *print_B(void) {
+int* print_B(void) {
     putchar(66); // write B to stdout
     return &i;
 }

@@ -2,12 +2,8 @@
  * value of x have the same value
  */
 
-int callee(int a, int b) {
-    return a + b;
-}
-int f(void) {
-    return 3;
-}
+int callee(int a, int b) { return a + b; }
+int f(void) { return 3; }
 
 int globl = 0;
 int set_globvar(void) {
@@ -28,14 +24,12 @@ int target(void) {
     // look for: same value passed in ESI, EDI
     int sum = callee(x, y); // sum = 8
 
-
     // now update y while x is live, so we can't coalesce them
     // into the same register; otherwise it will look like we've propagated x as
     // a function argument even if we haven't
-    y = f(); // y  = 3
-    return (sum + x * y);  // return 8 + 12 ==> 20
+    y = f();              // y  = 3
+    return (sum + x * y); // return 8 + 12 ==> 20
 }
-
 
 int main(void) {
     // make sure target gives correct result
@@ -47,5 +41,5 @@ int main(void) {
     if (globl != 4) {
         return 2;
     }
-    return 0;  // success
+    return 0; // success
 }

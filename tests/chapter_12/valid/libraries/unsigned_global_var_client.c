@@ -16,11 +16,11 @@ int main(void) {
     /* Make sure that our update to ui is visible in the other translation unit,
      * and that we correctly track function return types
      */
-    long result = (long) return_uint();
+    long result = (long)return_uint();
     if (result != 4294967295l)
         return 0;
 
-    result = (long) return_uint_as_signed();
+    result = (long)return_uint_as_signed();
     if (result != -1l)
         return 0;
 

@@ -23,7 +23,7 @@ int callee(struct s a, struct s b) {
 int target(void) {
     struct s s1 = {1, 2};
     struct s s2 = {3, 4};
-    s1 = s2;  // generate s1 = s2
+    s1 = s2; // generate s1 = s2
 
     // Make sure we pass the same value for both arguments.
     // We don't need to worry that register coalescing
@@ -32,6 +32,4 @@ int target(void) {
     return callee(s1, s2);
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

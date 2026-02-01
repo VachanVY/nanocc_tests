@@ -1,14 +1,9 @@
 // Test initialization of static unions; make sure uninitialized unions are initialized to zero
 #include "static_union_inits.h"
 
+int validate_simple(void) { return (s.c == -39 && s.i == 217); }
 
-int validate_simple(void) {
-    return (s.c == -39 && s.i == 217);
-}
-
-int validate_has_union(void) {
-    return (h.u.c == 77 && h.c == 77 && h.u.i == 77);
-}
+int validate_has_union(void) { return (h.u.c == 77 && h.c == 77 && h.u.i == 77); }
 
 int validate_has_union_array(void) {
 
@@ -16,9 +11,8 @@ int validate_has_union_array(void) {
     // first validate elements 0-2
     for (int i = 0; i < 3; i = i + 1) {
         int expected = 'a' + i;
-        if (my_struct.union_array[i].u.c != expected
-            || my_struct.union_array[i].c != expected
-            || my_struct.union_array[i].u.i != expected) {
+        if (my_struct.union_array[i].u.c != expected || my_struct.union_array[i].c != expected ||
+            my_struct.union_array[i].u.i != expected) {
             return 0;
         }
     }

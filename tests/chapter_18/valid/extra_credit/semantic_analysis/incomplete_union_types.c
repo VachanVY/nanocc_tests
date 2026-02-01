@@ -10,33 +10,33 @@
 #endif
 #endif
 
-void *calloc(unsigned long nmemb, unsigned long size);
-int puts(char *s);
+void* calloc(unsigned long nmemb, unsigned long size);
+int puts(char* s);
 
- // Test 1: you can declare a function that accepts/returns incomplete
- // union types
+// Test 1: you can declare a function that accepts/returns incomplete
+// union types
 union never_used;
 union never_used incomplete_fun(union never_used x);
 
 // test 2: you can declare an incomplete union type at block scope,
 // then complete it.
 int test_block_scope_forward_decl(void) {
-    union u;             // declare incomplete union type
-    union u* u_ptr = 0;  // define a pointer to that union type
+    union u;            // declare incomplete union type
+    union u* u_ptr = 0; // define a pointer to that union type
 
     union u {
         long x;
         char y;
-    };  // complete the type
+    }; // complete the type
 
     // now you can use s_ptr as a pointer to a completed type
-    union u val = { -100000000l };
+    union u val = {-100000000l};
     u_ptr = &val;
     if (u_ptr->x != -100000000l || u_ptr->y != 0) {
         return 0; // fail
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // test 3: you can pass and return pointers to incomplete union types
@@ -79,7 +79,7 @@ int test_use_incomplete_union_pointers(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {

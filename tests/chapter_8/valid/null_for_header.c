@@ -1,6 +1,6 @@
 int main(void) {
     int a = 0;
-    for (; ; ) {
+    for (;;) {
         a = a + 1;
         if (a > 3)
             break;

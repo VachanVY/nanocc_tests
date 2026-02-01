@@ -1,10 +1,9 @@
 int truncate(long l, int expected) {
-    int result = (int) l;
+    int result = (int)l;
     return (result == expected);
 }
 
-int main(void)
-{
+int main(void) {
     /* If a long is already in the range of 'int',
      * truncation doesn't change its value.
      */

@@ -1,16 +1,12 @@
 /* Test truncating wider to narrow types */
 int ulong_to_int(unsigned long ul, int expected) {
-    int result = (int) ul;
+    int result = (int)ul;
     return (result == expected);
 }
 
-int ulong_to_uint(unsigned long ul, unsigned expected) {
-    return ((unsigned int) ul == expected);
-}
+int ulong_to_uint(unsigned long ul, unsigned expected) { return ((unsigned int)ul == expected); }
 
-int long_to_uint(long l, unsigned int expected) {
-    return (unsigned int) l == expected;
-}
+int long_to_uint(long l, unsigned int expected) { return (unsigned int)l == expected; }
 
 int main(void) {
     /* truncate long */
@@ -59,7 +55,7 @@ int main(void) {
         return 7;
     }
 
-    if (!ulong_to_int(1152921506754330624ul, -2147483648)){ // reduce to -2^31
+    if (!ulong_to_int(1152921506754330624ul, -2147483648)) { // reduce to -2^31
         return 8;
     }
 

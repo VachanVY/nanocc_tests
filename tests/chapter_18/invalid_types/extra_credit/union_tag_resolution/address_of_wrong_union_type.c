@@ -16,5 +16,5 @@ int main(void) {
 
     // invalid initializer: can't convert pointer to outer union u (&foo)
     // to pointer to inner union u (ptr)
-    union u *ptr = &foo;
+    union u* ptr = &foo;
 }

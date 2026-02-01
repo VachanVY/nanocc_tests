@@ -1,9 +1,7 @@
 /* Propagate a copy where the source value is a variable with static storage
  * duration, in a function with no control flow strucures.
  * */
-int callee(int a, int b) {
-    return a + b;
-}
+int callee(int a, int b) { return a + b; }
 
 int target(void) {
     static int x = 3;
@@ -14,7 +12,7 @@ int target(void) {
     // when we haven't
     static int y = 0;
 
-    y = x;  // make sure we propagate this into function call
+    y = x; // make sure we propagate this into function call
 
     // look for: same value passed in ESI, EDI
     int sum = callee(x, y);
@@ -35,5 +33,5 @@ int main(void) {
     if (target() != 8) {
         return 2;
     }
-    return 0;  // success
+    return 0; // success
 }

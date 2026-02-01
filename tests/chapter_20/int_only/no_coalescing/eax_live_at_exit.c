@@ -15,7 +15,7 @@ int glob2 = 0;
 // coalesce the temporary that holds x + glob into EAX, clobbering x.
 
 int target(void) {
-    int x = glob + 1;  // 11
+    int x = glob + 1; // 11
     glob2 = x + glob;
     return x;
 }

@@ -27,16 +27,13 @@ int target(int flag) {
             return 0;
         }
         return 1;
-    }
-    else {
+    } else {
         if (w == 3 && x == 10 && y == -12 && z == -100) {
             // success
             return 0;
         }
         return 1; // fail
-
     }
-
 }
 
 int main(void) {

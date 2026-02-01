@@ -29,18 +29,18 @@ int test_copy_from_member(void) {
     substruct = big_struct.substruct;
 
     // validate substruct
-    if (substruct.a != 10 || substruct.b != 9 || substruct.arr[0] != 8 ||
-        substruct.arr[1] != 7 || substruct.arr[2] != 6) {
+    if (substruct.a != 10 || substruct.b != 9 || substruct.arr[0] != 8 || substruct.arr[1] != 7 ||
+        substruct.arr[2] != 6) {
         return 0;
     }
 
     // validate other objects on the stack
-    if (arr[0] != 'a' || arr[1] != 'b' || arr[2] != 'c' || arr2[0] != 'd' ||
-        arr2[1] != 'e' || arr2[2] != 'f') {
+    if (arr[0] != 'a' || arr[1] != 'b' || arr[2] != 'c' || arr2[0] != 'd' || arr2[1] != 'e' ||
+        arr2[2] != 'f') {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 2: x.y = z
@@ -51,8 +51,7 @@ int test_copy_to_member(void) {
 
     // make sure we updated substruct w/out overwriting other members
     if (big_struct.substruct.a != -1 || big_struct.substruct.b != -2 ||
-        big_struct.substruct.arr[0] != -3 ||
-        big_struct.substruct.arr[1] != -4 ||
+        big_struct.substruct.arr[0] != -3 || big_struct.substruct.arr[1] != -4 ||
         big_struct.substruct.arr[2] != -5) {
         return 0;
     }
@@ -61,7 +60,7 @@ int test_copy_to_member(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 3: a = x.y.z
@@ -71,13 +70,12 @@ int test_copy_from_nested_member(void) {
 
     small_struct = biggest_struct.nested.substruct;
 
-    if (small_struct.a != -1 || small_struct.b != -2 ||
-        small_struct.arr[0] != -3 || small_struct.arr[1] != -4 ||
-        small_struct.arr[2] != -5) {
+    if (small_struct.a != -1 || small_struct.b != -2 || small_struct.arr[0] != -3 ||
+        small_struct.arr[1] != -4 || small_struct.arr[2] != -5) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 4: x.y.z = a
@@ -86,8 +84,7 @@ int test_copy_to_nested_member(void) {
     static struct inner small_struct = {50, 51, {52, 53, 54}};
     biggest_struct.nested.substruct = small_struct;
 
-    if (biggest_struct.nested.substruct.a != 50 ||
-        biggest_struct.nested.substruct.b != 51 ||
+    if (biggest_struct.nested.substruct.a != 50 || biggest_struct.nested.substruct.b != 51 ||
         biggest_struct.nested.substruct.arr[0] != 52 ||
         biggest_struct.nested.substruct.arr[1] != 53 ||
         biggest_struct.nested.substruct.arr[2] != 54) {
@@ -102,7 +99,7 @@ int test_copy_to_nested_member(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 5: a = (flag ? x : y).z
@@ -117,9 +114,8 @@ int test_copy_from_conditional(void) {
     struct inner small_struct = (f ? big_struct : big_struct2).substruct;
 
     // validate
-    if (small_struct.a != 0 || small_struct.b != 1 ||
-        small_struct.arr[0] != 2 || small_struct.arr[1] != 3 ||
-        small_struct.arr[2] != 4) {
+    if (small_struct.a != 0 || small_struct.b != 1 || small_struct.arr[0] != 2 ||
+        small_struct.arr[1] != 3 || small_struct.arr[2] != 4) {
         return 0;
     }
     // get member from conditional expression where controlling expression is
@@ -127,13 +123,12 @@ int test_copy_from_conditional(void) {
     small_struct = (t ? big_struct : big_struct2).substruct;
 
     // validate
-    if (small_struct.a != 127 || small_struct.b != -128 ||
-        small_struct.arr[0] != 61 || small_struct.arr[1] != 62 ||
-        small_struct.arr[2] != 63) {
+    if (small_struct.a != 127 || small_struct.b != -128 || small_struct.arr[0] != 61 ||
+        small_struct.arr[1] != 62 || small_struct.arr[2] != 63) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // case 6: a = (x = y).z
@@ -147,23 +142,20 @@ int test_copy_from_assignment(void) {
     small_struct = (big_struct2 = big_struct).substruct;
 
     // validate result of member expression
-    if (small_struct.a != 127 || small_struct.b != -128 ||
-        small_struct.arr[0] != 61 || small_struct.arr[1] != 62 ||
-        small_struct.arr[2] != 63) {
+    if (small_struct.a != 127 || small_struct.b != -128 || small_struct.arr[0] != 61 ||
+        small_struct.arr[1] != 62 || small_struct.arr[2] != 63) {
         return 0;
     }
 
     // validate that we actually performed assignment
 
     if (big_struct2.substruct.a != 127 || big_struct2.substruct.b != -128 ||
-        big_struct2.substruct.arr[0] != 61 ||
-        big_struct2.substruct.arr[1] != 62 ||
-        big_struct2.substruct.arr[2] != 63 || big_struct2.x != -10 ||
-        big_struct2.y != -11) {
+        big_struct2.substruct.arr[0] != 61 || big_struct2.substruct.arr[1] != 62 ||
+        big_struct2.substruct.arr[2] != 63 || big_struct2.x != -10 || big_struct2.y != -11) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {
@@ -191,5 +183,5 @@ int main(void) {
         return 7;
     }
 
-    return 0;  // success
+    return 0; // success
 }

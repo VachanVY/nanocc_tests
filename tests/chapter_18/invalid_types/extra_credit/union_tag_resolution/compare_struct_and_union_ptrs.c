@@ -4,10 +4,10 @@
 
 int main(void) {
     struct tag;
-    struct tag *struct_ptr = 0;
+    struct tag* struct_ptr = 0;
     {
         union tag;
-        union tag *union_ptr = 0;
+        union tag* union_ptr = 0;
         // ILLEGAL comparison b/t distinct pointer types
         return (struct_ptr == union_ptr);
     }

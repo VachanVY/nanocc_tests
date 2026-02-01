@@ -1,4 +1,1 @@
-int main(void)
-{
-    return '\y';
-}
+int main(void) { return '\y'; }

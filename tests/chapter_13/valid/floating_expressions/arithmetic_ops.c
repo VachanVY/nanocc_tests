@@ -9,21 +9,13 @@ double three = 3.0;
 double four = 4.0;
 double twelveE30 = 12e30;
 
-int addition(void) {
-    return (point_one + point_two == 0.30000000000000004);
-}
+int addition(void) { return (point_one + point_two == 0.30000000000000004); }
 
-int subtraction(void) {
-    return (four - 1.0 == 3.0);
-}
+int subtraction(void) { return (four - 1.0 == 3.0); }
 
-int multiplication(void) {
-    return (0.01 * point_three == 0.003);
-}
+int multiplication(void) { return (0.01 * point_three == 0.003); }
 
-int division(void) {
-    return (7.0 / two == 3.5);
-}
+int division(void) { return (7.0 / two == 3.5); }
 
 int negation(void) {
     double neg = -twelveE30;
@@ -47,7 +39,7 @@ int main(void) {
         return 1;
     }
 
-    if (!subtraction()){
+    if (!subtraction()) {
         return 2;
     }
 

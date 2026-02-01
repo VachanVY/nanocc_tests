@@ -20,7 +20,7 @@ int modify_simple_struct(struct inner s) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int modify_nested_struct(struct outer s) {
@@ -34,16 +34,15 @@ int modify_nested_struct(struct outer s) {
     s.ptr->i = 11;
 
     // check its value
-    if (s.s.i != 200 || s.s.d != 4.0 || s.l != 10 || s.ptr->d != 10.0 ||
-        s.ptr->i != 11) {
+    if (s.s.i != 200 || s.s.d != 4.0 || s.l != 10 || s.ptr->d != 10.0 || s.ptr->i != 11) {
         return 0;
     }
 
     // check value of copy
-    if (copy.s.i != 5 || copy.s.d != 4.0 || copy.l != 1000 ||
-        copy.ptr->d != 10.0 || copy.ptr->i != 11) {
+    if (copy.s.i != 5 || copy.s.d != 4.0 || copy.l != 1000 || copy.ptr->d != 10.0 ||
+        copy.ptr->i != 11) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }

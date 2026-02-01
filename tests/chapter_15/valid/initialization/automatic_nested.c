@@ -13,7 +13,7 @@ int test_simple(void) {
         }
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 /* A partially initialized array of constants.
@@ -24,8 +24,8 @@ int test_partial(void) {
     // explicitly initialize only the first half of each array,
     // at each dimension
     int first_half_only[4][2][6] = {
-        {{1, 2, 3}},  // first_half_only[0][0][0-2]
-        {{4, 5, 6}}   // first_half_only[1][0][0-2]
+        {{1, 2, 3}}, // first_half_only[0][0][0-2]
+        {{4, 5, 6}}  // first_half_only[1][0][0-2]
     };
 
     int expected = 1;
@@ -48,7 +48,7 @@ int test_partial(void) {
         }
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 /* elements in a compound initializer may include non-constant expressions
@@ -60,7 +60,7 @@ int test_non_constant_and_type_conversion(void) {
     extern unsigned int three(void);
     static int x = 2000;
     int negative_four = -4;
-    int *ptr = &negative_four;
+    int* ptr = &negative_four;
 
     double arr[3][2] = {
         {x, x / *ptr},
@@ -75,13 +75,11 @@ int test_non_constant_and_type_conversion(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // helper function for previous test
-unsigned int three(void) {
-    return 3u;
-}
+unsigned int three(void) { return 3u; }
 
 /* Initializing an array must not corrupt other objects on the stack. */
 long one = 1l;
@@ -110,7 +108,7 @@ int test_preserve_stack(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {
@@ -130,5 +128,5 @@ int main(void) {
         return 4;
     }
 
-    return 0;  // success
+    return 0; // success
 }

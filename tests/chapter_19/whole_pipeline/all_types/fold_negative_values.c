@@ -24,9 +24,7 @@ long target_long_division(void) {
     return (-4294967290l / 128l);
 }
 
-long target_long_complement(void) {
-    return ~-9223372036854775807l;
-}
+long target_long_complement(void) { return ~-9223372036854775807l; }
 
 /* double tests */
 double target_double_add(void) {
@@ -56,26 +54,26 @@ double target_double_div(void) {
 int main(void) {
     // long tests
     if (target_remainder_test() != -5l) {
-        return 1;  // fail
+        return 1; // fail
     }
     if (target_long_subtraction() != -4294967380l) {
-        return 2;  // fail
+        return 2; // fail
     }
     if (target_long_division() != -33554431l) {
-        return 3;  // fail
+        return 3; // fail
     }
     if (target_long_complement() != 9223372036854775806l) {
-        return 4;  // fail
+        return 4; // fail
     }
     // double tests
     if (target_double_add() != -1.2345e60) {
-        return 5;  // fail
+        return 5; // fail
     }
     if (target_double_sub() != -5e-324) {
-        return 6;  // fail
+        return 6; // fail
     }
     if (target_double_div() != -0.2201) {
-        return 7;  // fail
+        return 7; // fail
     }
     return 0;
 }

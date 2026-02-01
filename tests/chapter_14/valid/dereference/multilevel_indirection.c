@@ -5,9 +5,9 @@ int main(void) {
     // d_ptr_ptr_ptr > d_ptr_ptr > d_ptr > d = 10.0
 
     double d = 10.0;
-    double *d_ptr = &d;
-    double **d_ptr_ptr = &d_ptr;
-    double ***d_ptr_ptr_ptr = &d_ptr_ptr;
+    double* d_ptr = &d;
+    double** d_ptr_ptr = &d_ptr;
+    double*** d_ptr_ptr_ptr = &d_ptr_ptr;
 
     // read value of d through multiple levels of indirection
     if (d != 10.0) {
@@ -59,11 +59,11 @@ int main(void) {
     double d2 = 1.0;
 
     // make both d2_ptr and d2_ptr2 point to same variable, d
-    double *d2_ptr = &d2;
-    double *d2_ptr2 = d2_ptr;
+    double* d2_ptr = &d2;
+    double* d2_ptr2 = d2_ptr;
 
     // define a pointer to d2_ptr
-    double **d2_ptr_ptr = &d2_ptr;
+    double** d2_ptr_ptr = &d2_ptr;
 
     // make d_ptr_ptr_ptr point to chain that leads back to d2, not d
     *d_ptr_ptr_ptr = d2_ptr_ptr;
@@ -93,7 +93,6 @@ int main(void) {
     if (**d_ptr_ptr_ptr != d_ptr) {
         return 15;
     }
-
 
     if (*d2_ptr_ptr != d_ptr) {
         return 16;

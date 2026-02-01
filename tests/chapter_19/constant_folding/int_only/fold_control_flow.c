@@ -24,13 +24,9 @@ int target_if_else_false(void) {
     }
 }
 
-int target_conditional_true(void) {
-    return 1 ? 2 : 3;
-}
+int target_conditional_true(void) { return 1 ? 2 : 3; }
 
-int target_conditional_false(void) {
-    return 0 ? 4 : 5;
-}
+int target_conditional_false(void) { return 0 ? 4 : 5; }
 
 int target_do_loop(void) {
     int retval = 0;
@@ -50,7 +46,7 @@ int target_while_loop_false(void) {
 
 int target_while_loop_true(void) {
     int retval = 0;
-    while (1048576) {  // 1048576 == 2^20
+    while (1048576) { // 1048576 == 2^20
         retval = 10;
         break;
     }
@@ -107,5 +103,5 @@ int main(void) {
         return 10;
     }
 
-    return 0;  // success
+    return 0; // success
 }

@@ -7,8 +7,8 @@
 #endif
 #endif
 
-int strcmp(char *s1, char *s2);
-int strncmp(char *s1, char *s2, unsigned long n);
+int strcmp(char* s1, char* s2);
+int strncmp(char* s1, char* s2, unsigned long n);
 
 struct one_int {
     int i;
@@ -74,6 +74,6 @@ struct int_and_xmm return_mixed2(void);
 struct memory return_on_stack(void);
 
 // return on stack + pass other int params
-struct memory pass_and_return_regs(int i, double d, struct int_and_xmm strct,
-                                   int c, struct two_ints t_i, long l,
-                                   struct one_int_exactly o_i_e, int c2);
+struct memory pass_and_return_regs(int i, double d, struct int_and_xmm strct, int c,
+                                   struct two_ints t_i, long l, struct one_int_exactly o_i_e,
+                                   int c2);

@@ -8,15 +8,12 @@
 #endif
 #endif
 
-double *get_null_pointer(void) {
-    return 0;
-}
+double* get_null_pointer(void) { return 0; }
 
-int main(void)
-{
+int main(void) {
     double x;
-    double *null = get_null_pointer();
-    double *non_null = &x;
+    double* null = get_null_pointer();
+    double* non_null = &x;
 
     if (non_null == 0) {
         return 1;

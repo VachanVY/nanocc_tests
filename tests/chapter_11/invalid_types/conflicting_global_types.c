@@ -5,6 +5,4 @@ int foo = 3;
  */
 long foo;
 
-int main(void) {
-    return foo;
-}
+int main(void) { return foo; }

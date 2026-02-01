@@ -15,6 +15,4 @@ int target(void) {
     return nested[1][0];
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

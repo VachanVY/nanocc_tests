@@ -3,6 +3,6 @@ int main(void) {
      * Pointer declarators like * cannot appear after
      * parenthesized expressions
      */
-    (int (*)*) 10;
+    (int(*)*)10;
     return 0;
 }

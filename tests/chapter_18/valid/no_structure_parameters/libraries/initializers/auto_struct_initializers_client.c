@@ -12,19 +12,17 @@
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 #endif
 
-double get_double(void) {
-    return 2e12;
-}
+double get_double(void) { return 2e12; }
 
 // case 1: fully initialized struct
 int test_full_initialization(void) {
     struct s full = {
         // use string literals to initialize both pointers and arrays
         "I'm a struct!", "sup",
-        &full,          // initialize member with pointer to self
-        get_double(),   // initialize member with result of function call
-        &(full.four_d)  // initialize member with pointer to other member in
-                        // self
+        &full,         // initialize member with pointer to self
+        get_double(),  // initialize member with result of function call
+        &(full.four_d) // initialize member with pointer to other member in
+                       // self
     };
 
     return validate_full_initialization(&full);
@@ -32,13 +30,12 @@ int test_full_initialization(void) {
 
 // case 2: partially initialized struct
 int test_partial_initialization(void) {
-    static char *msg = "Another string literal";
+    static char* msg = "Another string literal";
     struct s partial = {
-        msg,         // initialize member from variable
-        {'a', 'b'},  // partially initialize array
-        (struct s *)calloc(
-            1,
-            sizeof(struct s))  // initialize ptr with call to calloc
+        msg,        // initialize member from variable
+        {'a', 'b'}, // partially initialize array
+        (struct s*)calloc(1,
+                          sizeof(struct s)) // initialize ptr with call to calloc
         // don't initialize last element
     };
 
@@ -50,11 +47,11 @@ int test_implicit_type_conversions(void) {
     static int i = 3000;
 
     struct s converted = {
-        malloc(5),              // convert void * to char *
-        {i / 2, i / 3, i * 4},  // truncate ints to chars: 220, 232, and 224
-        0l,                     // convert null pointer constant to null pointer
-        i - 1,                  // convert int to double
-        calloc(1, sizeof(double))  // convert void * to double *
+        malloc(5),                // convert void * to char *
+        {i / 2, i / 3, i * 4},    // truncate ints to chars: 220, 232, and 224
+        0l,                       // convert null pointer constant to null pointer
+        i - 1,                    // convert int to double
+        calloc(1, sizeof(double)) // convert void * to double *
     };
 
     return validate_converted(&converted);
@@ -86,5 +83,5 @@ int main(void) {
         return 4;
     }
 
-    return 0;  // success
+    return 0; // success
 }

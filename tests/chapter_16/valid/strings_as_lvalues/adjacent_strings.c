@@ -8,10 +8,11 @@
 #endif
 #endif
 
-int puts(char *s);
+int puts(char* s);
 
 int main(void) {
-    char *strings = "Hello," " World";
+    char* strings = "Hello,"
+                    " World";
     puts(strings);
     return 0;
 }

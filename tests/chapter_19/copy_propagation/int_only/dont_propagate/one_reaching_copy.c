@@ -2,9 +2,7 @@
  * paths to that block, it doesn't reach that block.
  * */
 
-int three(void) {
-    return 3;
-}
+int three(void) { return 3; }
 
 int target(int flag) {
     int x;
@@ -24,5 +22,5 @@ int main(void) {
     if (target(0) != 3) {
         return 2;
     }
-    return 0;  // success
+    return 0; // success
 }

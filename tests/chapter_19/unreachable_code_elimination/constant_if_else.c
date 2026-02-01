@@ -4,9 +4,7 @@
  * predecessors include the 'if' branch (which is dead) and the 'else'
  * statement (which isn't).
  * */
-int callee(void) {
-    return 0;
-}
+int callee(void) { return 0; }
 
 int target(void) {
     int x;
@@ -17,6 +15,4 @@ int target(void) {
     return x + 5;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

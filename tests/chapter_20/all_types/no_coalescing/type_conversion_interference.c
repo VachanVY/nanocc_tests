@@ -36,7 +36,7 @@ int test_movsx_dst(void) {
     int c = (int)glob_char;
     long d = id(4);
     unsigned int e = (unsigned int)neg_char;
-    long f = (long) not_char;
+    long f = (long)not_char;
     check_one_ulong(a, 18446744073709551615ul);
     check_one_ulong(b, 2ul);
     check_one_int(c, 10);
@@ -158,8 +158,7 @@ int test_cvtsi2sd_dst(void) {
     double d13 = (double)(global_int + 13);
     double d14 = (double)(global_int + 14);
     global_long = (long)d14;
-    check_14_doubles(d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13,
-                     5000);
+    check_14_doubles(d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, 5000);
     check_one_int(global_int, 5000);
     check_one_long(global_long, 5014l);
     return 0;

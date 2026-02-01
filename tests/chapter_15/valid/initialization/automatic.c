@@ -2,11 +2,9 @@
 
 /* Initialize array with three constants */
 int test_simple(void) {
-    unsigned long arr[3] = {18446744073709551615UL, 9223372036854775807UL,
-                            100ul};
+    unsigned long arr[3] = {18446744073709551615UL, 9223372036854775807UL, 100ul};
 
-    return (arr[0] == 18446744073709551615UL &&
-            arr[1] == 9223372036854775807UL && arr[2] == 100ul);
+    return (arr[0] == 18446744073709551615UL && arr[1] == 9223372036854775807UL && arr[2] == 100ul);
 }
 
 /* if an array is partially initialized, any elements that aren't
@@ -22,45 +20,42 @@ int test_partial(void) {
 
 /* An initializer can include non-constant expressions, including function
  * parameters */
-int test_non_constant(long negative_7billion, int *ptr) {
+int test_non_constant(long negative_7billion, int* ptr) {
     *ptr = 1;
     extern int three(void);
-    long var = negative_7billion * three();  // -21 billion
+    long var = negative_7billion * three(); // -21 billion
     long arr[5] = {
         negative_7billion,
-        three() * 7l,                      // 21
-        -(long)*ptr,                       // -1
-        var + (negative_7billion ? 2 : 3)  // -21 billion  + 2
-    };  // fifth element  not initialized, should be 0
+        three() * 7l,                     // 21
+        -(long)*ptr,                      // -1
+        var + (negative_7billion ? 2 : 3) // -21 billion  + 2
+    };                                    // fifth element  not initialized, should be 0
 
-    return (arr[0] == -7000000000 && arr[1] == 21l && arr[2] == -1l &&
-            arr[3] == -20999999998l && arr[4] == 0l);
+    return (arr[0] == -7000000000 && arr[1] == 21l && arr[2] == -1l && arr[3] == -20999999998l &&
+            arr[4] == 0l);
 }
 
 // helper function for test case above
-int three(void) {
-    return 3;
-}
+int three(void) { return 3; }
 
 long global_one = 1l;
 /* elements in a compound initializer are converted to the right type as if by
  * assignment */
-int test_type_conversion(int *ptr) {
+int test_type_conversion(int* ptr) {
     *ptr = -100;
 
     unsigned long arr[4] = {
-        3458764513821589504.0,  // convert double to ulong
-        *ptr,  // dereference to get int, then convert to ulong - end up with
-               // 2^64 - 100
-        (unsigned int)18446744073709551615UL,  // this is ULONG_MAX - truncate
-                                               // to unsigned int, then back to
-                                               // ulong, end up with UINT_MAX
-        -global_one                            // converts to ULONG_MAX
+        3458764513821589504.0, // convert double to ulong
+        *ptr,                  // dereference to get int, then convert to ulong - end up with
+                               // 2^64 - 100
+        (unsigned int)18446744073709551615UL, // this is ULONG_MAX - truncate
+                                              // to unsigned int, then back to
+                                              // ulong, end up with UINT_MAX
+        -global_one                           // converts to ULONG_MAX
     };
 
-    return (arr[0] == 3458764513821589504ul &&
-            arr[1] == 18446744073709551516ul && arr[2] == 4294967295U &&
-            arr[3] == 18446744073709551615UL);
+    return (arr[0] == 3458764513821589504ul && arr[1] == 18446744073709551516ul &&
+            arr[2] == 4294967295U && arr[3] == 18446744073709551615UL);
 }
 
 /* Initializing an array must not corrupt other objects on the stack. */
@@ -99,7 +94,7 @@ int main(void) {
     }
 
     long negative_seven_billion = -7000000000l;
-    int i = 0;  // value of i doesn't matter, functions will always overwrite it
+    int i = 0; // value of i doesn't matter, functions will always overwrite it
     if (!test_non_constant(negative_seven_billion, &i)) {
         return 3;
     }
@@ -112,5 +107,5 @@ int main(void) {
         return 5;
     }
 
-    return 0;  // success
+    return 0; // success
 }

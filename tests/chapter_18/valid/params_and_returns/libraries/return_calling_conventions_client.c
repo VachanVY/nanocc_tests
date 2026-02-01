@@ -36,8 +36,7 @@ int main(void) {
     if (s7.d != 1.25 || strcmp(s7.c, "xy") || s7.l != 100l || s7.i != 44)
         return 7;
 
-    s7 = pass_and_return_regs(6, 4.0, int_and_xmm, 5, two_ints, 77, one_long,
-                              99);
+    s7 = pass_and_return_regs(6, 4.0, int_and_xmm, 5, two_ints, 77, one_long, 99);
     // something was clobbered or set incorrectly in retval
     if (s7.d || s7.c[0] || s7.c[1] || s7.c[2])
         return 8;
@@ -47,7 +46,7 @@ int main(void) {
         return 9;
 
     if (s7.l != 100)
-        return 10;  // l field was clobbered or set incorrectly
+        return 10; // l field was clobbered or set incorrectly
 
     // success!
     return 0;

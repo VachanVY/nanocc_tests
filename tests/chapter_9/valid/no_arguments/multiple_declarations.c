@@ -4,6 +4,4 @@ int main(void) {
     return f();
 }
 
-int f(void) {
-    return 3;
-}
+int f(void) { return 3; }

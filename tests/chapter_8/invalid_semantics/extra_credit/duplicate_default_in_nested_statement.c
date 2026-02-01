@@ -2,15 +2,15 @@
 int main(void) {
     int a = 10;
     switch (a) {
-        case 1:
+    case 1:
         for (int i = 0; i < 10; i = i + 1) {
             continue;
-            while(1)
+            while (1)
             default:;
         }
-        case 2:
+    case 2:
         return 0;
-        default:;
+    default:;
     }
     return 0;
 }

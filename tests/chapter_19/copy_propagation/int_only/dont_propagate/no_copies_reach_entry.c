@@ -7,10 +7,8 @@ int target(int a, int flag) {
         return a;
     }
 
-    a = 10;  // initialize ENTRY w/ empty set of copies, not including this one
+    a = 10; // initialize ENTRY w/ empty set of copies, not including this one
     return a;
 }
 
-int main(void) {
-    return target(4, 1);
-}
+int main(void) { return target(4, 1); }

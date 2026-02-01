@@ -9,6 +9,4 @@ int target(void) {
     return 3;
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

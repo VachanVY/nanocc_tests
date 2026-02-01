@@ -2,6 +2,6 @@
 
 int main(void) {
     int i = 0;
-    i = (long) i = 10;
+    i = (long)i = 10;
     return 0;
 }

@@ -2,6 +2,4 @@
 // and return type would default to 'int'
 // GCC/Clang will compile it (with a warning)
 // for backwards compatibility
-main(void) {
-    return 0;
-}
+main(void) { return 0; }

@@ -2,17 +2,11 @@
  * making sure the results are correctly rounded.
  * */
 
-char target_to_char(void) {
-    return (char)126.5;
-}
+char target_to_char(void) { return (char)126.5; }
 
-unsigned char target_to_uchar(void) {
-    return (unsigned char)254.9;
-}
+unsigned char target_to_uchar(void) { return (unsigned char)254.9; }
 
-int target_to_int(void) {
-    return (int)5.9;
-}
+int target_to_int(void) { return (int)5.9; }
 
 unsigned target_to_uint(void) {
     // constant in the range of uint but not int

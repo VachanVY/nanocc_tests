@@ -2,5 +2,5 @@
 
 int main(void) {
     union u;
-    return sizeof(union u);  // invalid - union u type is incomplete
+    return sizeof(union u); // invalid - union u type is incomplete
 }

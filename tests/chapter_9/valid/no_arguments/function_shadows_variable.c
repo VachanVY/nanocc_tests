@@ -10,6 +10,4 @@ int main(void) {
     return foo + bar;
 }
 
-int foo(void) {
-    return 8;
-}
+int foo(void) { return 8; }

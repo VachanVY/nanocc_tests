@@ -6,6 +6,6 @@ int main(void) {
     int x = 1;
     int y = 2;
     int z = 3;
-    int *ptr = &(x ? y : z);
+    int* ptr = &(x ? y : z);
     return 0;
 }

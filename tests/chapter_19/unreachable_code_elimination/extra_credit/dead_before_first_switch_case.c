@@ -2,19 +2,16 @@
  * case is unreachable.
  */
 
-int callee(void) {
-    return 0;
-}
+int callee(void) { return 0; }
 
 int target(int x) {
-    switch(x) {
+    switch (x) {
         return callee(); // unreachable
-        case 1: return 1;
-        default: return 2;
+    case 1:
+        return 1;
+    default:
+        return 2;
     }
-
 }
 
-int main(void) {
-    return target(1);
-}
+int main(void) { return target(1); }

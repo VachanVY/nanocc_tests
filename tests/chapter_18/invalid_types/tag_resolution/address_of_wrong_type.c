@@ -14,5 +14,5 @@ int main(void) {
 
     // invalid initializer: can't convert pointer to outer struct s (&foo)
     // to pointer to inner struct s (ptr)
-    struct s *ptr = &foo;
+    struct s* ptr = &foo;
 }

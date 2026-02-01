@@ -31,8 +31,8 @@ double glob10 = 10.;
 // The last couple of intermediate results (glob2 * 3. and glob2 * 6.) have
 // degree >= 12; if we think they have significant degree, they'll prevent
 // pseudos one-eight from passing the George test.
-int target(double one, double two, double three, double four, double five,
-           double six, double seven, double eight) {
+int target(double one, double two, double three, double four, double five, double six, double seven,
+           double eight) {
     // copypasta from briggs_xmm_k_value.c
     double nine = (glob1 + glob2) * 3.;
     double ten = (glob2 + 3.) * 2.;
@@ -41,8 +41,8 @@ int target(double one, double two, double three, double four, double five,
     double thirteen = (glob2 * 3.) + 7.;
     double fourteen = glob2 * 6. + 2.;
 
-    check_14_doubles(one, two, three, four, five, six, seven, eight, nine, ten,
-                     eleven, twelve, thirteen, fourteen, 1.);
+    check_14_doubles(one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve,
+                     thirteen, fourteen, 1.);
 
     return 0;
 }

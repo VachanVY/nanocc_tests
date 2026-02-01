@@ -1,12 +1,8 @@
 /* Test that we can propagate copies where the source value is
  * a variable, in a function with no control flow strucures.
  * */
-int callee(int a, int b) {
-    return a + b;
-}
-int f(void) {
-    return 3;
-}
+int callee(int a, int b) { return a + b; }
+int f(void) { return 3; }
 
 int globl = 0;
 int set_globvar(void) {
@@ -16,7 +12,7 @@ int set_globvar(void) {
 
 int target(void) {
     int x = f();
-    int y = x;  // propagate this copy into function call
+    int y = x; // propagate this copy into function call
 
     // call another function before callee so we can't coalesce x into EDI
     // or y into ESI; otherwise it will look like we've propagated x as
@@ -30,7 +26,7 @@ int target(void) {
     // into the same register; otherwise it will look like we've propagated x as
     // a function argument even if we haven't
     y = f();
-    return (sum + x * y);  // return 6 + 9 ==> 15
+    return (sum + x * y); // return 6 + 9 ==> 15
 }
 
 int main(void) {
@@ -43,5 +39,5 @@ int main(void) {
     if (globl != 4) {
         return 2;
     }
-    return 0;  // success
+    return 0; // success
 }

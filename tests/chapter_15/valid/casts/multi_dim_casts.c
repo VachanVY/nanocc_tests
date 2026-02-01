@@ -4,10 +4,10 @@ int main(void) {
     int multi_dim[2][3] = {{0, 1, 2}, {3, 4, 5}};
 
     // get pointer to whole array
-    int (*array_pointer)[2][3] = &multi_dim;
+    int(*array_pointer)[2][3] = &multi_dim;
 
     // get pointer to one row
-    int (*row_pointer)[3] = (int (*)[3]) array_pointer;
+    int(*row_pointer)[3] = (int(*)[3])array_pointer;
 
     if (row_pointer != multi_dim) {
         return 1;
@@ -20,9 +20,9 @@ int main(void) {
     }
 
     // get pointer to one element
-    int *elem_ptr = (int *) row_pointer;
+    int* elem_ptr = (int*)row_pointer;
 
-    if (*elem_ptr != 3 ){
+    if (*elem_ptr != 3) {
         return 3;
     }
 
@@ -34,7 +34,7 @@ int main(void) {
     // now set row_pointer back to the beginning, cast it back to an array,
     // and make sure it round-tripped
     row_pointer = row_pointer - 1;
-    if ((int (*)[2][3]) row_pointer != array_pointer) {
+    if ((int(*)[2][3])row_pointer != array_pointer) {
         return 5;
     }
 

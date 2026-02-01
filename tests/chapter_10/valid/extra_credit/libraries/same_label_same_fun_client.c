@@ -12,11 +12,10 @@ int f_caller(void); // declared in same_label_same_fun.c
 
 int main(void) {
     if (f() != 1) {
-        return 1;  // fail
+        return 1; // fail
     }
-    if (f_caller() !=
-        2) {       // call "f" with internal linkage in other translation unit
-        return 2;  // fail
+    if (f_caller() != 2) { // call "f" with internal linkage in other translation unit
+        return 2;          // fail
     }
-    return 0;  // success
+    return 0; // success
 }

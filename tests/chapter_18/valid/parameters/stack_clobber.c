@@ -17,7 +17,7 @@
 #endif
 #endif
 
-int strcmp(char *s1, char *s2);
+int strcmp(char* s1, char* s2);
 void exit(int status);
 
 struct stack_bytes {

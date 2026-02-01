@@ -5,7 +5,7 @@
  * */
 #include "../util.h"
 
-int global_one = 1;  // to prevent constant-folding
+int global_one = 1; // to prevent constant-folding
 
 int target(void) {
     // create a clique of 12 pseudos that interfere
@@ -26,7 +26,6 @@ int target(void) {
 
     // validate one through twelve
     // (this makes them all live at this point)
-    check_12_ints(one, two, three, four, five, six, seven, eight, nine, ten,
-                  eleven, twelve, 1);
-    return 0;  // success
+    check_12_ints(one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, 1);
+    return 0; // success
 }

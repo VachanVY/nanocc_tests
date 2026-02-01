@@ -3,7 +3,7 @@
  */
 
 union u {
-    long *ptr;
+    long* ptr;
     double d;
 };
 

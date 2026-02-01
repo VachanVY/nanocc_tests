@@ -1,6 +1,9 @@
 // Can't assign scalar value to union, even if value has same type
 // as first element
-union u {int a; int b;};
+union u {
+    int a;
+    int b;
+};
 
 int main(void) {
     union u x = {1};

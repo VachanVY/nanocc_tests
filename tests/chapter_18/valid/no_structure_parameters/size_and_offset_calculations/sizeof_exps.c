@@ -7,7 +7,7 @@
 
 #include "struct_sizes.h"
 
-struct twenty_bytes *get_twentybyte_ptr(void) {
+struct twenty_bytes* get_twentybyte_ptr(void) {
     return 0;
 }
 
@@ -17,7 +17,7 @@ int main(void) {
     struct contains_struct_array arr_struct;
 
     if (sizeof arr_struct.struct_array[2] !=
-        8) {  // elements of struct_array have type struct eight_bytes
+        8) { // elements of struct_array have type struct eight_bytes
         return 1;
     }
 
@@ -46,7 +46,7 @@ int main(void) {
         return 7;
     }
 
-    if (sizeof *((struct wonky *)0) != 19) {
+    if (sizeof *((struct wonky*)0) != 19) {
         return 8;
     }
 
@@ -68,5 +68,5 @@ int main(void) {
         return 12;
     }
 
-    return 0;  // success
+    return 0; // success
 }

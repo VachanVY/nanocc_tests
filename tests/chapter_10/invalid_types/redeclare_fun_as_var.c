@@ -1,6 +1,4 @@
-int foo(void) {
-    return 0;
-}
+int foo(void) { return 0; }
 
 int main(void) {
     /* Since this declaration has external linkage,

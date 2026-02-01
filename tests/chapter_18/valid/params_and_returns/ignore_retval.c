@@ -41,5 +41,5 @@ int main(void) {
     if (globl2.d != 5.0 || globl2.x != 18 || globl2.l != 4800) {
         return 2;
     }
-    return 0;  // success
+    return 0; // success
 }

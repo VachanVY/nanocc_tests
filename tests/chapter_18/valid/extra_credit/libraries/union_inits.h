@@ -7,12 +7,12 @@
 #endif
 
 // library functions
-int strcmp(char *s1, char *s2);
+int strcmp(char* s1, char* s2);
 
 union simple {
     double d;
     char c;
-    int *ptr;
+    int* ptr;
 };
 
 union inner {
@@ -31,7 +31,7 @@ union nested {
     long l;
 };
 
-int validate_simple(union simple *ptr);
-int validate_simple_converted(union simple *ptr);
-int validate_nested(union nested *ptr);
-int validate_nested_partial(union nested *ptr);
+int validate_simple(union simple* ptr);
+int validate_simple_converted(union simple* ptr);
+int validate_nested(union nested* ptr);
+int validate_nested_partial(union nested* ptr);

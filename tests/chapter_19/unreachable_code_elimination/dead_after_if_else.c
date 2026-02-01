@@ -1,9 +1,7 @@
 /* Test that we recognize call to 'callee' is unreachable;
  * */
 
-int callee(void) {
-    return 100;
-}
+int callee(void) { return 100; }
 
 int target(int a) {
     if (a) {
@@ -12,7 +10,7 @@ int target(int a) {
         return 2;
     }
 
-    return callee();  // this should be optimized away
+    return callee(); // this should be optimized away
 }
 int main(void) {
     if (target(1) != 1) {

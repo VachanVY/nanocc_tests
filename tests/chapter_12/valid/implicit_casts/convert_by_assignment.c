@@ -13,29 +13,17 @@
 #endif
 #endif
 
-int check_int(int converted, int expected) {
-    return (converted == expected);
-}
+int check_int(int converted, int expected) { return (converted == expected); }
 
-int check_long(long converted, long expected) {
-    return (converted == expected);
-}
+int check_long(long converted, long expected) { return (converted == expected); }
 
-int check_ulong(unsigned long converted, unsigned long expected) {
-    return (converted == expected);
-}
+int check_ulong(unsigned long converted, unsigned long expected) { return (converted == expected); }
 
-long return_extended_uint(unsigned int u) {
-    return u;
-}
+long return_extended_uint(unsigned int u) { return u; }
 
-unsigned long return_extended_int(int i) {
-    return i;
-}
+unsigned long return_extended_int(int i) { return i; }
 
-int return_truncated_ulong(unsigned long ul) {
-    return ul;
-}
+int return_truncated_ulong(unsigned long ul) { return ul; }
 
 int extend_on_assignment(unsigned int ui, long expected) {
     long result = ui; // implicit conversion causes zero-extension
@@ -81,7 +69,7 @@ int main(void) {
     }
 
     // assignment expressions
-    if (!extend_on_assignment(2147483658u, 2147483658l)){
+    if (!extend_on_assignment(2147483658u, 2147483658l)) {
         return 7;
     }
 
@@ -90,7 +78,6 @@ int main(void) {
     if (i != -100) {
         return 8;
     }
-
 
     return 0;
 }

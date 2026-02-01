@@ -35,7 +35,7 @@ int main(void) {
 
     // make sure array has the right length (20) by initializing a pointer to its address
     // if we've got the wrong size this will be a type error
-    unsigned long (*array_ptr)[10] = &array;
+    unsigned long(*array_ptr)[10] = &array;
 
     if (array_ptr[0][9] != '~') {
         return 7;

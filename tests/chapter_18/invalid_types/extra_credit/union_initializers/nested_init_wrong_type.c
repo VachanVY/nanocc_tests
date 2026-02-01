@@ -9,7 +9,7 @@ union u {
 };
 
 struct s {
-    int *ptr;
+    int* ptr;
     union u arr[3];
 };
 

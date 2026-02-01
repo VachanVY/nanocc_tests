@@ -6,8 +6,8 @@ int glob = 5;
 int flag = 0;
 
 // defined in tests/chapter_20/helper_libs/coalesce_prevents_spill_lib.c
-int validate(int a, int b, int c, int d, int e, int f, int g, int h, int i,
-             int j, int k, int l, int m);
+int validate(int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l,
+             int m);
 
 int target(int arg) {
     // declare some pseudoregisters but don't initialize them yet
@@ -45,7 +45,7 @@ int target(int arg) {
         m = arg;
     } else {
         // This branch creates conflicts between a-m, which will go away as we perform coalescing.
-        a = glob * 2;  // 10
+        a = glob * 2; // 10
         b = a;
         c = a;
         d = a;

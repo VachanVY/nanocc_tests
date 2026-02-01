@@ -13,9 +13,7 @@ union has_union h = {{77}};
 // Test case 3 - struct containing partially initialized array of unions
 // (make sure we initialize uninitialized values to zero)
 
-struct has_union_array my_struct = {
-    {{{'a'}}, {{'b'}}, {{'c'}}}, '#', {'!'}
-};
+struct has_union_array my_struct = {{{{'a'}}, {{'b'}}, {{'c'}}}, '#', {'!'}};
 
 // Test case 4 - uninitialized union (make sure whole thing is initialized to
 // 0, not just first element)
@@ -24,18 +22,14 @@ union has_union all_zeros;
 
 // Test case 5 - an array of unions with trailing padding. Make sure padding
 // is included
-union with_padding padded_union_array[3] = {
-    {"first string"}, {"string #2"}, {
-        "string #3"
-    }
-};
+union with_padding padded_union_array[3] = {{"first string"}, {"string #2"}, {"string #3"}};
 
 int main(void) {
     if (!validate_simple()) {
         return 1;
     }
 
-    if (!validate_has_union()){
+    if (!validate_has_union()) {
         return 2;
     }
 

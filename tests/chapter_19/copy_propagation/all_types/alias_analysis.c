@@ -1,21 +1,21 @@
 /* Test that alias analysis allows us to propagate some copies
  * from variables whose address has been taken. */
-int callee(int *ptr) {
+int callee(int* ptr) {
     if (*ptr != 10) {
-        return 0;  // failure
+        return 0; // failure
     }
     *ptr = -1;
     return 1;
 }
 
-int target(int *ptr1, int *ptr2) {
-    int i = 10;          // generate i = 10
-    int j = 20;          // generate j = 20
-    *ptr1 = callee(&i);  // record i as a variable whose address is taken
-                         // function call kills i = 10
+int target(int* ptr1, int* ptr2) {
+    int i = 10;         // generate i = 10
+    int j = 20;         // generate j = 20
+    *ptr1 = callee(&i); // record i as a variable whose address is taken
+                        // function call kills i = 10
     *ptr2 = i;
 
-    i = 4;  // gen i = 4
+    i = 4; // gen i = 4
 
     // This should be rewritten as 'return 24'.
     // We can propagate i b/c there are no stores

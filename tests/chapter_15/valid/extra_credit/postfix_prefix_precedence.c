@@ -2,7 +2,7 @@
 int idx = 3;
 int main(void) {
     int arr[5] = {1, 2, 3, 4, 5};
-    int *ptr = arr + 1;
+    int* ptr = arr + 1;
     // 1. evaluate ptr--; this yields a pointer to arr[1], makes ptr point to arr[0]
     // 2. evaluate subscript operation, yielding lval at arr[4]
     // 3. increment lval at arr[4] (to 6) and return incremented value

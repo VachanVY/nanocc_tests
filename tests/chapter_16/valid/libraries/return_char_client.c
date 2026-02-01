@@ -22,8 +22,7 @@ int main(void) {
     if (retval_c != -10) {
         return 2;
     }
-    if (char_array2[0] != -5 || char_array2[1] != 88 ||
-        char_array2[2] != -100) {
+    if (char_array2[0] != -5 || char_array2[1] != 88 || char_array2[2] != -100) {
         return 3;
     }
 

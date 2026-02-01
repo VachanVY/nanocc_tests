@@ -45,10 +45,10 @@ int main(void) {
             if (val != 12) {
                 return 4;
             }
-        } else if (x.arr[i]) {  // all other elements are 0
+        } else if (x.arr[i]) { // all other elements are 0
             return 5;
         }
     }
 
-    return 0;  // success
+    return 0; // success
 }

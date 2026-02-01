@@ -6,10 +6,10 @@ int main(void) {
     unsigned long ul = 13835058055282163712ul;
     double d = 3.5;
 
-    //define some pointers to those variables
-    int *i_ptr = &i;
-    unsigned long *ul_ptr = &ul;
-    double *d_ptr = &d;
+    // define some pointers to those variables
+    int* i_ptr = &i;
+    unsigned long* ul_ptr = &ul;
+    double* d_ptr = &d;
 
     // dereference each pointer and read value
     if (*i_ptr != -100) {
@@ -47,7 +47,6 @@ int main(void) {
     ul_ptr = &ul2;
     d_ptr = &d2;
 
-
     if (*i_ptr != 1) {
         return 7;
     }
@@ -59,5 +58,4 @@ int main(void) {
     }
 
     return 0;
-
 }

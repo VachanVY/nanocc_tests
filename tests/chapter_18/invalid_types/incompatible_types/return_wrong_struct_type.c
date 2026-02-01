@@ -1,11 +1,11 @@
 struct one {
-  int x;
-  int y;
+    int x;
+    int y;
 };
 
 struct two {
-  int a;
-  int b;
+    int a;
+    int b;
 };
 
 struct one return_struct(void) {
@@ -13,6 +13,4 @@ struct one return_struct(void) {
     return retval; // can't return a "struct two" from function w/ return type "struct one"
 }
 
-int main(void) {
-    return return_struct().x;
-}
+int main(void) { return return_struct().x; }

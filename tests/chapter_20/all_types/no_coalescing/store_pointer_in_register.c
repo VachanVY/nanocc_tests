@@ -76,20 +76,19 @@ int target(void) {
         g = 0;
     }
 
-    if (b != &glob2 || c != &glob3 || d != &glob4 || e != &glob5 ||
-        f != &glob6 || g != &glob7) {
+    if (b != &glob2 || c != &glob3 || d != &glob4 || e != &glob5 || f != &glob6 || g != &glob7) {
         return 1;
     }
-    if (glob1 != 2 || glob2 != 4 || glob3 != 6 || glob4 != 8 || glob5 != 10 ||
-        glob6 != 12 || glob7 != 14) {
+    if (glob1 != 2 || glob2 != 4 || glob3 != 6 || glob4 != 8 || glob5 != 10 || glob6 != 12 ||
+        glob7 != 14) {
         return 2;
     }
     if (store_a != &glob1) {
         return 3;
     }
 
-    if (callee_saved1 != 1 || callee_saved2 != 2 || callee_saved3 != 3 ||
-        callee_saved4 != 4 || callee_saved5 != 5) {
+    if (callee_saved1 != 1 || callee_saved2 != 2 || callee_saved3 != 3 || callee_saved4 != 4 ||
+        callee_saved5 != 5) {
         return 4;
     }
     return 0;

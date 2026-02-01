@@ -7,7 +7,6 @@
 int update_x(int new_val);
 int read_x(void);
 
-
 // an external variable can be declared multiple times.
 extern int x;
 
@@ -19,7 +18,6 @@ int main(void) {
         return 1;
     if (read_x() != 3)
         return 1;
-
 
     /* when we make updates, they're visible here and in external_variable.c */
     x = 4;

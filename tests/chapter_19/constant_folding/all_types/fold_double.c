@@ -22,26 +22,18 @@ double target_sub(void) {
     return 5.85543871245623688067e-311 - 5.85543871245574281503e-311;
 }
 
-double target_mult(void) {
-    return 2.1 * 3.0;
-}
+double target_mult(void) { return 2.1 * 3.0; }
 
-double target_div(void) {
-    return 1100.5 / 5000.;
-}
+double target_div(void) { return 1100.5 / 5000.; }
 
 double target_div_underflow(void) {
     // this result should underflow to zero
     return 0.5e-100 / 2e307;
 }
 
-double target_neg(void) {
-    return -.000000275;
-}
+double target_neg(void) { return -.000000275; }
 
-int target_not(void) {
-    return !1e30;
-}
+int target_not(void) { return !1e30; }
 
 int target_eq(void) {
     // these decimal constants should be rounded to the same floating-point
@@ -55,13 +47,9 @@ int target_neq(void) {
     return 5e-324 != 0.0;
 }
 
-int target_gt(void) {
-    return 1e308 > 1e307;
-}
+int target_gt(void) { return 1e308 > 1e307; }
 
-int target_ge(void) {
-    return 3.1 >= 3.1;
-}
+int target_ge(void) { return 3.1 >= 3.1; }
 
 int target_lt(void) {
     // these decimal constants should be rounded to the same floating-point
@@ -69,9 +57,7 @@ int target_lt(void) {
     return 0.1 < 0.10000000000000001;
 }
 
-int target_le(void) {
-    return 0.5 <= 0.;
-}
+int target_le(void) { return 0.5 <= 0.; }
 
 double target_negate_zero(void) {
     // make sure this gives us negative zero and not zero

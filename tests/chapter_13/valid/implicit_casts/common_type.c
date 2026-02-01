@@ -21,7 +21,7 @@ double tern_double_flag(double flag) {
      * Converting -30 to unsigned long gives us 2^64 - 30, or 18446744073709551586.
      * The nearest double to this result is 18446744073709551616.0
      */
-    return (double) (flag ? -30 : 10ul);
+    return (double)(flag ? -30 : 10ul);
 }
 
 double tern_double_result(int flag) {

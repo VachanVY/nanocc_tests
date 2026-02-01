@@ -4,8 +4,8 @@
  * and does nothing if one is already in scope?
  * */
 
-void *calloc(unsigned long nmemb, unsigned long size);
-void *malloc(unsigned long size);
+void* calloc(unsigned long nmemb, unsigned long size);
+void* malloc(unsigned long size);
 
 // simple struct type used in several tests
 struct s {
@@ -41,7 +41,7 @@ int test_var_declaration(void) {
         }
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // tag resolution in struct member declaration
@@ -50,7 +50,7 @@ int test_member_declaration(void) {
         int b;
         // this specifies a pointer to the "struct s" type
         // we're currently defining, not the type declared at file scope
-        struct s *self_ptr;
+        struct s* self_ptr;
     };
 
     struct s my_struct = {123, 0};
@@ -62,7 +62,7 @@ int test_member_declaration(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // tag resolution in function declaration
@@ -79,19 +79,19 @@ int test_function_declaration(void) {
     // tag resolution in function declaration:
     // now that inner 'struct s' is out of scope,
     // declaration will refer to out one
-    struct s *copy_struct(struct s * arg);
+    struct s* copy_struct(struct s * arg);
 
     // make sure we can call this function
-    struct s *copy = copy_struct(&outer_struct);
+    struct s* copy = copy_struct(&outer_struct);
     if (copy->a != outer_struct.a) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
-struct s *copy_struct(struct s *arg) {
-    struct s *ptr = malloc(4);
+struct s* copy_struct(struct s* arg) {
+    struct s* ptr = malloc(4);
     ptr->a = arg->a;
     return ptr;
 }
@@ -99,8 +99,7 @@ struct s *copy_struct(struct s *arg) {
 // tag resolution in for loops
 int test_for_loop(void) {
     // make sure we can declare variables of structure type in for loop headers
-    for (struct s loop_struct = {10}; loop_struct.a > 0;
-         loop_struct.a = loop_struct.a - 1) {
+    for (struct s loop_struct = {10}; loop_struct.a > 0; loop_struct.a = loop_struct.a - 1) {
         // this is a new scope, make sure we can define a new struct s here
         struct s {
             double d;
@@ -118,12 +117,12 @@ int test_for_loop(void) {
         }
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // tag resolution in cast expressions
 int test_cast(void) {
-    void *ptr = malloc(10);
+    void* ptr = malloc(10);
 
     if (ptr) {
         struct s {
@@ -131,25 +130,25 @@ int test_cast(void) {
         };
 
         // we can cast to inner struct type
-        ((struct s *)ptr)->arr[2] = 10;
+        ((struct s*)ptr)->arr[2] = 10;
 
         // examine struct as char array to make sure assignment worked
-        char byte = ((char *)ptr)[2];
+        char byte = ((char*)ptr)[2];
         if (byte != 10) {
             return 0;
         }
     }
 
     // back out of scope, 'struct s' refers to file scope struct again
-    void *second_ptr = malloc(4);
+    void* second_ptr = malloc(4);
 
-    ((struct s *)second_ptr)->a = 10;
-    char lowest_byte = ((char *)second_ptr)[0];
+    ((struct s*)second_ptr)->a = 10;
+    char lowest_byte = ((char*)second_ptr)[0];
     if (lowest_byte != 10) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // tag resolution in sizeof expressions
@@ -158,11 +157,11 @@ int test_sizeof(void) {
         int a;
         int b;
     };
-    struct s x;  // x is an eight-byte struct
+    struct s x; // x is an eight-byte struct
     {
         struct s {
             char arr[15];
-        };  // declare a 15-byte struct type
+        }; // declare a 15-byte struct type
 
         // in this scope, 'x' has outer type but specifier refers to inner type
         if (sizeof x != 8) {
@@ -180,7 +179,7 @@ int test_sizeof(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // tag resolution in derived types
@@ -188,7 +187,7 @@ int test_derived_types(void) {
     struct s outer_struct = {1};
 
     // pointer to array of three pointers to struct s
-    struct s *(*outer_arr)[3] = calloc(3, sizeof(void *));
+    struct s*(*outer_arr)[3] = calloc(3, sizeof(void*));
 
     // declare another struct type to shadow outer one
     struct s {
@@ -198,7 +197,7 @@ int test_derived_types(void) {
     struct s inner_struct = {2};
 
     // pointer to array of three pointers to inner struct s
-    struct s *(*inner_arr)[3] = calloc(3, sizeof(void *));
+    struct s*(*inner_arr)[3] = calloc(3, sizeof(void*));
 
     // the type checker should recognize that outer_arr[0][0] and &outer_struct
     // have the same type, so these assignments are valid
@@ -231,7 +230,7 @@ int test_contentless_tag_noop(void) {
 
     struct s;
 
-    struct s var;  // this has the type declared at the start of this function
+    struct s var; // this has the type declared at the start of this function
 
     var.x = 10;
     var.y = 11;
@@ -276,5 +275,5 @@ int main(void) {
         return 8;
     }
 
-    return 0;  // success
+    return 0; // success
 }

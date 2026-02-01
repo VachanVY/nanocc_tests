@@ -11,7 +11,7 @@
 #endif
 #endif
 
-int strcmp(char *s1, char *s2);  // standard library
+int strcmp(char* s1, char* s2); // standard library
 
 // test cases where we include null byte
 int test_flat_static_with_null_byte(void) {
@@ -46,20 +46,19 @@ int test_flat_static_without_null_byte(void) {
     // it shouldn't corrupt anything if we add a null byte here,
     // so this is just to make sure it type checks
     static char letters[4] = "abcd";
-    return letters[0] == 'a' && letters[1] == 'b' && letters[2] == 'c' &&
-           letters[3] == 'd';
+    return letters[0] == 'a' && letters[1] == 'b' && letters[2] == 'c' && letters[3] == 'd';
 }
 
 // we can't fit a null byte at the end of 'yes'
 char nested[3][3] = {"yes", "no", "ok"};
 int test_nested_static_without_null_byte(void) {
-    char *whole_array = (char *)nested;
-    char *word1 = (char *)nested[0];
-    char *word2 = (char *)nested[1];
-    char *word3 = (char *)nested[2];
+    char* whole_array = (char*)nested;
+    char* word1 = (char*)nested[0];
+    char* word2 = (char*)nested[1];
+    char* word3 = (char*)nested[2];
     // all strcmp calls should return 0
-    return !(strcmp(whole_array, "yesno") || strcmp(word1, "yesno") ||
-             strcmp(word2, "no") || strcmp(word3, "ok"));
+    return !(strcmp(whole_array, "yesno") || strcmp(word1, "yesno") || strcmp(word2, "no") ||
+             strcmp(word3, "ok"));
 }
 
 int test_flat_auto_without_null_byte(void) {
@@ -68,21 +67,21 @@ int test_flat_auto_without_null_byte(void) {
     // ints
     char letters[4] = "abcd";
     int y = -1;
-    return (x == -1 && y == -1 && letters[0] == 'a' && letters[1] == 'b' &&
-            letters[2] == 'c' && letters[3] == 'd');
+    return (x == -1 && y == -1 && letters[0] == 'a' && letters[1] == 'b' && letters[2] == 'c' &&
+            letters[3] == 'd');
 }
 
 // identical to test_static_nested_without_null_byte(, but array has automatic
 // storage duration
 int test_nested_auto_without_null_byte(void) {
     char nested[3][3] = {"yes", "no", "ok"};
-    char *whole_array = (char *)nested;
-    char *word1 = (char *)nested[0];
-    char *word2 = (char *)nested[1];
-    char *word3 = (char *)nested[2];
+    char* whole_array = (char*)nested;
+    char* word1 = (char*)nested[0];
+    char* word2 = (char*)nested[1];
+    char* word3 = (char*)nested[2];
     // all strcmp calls should return 0
-    return !(strcmp(whole_array, "yesno") || strcmp(word1, "yesno") ||
-             strcmp(word2, "no") || strcmp(word3, "ok"));
+    return !(strcmp(whole_array, "yesno") || strcmp(word1, "yesno") || strcmp(word2, "no") ||
+             strcmp(word3, "ok"));
 }
 
 int main(void) {

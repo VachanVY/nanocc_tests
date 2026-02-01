@@ -3,20 +3,17 @@
 unsigned int w = 4294967295U;
 int x = 10;
 unsigned int y = 4294967295U;
-double *dbl_ptr;
+double* dbl_ptr;
 
-long modify_ptr(long *new_ptr) {
-    static long *p;
-    if (new_ptr)
-    {
+long modify_ptr(long* new_ptr) {
+    static long* p;
+    if (new_ptr) {
         p = new_ptr;
     }
     return *p;
 }
 
-
-int increment_ptr(void)
-{
+int increment_ptr(void) {
     *dbl_ptr = *dbl_ptr + 5.0;
     return 0;
 }
@@ -24,7 +21,7 @@ int increment_ptr(void)
 int main(void) {
     // get a pointer to a static variable
 
-    int *pointer_to_static = &x;
+    int* pointer_to_static = &x;
     x = 20;
     // make sure we can read new value through pointer
     if (*pointer_to_static != 20) {

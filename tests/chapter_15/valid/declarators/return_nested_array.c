@@ -9,7 +9,7 @@ int (*foo(int x, int y))[3] {
 }
 
 int main(void) {
-    int (*arr)[3] = foo(2, 3);
+    int(*arr)[3] = foo(2, 3);
     if (arr[0][0] != 1) {
         return 1;
     }

@@ -4,69 +4,69 @@
 
 long test_sign_extend(int flag, int arg) {
     if (flag) {
-        arg = -1;  // not a dead store b/c arg is used later;
-                   // put it in an if statement so we don't propagate -1
-                   // into the return statement
+        arg = -1; // not a dead store b/c arg is used later;
+                  // put it in an if statement so we don't propagate -1
+                  // into the return statement
     }
     return (long)arg;
 }
 
 unsigned long test_zero_extend(int flag, unsigned int arg) {
     if (flag) {
-        arg = 4294967295U;  // not a dead store b/c arg is used later;
-                            // put this in an if statement so we don't propagate
-                            // constant into the return statement
+        arg = 4294967295U; // not a dead store b/c arg is used later;
+                           // put this in an if statement so we don't propagate
+                           // constant into the return statement
     }
     return (unsigned long)arg;
 }
 
 int test_double_to_int(int flag, double arg) {
     if (flag) {
-        arg = 225.5;  // not a dead store b/c arg is used later;
-                      // put this in an if statement so we don't propagate
-                      // constant into the return statement
+        arg = 225.5; // not a dead store b/c arg is used later;
+                     // put this in an if statement so we don't propagate
+                     // constant into the return statement
     }
     return (int)arg;
 }
 
 double test_int_to_double(int flag, long arg) {
     if (flag) {
-        arg = 500000l;  // not a dead store b/c arg is used later;
-                        // put this in an if statement so we don't propagate
-                        // constant into the return statement
+        arg = 500000l; // not a dead store b/c arg is used later;
+                       // put this in an if statement so we don't propagate
+                       // constant into the return statement
     }
     return (double)arg;
 }
 
 unsigned long test_double_to_uint(int flag, double arg) {
     if (flag) {
-        arg = 1844674407370955264.;  // not a dead store
+        arg = 1844674407370955264.; // not a dead store
     }
     return (unsigned long)arg;
 }
 
 double test_uint_to_double(int flag, unsigned int arg) {
     if (flag) {
-        arg = 2147483650u;  // not a dead store
+        arg = 2147483650u; // not a dead store
     }
     return (double)arg;
 }
 
 char test_truncate(int flag, long arg) {
     if (flag) {
-        arg = 300;  // not a dead store b/c arg is used later;
-                    // put this in an if statement so we don't propagate
-                    // constant into the return statement
+        arg = 300; // not a dead store b/c arg is used later;
+                   // put this in an if statement so we don't propagate
+                   // constant into the return statement
     }
     return (char)arg;
 }
 
-double *test_add_ptr(int flag, double *ptr, long index) {
+double* test_add_ptr(int flag, double* ptr, long index) {
     static double arr[3] = {1.0, 2.0, 3.0};
     if (flag == 0) {
-        ptr = arr;  // not dead b/c ptr is used later in AddPtr
+        ptr = arr; // not dead b/c ptr is used later in AddPtr
     } else if (flag == 1) {
-        index = 2l;  // not dead b/c index is used later in AddPtr
+        index = 2l; // not dead b/c index is used later in AddPtr
     }
     return &ptr[index];
 }
@@ -80,7 +80,7 @@ struct s {
 int test_copyfromoffset(int flag, struct s arg) {
     struct s other_struct = {10, 9, 8};
     if (flag) {
-        arg = other_struct;  // not a dead store; we use arg below
+        arg = other_struct; // not a dead store; we use arg below
     }
     return arg.b;
 }
@@ -88,19 +88,19 @@ int test_copyfromoffset(int flag, struct s arg) {
 struct s test_copytooffset(int flag, int arg) {
     struct s my_struct = {101, 102, 103};
     if (flag) {
-        arg = -1;  // not a dead store; used in CopyToOffset
+        arg = -1; // not a dead store; used in CopyToOffset
     }
     my_struct.b = arg;
     return my_struct;
 }
 
 // Store(val, dst_ptr) generates both val and dst_ptr
-void test_store(int flag, long *ptr1, long *ptr2, long val) {
+void test_store(int flag, long* ptr1, long* ptr2, long val) {
     if (flag == 1) {
-        ptr1 = ptr2;  // not a dead store b/c we store through ptr1 below
+        ptr1 = ptr2; // not a dead store b/c we store through ptr1 below
     }
     if (flag == 2) {
-        val = 77l;  // not a dead store
+        val = 77l; // not a dead store
     }
     *ptr1 = val;
 }
@@ -108,37 +108,37 @@ void test_store(int flag, long *ptr1, long *ptr2, long val) {
 // dst = Load(src_ptr) generates src_ptr
 // NOTE: Load also generates all aliased variables but we
 // validate that in a separate test program (load_generates_aliased)
-int test_load(int flag, int *ptr1, int *ptr2) {
+int test_load(int flag, int* ptr1, int* ptr2) {
     if (flag) {
-        ptr1 = ptr2;  // not a dead store b/c used as src_ptr in Load below
+        ptr1 = ptr2; // not a dead store b/c used as src_ptr in Load below
     }
     return *ptr1;
 }
 
 int main(void) {
     if (test_sign_extend(0, -5) != -5l) {
-        return 1;  // fail
+        return 1; // fail
     }
     if (test_sign_extend(1, -5) != -1l) {
-        return 2;  // fail
+        return 2; // fail
     }
     if (test_zero_extend(0, 100000u) != 100000ul) {
-        return 3;  // fail
+        return 3; // fail
     }
     if (test_zero_extend(1, 100000u) != 4294967295UL) {
-        return 4;  // fail
+        return 4; // fail
     }
     if (test_double_to_int(0, 1000.5) != 1000) {
-        return 5;  // fail
+        return 5; // fail
     }
     if (test_double_to_int(1, 1000.5) != 225) {
-        return 6;  // fail
+        return 6; // fail
     }
     if (test_int_to_double(0, 100) != 100.0) {
-        return 7;  // fail
+        return 7; // fail
     }
     if (test_int_to_double(1, 100) != 500000.0) {
-        return 8;  // fail
+        return 8; // fail
     }
     if (test_double_to_uint(0, 1234567.8) != 1234567u) {
         return 9; // fail
@@ -153,60 +153,60 @@ int main(void) {
         return 12; // fail
     }
     if (test_truncate(0, 500) != -12) {
-        return 13;  // fail
+        return 13; // fail
     }
     if (test_truncate(1, 500) != 44) {
-        return 14;  // fail
+        return 14; // fail
     }
     double arr[3] = {4.0, 5.0, 6.0};
     if (*test_add_ptr(0, arr, 1) != 2.0) {
-        return 15;  // fail
+        return 15; // fail
     }
     if (*test_add_ptr(1, arr, 1) != 6.0) {
-        return 16;  // fail
+        return 16; // fail
     }
     if (*test_add_ptr(2, arr, 1) != 5.0) {
-        return 17;  // fail
+        return 17; // fail
     }
     struct s strct = {20, 21, 22};
 
     if (test_copyfromoffset(0, strct) != 21) {
-        return 18;  // fail
+        return 18; // fail
     }
     if (test_copyfromoffset(1, strct) != 9) {
-        return 19;  // fail
+        return 19; // fail
     }
     if (test_copytooffset(0, -10).b != -10) {
-        return 20;  // fail
+        return 20; // fail
     }
     if (test_copytooffset(1, -10).b != -1) {
-        return 21;  // fail
+        return 21; // fail
     }
     long l1 = 0l;
     long l2 = 0l;
 
     test_store(0, &l1, &l2, 5l);
     if (l1 != 5l || l2 != 0l) {
-        return 22;  // fail
+        return 22; // fail
     }
     test_store(1, &l1, &l2, 6l);
     if (l1 != 5l || l2 != 6l) {
-        return 23;  // fail
+        return 23; // fail
     }
     test_store(2, &l1, &l2, 5l);
     if (l1 != 77l || l2 != 6l) {
-        return 24;  // fail
+        return 24; // fail
     }
 
     int i1 = 2;
     int i2 = 3;
 
     if (test_load(0, &i1, &i2) != 2) {
-        return 25;  // fail
+        return 25; // fail
     }
     if (test_load(1, &i1, &i2) != 3) {
-        return 26;  // fail
+        return 26; // fail
     }
 
-    return 0;  // success
+    return 0; // success
 }

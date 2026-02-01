@@ -40,9 +40,7 @@ int funcall_in_index(void) {
 }
 
 // use result of another subscript expression as index
-int subscript_inception(long *arr, int *a, int b){
-    return arr[a[b]];
-}
+int subscript_inception(long* arr, int* a, int b) { return arr[a[b]]; }
 
 int check_subscript_inception(void) {
     long arr[4] = {4, 3, 2, 1};
@@ -59,12 +57,12 @@ int check_subscript_inception(void) {
 }
 
 // use result of function call as pointer
-int *get_array(void) {
+int* get_array(void) {
     static int arr[3];
     return arr;
 }
 
-int subscript_function_result(void){
+int subscript_function_result(void) {
     get_array()[2] = 1;
     if (get_array()[2] != 1) {
         return 7;
@@ -73,7 +71,7 @@ int subscript_function_result(void){
     return 0;
 }
 
-int negate_subscript(int *arr, int idx, int expected) {
+int negate_subscript(int* arr, int idx, int expected) {
     if (arr[-idx] != expected) {
         return 8;
     }

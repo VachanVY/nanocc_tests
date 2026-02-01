@@ -17,6 +17,4 @@ int main(void) {
     return foo(arg); // we can call foo b/c 'struct s' type is completed
 }
 
-int foo(struct s blah) {
-    return blah.a + blah.b;
-}
+int foo(struct s blah) { return blah.a + blah.b; }

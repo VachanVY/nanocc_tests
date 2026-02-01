@@ -4,6 +4,4 @@
    some compilers may reject it during type checking.
 */
 
-int main(void) {
-    return 1();
-}
+int main(void) { return 1(); }

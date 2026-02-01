@@ -7,6 +7,6 @@ union u {
 
 int main(void) {
     union u x = {1000};
-    (void) x; // just make sure this doesn't cause a type error
+    (void)x; // just make sure this doesn't cause a type error
     return 0;
 }

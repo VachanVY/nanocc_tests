@@ -13,8 +13,7 @@ struct nine_bytes {
 // defined in data_on_page_boundary_<PLATFORM>.s
 extern struct nine_bytes on_page_boundary;
 
-int f(struct nine_bytes in_reg, int a, int b, int c, int d, int e,
-      struct nine_bytes on_stack) {
+int f(struct nine_bytes in_reg, int a, int b, int c, int d, int e, struct nine_bytes on_stack) {
     // validate structs
     for (int i = 0; i < 9; i = i + 1) {
         char in_reg_c = in_reg.arr[i];
@@ -47,7 +46,7 @@ int f(struct nine_bytes in_reg, int a, int b, int c, int d, int e,
         return 5;
     }
 
-    return 0;  // success
+    return 0; // success
 }
 
 int main(void) {
@@ -56,5 +55,5 @@ int main(void) {
     on_page_boundary.arr[8] = 6;
     // pass this struct in register and on stack
     return f(on_page_boundary, 101, 102, 103, 104, 105,
-             on_page_boundary);  // 0 is success
+             on_page_boundary); // 0 is success
 }

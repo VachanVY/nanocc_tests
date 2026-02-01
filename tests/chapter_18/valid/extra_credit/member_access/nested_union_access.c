@@ -29,16 +29,16 @@ int test_auto_dot(void) {
     z.s.ul = 0;
 
     if (z.s.u.c != 57) { // lowest byte of 12345
-        return 0; // fail
+        return 0;        // fail
     }
 
     if (z.d_arr[1]) { // bytes 8-15 of  union; same spot as z.s.ul
-        return 0; // fail
+        return 0;     // fail
     }
 
     // get/derefrence address of various members
-    unsigned int *some_int_ptr = &y.s.u;
-    union simple *some_union_ptr = &z.s.u;
+    unsigned int* some_int_ptr = &y.s.u;
+    union simple* some_union_ptr = &z.s.u;
 
     if (*some_int_ptr != 100 || (*some_union_ptr).i != 12345) {
         return 0; // fail
@@ -74,11 +74,11 @@ int test_static_dot(void) {
     z.s.ul = 0;
 
     if (z.s.u.c != 57) { // lowest byte of 12345
-        return 0; // fail
+        return 0;        // fail
     }
 
     if (z.d_arr[1]) { // bytes 8-15 of  union; same spot as z.s.ul
-        return 0; // fail
+        return 0;     // fail
     }
 
     return 1; // success
@@ -89,7 +89,7 @@ int test_auto_arrow(void) {
     // using only -> operator
     union simple inner = {100};
     union has_union outer;
-    union has_union *outer_ptr = &outer;
+    union has_union* outer_ptr = &outer;
     outer_ptr->u_ptr = &inner;
     if (outer_ptr->u_ptr->i != 100) {
         return 0; // fail
@@ -104,7 +104,8 @@ int test_auto_arrow(void) {
     }
 
     // read through members of uc_arr
-    if (outer_ptr->u_ptr->uc_arr[0] != 246 || outer_ptr->u_ptr->uc_arr[1] != 255 || outer_ptr->u_ptr->uc_arr[2] != 255) {
+    if (outer_ptr->u_ptr->uc_arr[0] != 246 || outer_ptr->u_ptr->uc_arr[1] != 255 ||
+        outer_ptr->u_ptr->uc_arr[2] != 255) {
         return 0; // fail
     }
 
@@ -115,7 +116,7 @@ int test_static_arrow(void) {
     // identical to test_auto_arrow but with objects of static storage duration
     static union simple inner = {100};
     static union has_union outer;
-    static union has_union *outer_ptr;
+    static union has_union* outer_ptr;
     outer_ptr = &outer;
     outer_ptr->u_ptr = &inner;
     if (outer_ptr->u_ptr->i != 100) {
@@ -131,7 +132,8 @@ int test_static_arrow(void) {
     }
 
     // read through members of uc_arr
-    if (outer_ptr->u_ptr->uc_arr[0] != 246 || outer_ptr->u_ptr->uc_arr[1] != 255 || outer_ptr->u_ptr->uc_arr[2] != 255) {
+    if (outer_ptr->u_ptr->uc_arr[0] != 246 || outer_ptr->u_ptr->uc_arr[1] != 255 ||
+        outer_ptr->u_ptr->uc_arr[2] != 255) {
         return 0; // fail
     }
 
@@ -154,10 +156,10 @@ int test_array_of_unions(void) {
 
 int test_array_of_union_pointers(void) {
     // test access to array of union pointers
-    union has_union *ptr_arr[3];
+    union has_union* ptr_arr[3];
     for (int i = 0; i < 3; i = i + 1) {
         ptr_arr[i] = calloc(1, sizeof(union has_union));
-        ptr_arr[i]->u_ptr = calloc(1, sizeof (union simple));
+        ptr_arr[i]->u_ptr = calloc(1, sizeof(union simple));
         ptr_arr[i]->u_ptr->l = i;
     }
 
@@ -167,7 +169,6 @@ int test_array_of_union_pointers(void) {
 
     return 1;
 }
-
 
 int main(void) {
     if (!test_auto_dot()) {

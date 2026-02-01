@@ -5,16 +5,15 @@
 
 int target(int flag) {
     int retval = 10;
-    switch(flag) {
-        case 1:
+    switch (flag) {
+    case 1:
         retval = 0;
-        case 2:
+    case 2:
         // can't propagate - retval could be eitehr 10 or 0
         return retval;
-        default: return -1;
+    default:
+        return -1;
     }
 }
 
-int main(void) {
-    return target(1);
-}
+int main(void) { return target(1); }

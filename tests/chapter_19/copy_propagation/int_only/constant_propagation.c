@@ -4,9 +4,7 @@
 int target(void) {
     int x = 3;
     int y = x;
-    return x + y;  // should become return 6
+    return x + y; // should become return 6
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

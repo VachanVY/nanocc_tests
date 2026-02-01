@@ -8,7 +8,7 @@ int target(void) {
     int z = 40000;
 
     v ^= 10; // -106
-    w |= v; // -10
+    w |= v;  // -10
     x &= 30; // 8
     y <<= x; // 76800
     // include chained compound assignment
@@ -18,9 +18,7 @@ int target(void) {
         return 0; // success
     }
 
-    return 1; //fail
+    return 1; // fail
 }
 
-int main(void) {
-    return target();
-}
+int main(void) { return target(); }

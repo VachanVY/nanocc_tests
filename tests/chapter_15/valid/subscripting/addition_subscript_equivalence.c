@@ -1,7 +1,6 @@
 // Test that we treat x[i] and *(x + i) as equivalent
 
-int main(void)
-{
+int main(void) {
     unsigned long x[300][5];
     for (int i = 0; i < 300; i = i + 1) {
         for (int j = 0; j < 5; j = j + 1) {
@@ -27,7 +26,6 @@ int main(void)
             }
         }
     }
-
 
     // assign, then read
     *(*(x + 275) + 4) = 22000ul;

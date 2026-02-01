@@ -23,8 +23,8 @@ int multiplication(void) {
 
 int division(void) {
     /* The first operand can't fit in an int; this requires us to store the operand in RDX:RAX
-    * using the 'cqo' instruction, instead of in EDX:EAX using 'cdq'
-    */
+     * using the 'cqo' instruction, instead of in EDX:EAX using 'cdq'
+     */
     // a = 4294967290l;
     b = a / 128l;
     return (b == 33554431l);
@@ -76,7 +76,7 @@ int main(void) {
     }
 
     /* Complement */
-    a = 9223372036854775806l; //LONG_MAX - 1
+    a = 9223372036854775806l; // LONG_MAX - 1
     if (!complement()) {
         return 6;
     }

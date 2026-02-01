@@ -1,19 +1,15 @@
 /* Test that we can propagate copies both to and from function parameters;
  * similar to propagate_var, but with paramters instead of variables.
  * */
-int callee(int a, int b) {
-    return a * b;
-}
-int f(void) {
-    return 3;
-}
+int callee(int a, int b) { return a * b; }
+int f(void) { return 3; }
 int globl = 0;
 int set_globvar(void) {
     globl = 4;
     return 0;
 }
 int target(int a, int b) {
-    b = a;  // propagate copy from a to b
+    b = a; // propagate copy from a to b
 
     // call another function before callee so we can't coalesce a into EDI
     // or b into ESI; otherwise, once we implement register coalescing,
@@ -26,7 +22,7 @@ int target(int a, int b) {
     // into the same register; otherwise it will look like we've propagated
     // the copy even if we haven't
     b = f();
-    return (product + a - b);  // return 5 * 5 + 5 - 3 ==> 27
+    return (product + a - b); // return 5 * 5 + 5 - 3 ==> 27
 }
 
 int main(void) {
@@ -39,5 +35,5 @@ int main(void) {
         return 2;
     }
 
-    return 0;  // success
+    return 0; // success
 }

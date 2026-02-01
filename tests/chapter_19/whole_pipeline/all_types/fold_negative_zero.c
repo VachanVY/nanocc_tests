@@ -11,7 +11,7 @@
 #endif
 #endif
 
-double copysign(double x, double y);  // from standard library
+double copysign(double x, double y); // from standard library
 
 // helper functions
 int is_positive_zero(double d) {
@@ -36,27 +36,27 @@ int is_negative_zero(double d) {
 
 // 0.0 and -0.0 should compare equal
 int target_negative_zero_eq(void) {
-    return 0.0 == -0.0;  // true
+    return 0.0 == -0.0; // true
 }
 
 int target_negative_zero_neq(void) {
-    return 0.0 != -0.0;  // false
+    return 0.0 != -0.0; // false
 }
 
 int target_negative_zero_lt(void) {
-    return -0.0 < 0.0;  // false - they're equal, so -0. is not less than 0.
+    return -0.0 < 0.0; // false - they're equal, so -0. is not less than 0.
 }
 
 int target_negative_zero_gt(void) {
-    return -0.0 > 0.0;  // false - they're equal, so 0. is not greater than 0.
+    return -0.0 > 0.0; // false - they're equal, so 0. is not greater than 0.
 }
 
 int target_negative_zero_ge(void) {
-    return -0.0 >= 0.0;  // true b/c operands are equal
+    return -0.0 >= 0.0; // true b/c operands are equal
 }
 
 int target_negative_zero_le(void) {
-    return -0.0 <= 0.0;  // true b/c operands are equal
+    return -0.0 <= 0.0; // true b/c operands are equal
 }
 
 // make sure -0.0 counts as 0 in conditionals/booleans
@@ -68,16 +68,14 @@ int target_neg_zero_branch(void) {
 }
 
 int target_not_neg_zero(void) {
-    return !-0.0;  // 1
+    return !-0.0; // 1
 }
 
-int target_neg_zero_and(void) {
-    return -0.0 && 1;
-}
+int target_neg_zero_and(void) { return -0.0 && 1; }
 
 /* Addition */
 double target_add_negative_zero_to_self(void) {
-    return -0. + -0.;  // negative (special case)
+    return -0. + -0.; // negative (special case)
 }
 
 double target_add_positive_to_negative_zero(void) {
@@ -86,7 +84,7 @@ double target_add_positive_to_negative_zero(void) {
 }
 
 double target_add_negative_to_positive_zero(void) {
-    return 0. + -0.;  // positive; equivalent to previous case
+    return 0. + -0.; // positive; equivalent to previous case
 }
 
 double target_add_negative_nonzero_to_negative_zero(void) {
@@ -101,55 +99,54 @@ double target_add_positive_nonzero_to_negative_zero(void) {
 
 /* Subtraction */
 double target_subtract_neg_zero_from_self(void) {
-    return -0. - -0.;  // positive zero; equivalent to 0. - 0.
+    return -0. - -0.; // positive zero; equivalent to 0. - 0.
 }
 
 double target_subtract_pos_zero_from_neg_zero(void) {
-    return -0. - 0.;  // negative zero; equivalent to -0. + -0.
+    return -0. - 0.; // negative zero; equivalent to -0. + -0.
 }
 
 double target_subtract_neg_zero_from_pos_zero(void) {
-    return 0. - -0.;  // positive zero; equivalent to 0. + 0.
+    return 0. - -0.; // positive zero; equivalent to 0. + 0.
 }
 
 double target_subtract_pos_nonzero_from_neg_zero(void) {
-    return -0. - 10.;  // -10.
+    return -0. - 10.; // -10.
 }
 
 /* Multiplication */
 double target_negative_zero_mult(void) {
-    return -0.0 * 15.4e10;  // negative zero
+    return -0.0 * 15.4e10; // negative zero
 }
 
 double target_negative_zero_mult_negative(void) {
-    return -100. * -0.;  // positive zero
+    return -100. * -0.; // positive zero
 }
 
 double target_negative_zero_squared(void) {
-    return -0. * -0.;  // positive zero
+    return -0. * -0.; // positive zero
 }
 
 double target_neg_zero_mult_zero(void) {
-    return 0. * -0.;  // negative zero
+    return 0. * -0.; // negative zero
 }
 
 double target_mult_underflow(void) {
-    return -5.85543871245623688067e-320 *
-           0.5e-5;  // underflows to negative zero
+    return -5.85543871245623688067e-320 * 0.5e-5; // underflows to negative zero
 }
 
 /* division */
 
 double target_div_neg_zero_by_pos_nonzero(void) {
-    return -0. / 10.;  // negative zero
+    return -0. / 10.; // negative zero
 }
 
 double target_div_pos_zero_by_neg_nonzero(void) {
-    return 0. / -10.;  // negative zero
+    return 0. / -10.; // negative zero
 }
 
 double target_div_neg_zero_by_neg_nonzero(void) {
-    return -0. / -5.;  // positive zero
+    return -0. / -5.; // positive zero
 }
 
 double target_div_negative_underflow(void) {
@@ -158,140 +155,138 @@ double target_div_negative_underflow(void) {
 }
 
 double target_div_pos_non_zero_by_neg_zero(void) {
-    return 10. / -0.0;  // negative infinity
+    return 10. / -0.0; // negative infinity
 }
 
 double target_div_neg_nonzero_by_zero(void) {
-    return -10. / 0.;  // negative infinity
+    return -10. / 0.; // negative infinity
 }
 
 double target_div_neg_nonzero_by_neg_zero(void) {
-    return -100. / -0.;  // positive infinity
+    return -100. / -0.; // positive infinity
 }
 
 /* negation */
 double target_negate_neg_zero(void) {
-    return -(-0.0);  // positive zero
+    return -(-0.0); // positive zero
 }
 
 // we can calculate zero and negate it (i.e. we're not just treating the
 // source-level expression -0.0 as a special case)
-double target_negate_calculated_zero(void) {
-    return -(50. - 50.);
-}
+double target_negate_calculated_zero(void) { return -(50. - 50.); }
 
 int main(void) {
     if (target_negative_zero_eq() != 1) {
-        return 1;  // fail
+        return 1; // fail
     }
     if (target_negative_zero_neq() != 0) {
-        return 2;  // fail
+        return 2; // fail
     }
     if (target_negative_zero_lt() != 0) {
-        return 3;  // fail
+        return 3; // fail
     }
     if (target_negative_zero_gt() != 0) {
-        return 4;  // fail
+        return 4; // fail
     }
     if (target_negative_zero_ge() != 1) {
-        return 5;  // fail
+        return 5; // fail
     }
     if (target_negative_zero_le() != 1) {
-        return 6;  // fail
+        return 6; // fail
     }
     if (target_neg_zero_branch()) {
-        return 7;  // fail
+        return 7; // fail
     }
     if (target_not_neg_zero() != 1) {
-        return 8;  // fail
+        return 8; // fail
     }
     if (target_neg_zero_and() != 0) {
-        return 9;  // fail
+        return 9; // fail
     }
 
     double d;
     d = target_add_negative_zero_to_self();
     if (!is_negative_zero(d)) {
-        return 10;  // fail
+        return 10; // fail
     }
     d = target_add_positive_to_negative_zero();
     if (!is_positive_zero(d)) {
-        return 11;  // fail
+        return 11; // fail
     }
     d = target_add_negative_to_positive_zero();
     if (!is_positive_zero(d)) {
-        return 12;  // fail
+        return 12; // fail
     }
     d = target_add_negative_nonzero_to_negative_zero();
     if (d != -5.) {
-        return 13;  // fail
+        return 13; // fail
     }
     d = target_add_positive_nonzero_to_negative_zero();
     if (d != 10.) {
-        return 14;  // fail
+        return 14; // fail
     }
 
     d = target_subtract_neg_zero_from_self();
     if (!is_positive_zero(d)) {
-        return 15;  // fail
+        return 15; // fail
     }
     d = target_subtract_pos_zero_from_neg_zero();
     if (!is_negative_zero(d)) {
-        return 16;  // fail
+        return 16; // fail
     }
     d = target_subtract_neg_zero_from_pos_zero();
     if (!is_positive_zero(d)) {
-        return 17;  // fail
+        return 17; // fail
     }
     d = target_subtract_pos_nonzero_from_neg_zero();
     if (d != -10.) {
-        return 18;  // fail
+        return 18; // fail
     }
 
     d = target_negative_zero_mult();
     if (!is_negative_zero(d)) {
-        return 19;  // fail
+        return 19; // fail
     }
     d = target_negative_zero_mult_negative();
     if (!is_positive_zero(d)) {
-        return 20;  // fail
+        return 20; // fail
     }
     d = target_negative_zero_squared();
     if (!is_positive_zero(d)) {
-        return 21;  // fail
+        return 21; // fail
     }
     d = target_neg_zero_mult_zero();
     if (!is_negative_zero(d)) {
-        return 22;  // fail
+        return 22; // fail
     }
     d = target_mult_underflow();
     if (!is_negative_zero(d)) {
-        return 23;  // fail
+        return 23; // fail
     }
 
     d = target_div_neg_zero_by_pos_nonzero();
     if (!is_negative_zero(d)) {
-        return 24;  // fail
+        return 24; // fail
     }
     d = target_div_pos_zero_by_neg_nonzero();
     if (!is_negative_zero(d)) {
-        return 25;  // fail
+        return 25; // fail
     }
     d = target_div_neg_zero_by_neg_nonzero();
     if (!is_positive_zero(d)) {
-        return 26;  // fail
+        return 26; // fail
     }
     d = target_div_pos_non_zero_by_neg_zero();
-    if (d >= -1.79e308) {  // should be negative infinity
-        return 27;         // fail
+    if (d >= -1.79e308) { // should be negative infinity
+        return 27;        // fail
     }
     d = target_div_neg_nonzero_by_zero();
-    if (d >= -1.79e308) {  // should be negative infinity
-        return 28;         // fail
+    if (d >= -1.79e308) { // should be negative infinity
+        return 28;        // fail
     }
     d = target_div_neg_nonzero_by_neg_zero();
-    if (d <= 1.79e308) {  // should be infinity
-        return 29;        // fail
+    if (d <= 1.79e308) { // should be infinity
+        return 29;       // fail
     }
     d = target_div_negative_underflow();
     if (!is_negative_zero(d)) {
@@ -299,11 +294,11 @@ int main(void) {
     }
     d = target_negate_neg_zero();
     if (!is_positive_zero(d)) {
-        return 31;  // fail
+        return 31; // fail
     }
     d = target_negate_calculated_zero();
     if (!is_negative_zero(d)) {
-        return 32;  // fail
+        return 32; // fail
     }
-    return 0;  // success
+    return 0; // success
 }

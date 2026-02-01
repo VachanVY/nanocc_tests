@@ -1,6 +1,4 @@
-void foo(void) {
-    return;
-}
+void foo(void) { return; }
 
 int main(void) {
     int a = 3;

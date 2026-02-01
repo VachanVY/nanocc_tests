@@ -33,11 +33,11 @@ int main(void) {
         return 4; // fail
     }
 
-    if (!(&my_union.arr[0] >= (char *) &my_union.my_struct.i)) {
+    if (!(&my_union.arr[0] >= (char*)&my_union.my_struct.i)) {
         return 5; // fail
     }
 
-    if (! ((char *) (&u_ptr->d) <= (char *) &u_ptr->my_struct)) {
+    if (!((char*)(&u_ptr->d) <= (char*)&u_ptr->my_struct)) {
         return 6; // fail
     }
 

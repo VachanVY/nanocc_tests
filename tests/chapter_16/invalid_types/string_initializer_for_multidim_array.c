@@ -3,7 +3,4 @@
  */
 char arr[3][3] = "hello";
 
-int main(void)
-{
-    return arr[0][2];
-}
+int main(void) { return arr[0][2]; }

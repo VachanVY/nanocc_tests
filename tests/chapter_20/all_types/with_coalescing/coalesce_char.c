@@ -12,9 +12,7 @@ char glob_e;
 char glob_f;
 
 int glob = 0;
-void set_glob(void) {
-    glob = 10;
-}
+void set_glob(void) { glob = 10; }
 
 // Make sure we coalesce a-f into param-passing registers
 // We save them to global variables and validate those, instead of
@@ -30,7 +28,7 @@ int target(char a, char b, char c, char d, char e, char f) {
     glob_d = d;
     glob_e = e;
     glob_f = f;
-    set_glob();  // to prevent copy-prop
+    set_glob(); // to prevent copy-prop
     // validate global variables
     check_six_chars(glob_a, glob_b, glob_c, glob_d, glob_e, glob_f, 1);
     check_one_int(glob, 10); // make sure we actually called set_glob

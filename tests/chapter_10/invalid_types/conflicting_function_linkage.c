@@ -3,13 +3,9 @@
  */
 int foo(void);
 
-int main(void) {
-    return foo();
-}
+int main(void) { return foo(); }
 
 /* Can't define a symbol with external linkage,
  * then redefine it with internal linkage
  */
-static int foo(void) {
-    return 0;
-}
+static int foo(void) { return 0; }

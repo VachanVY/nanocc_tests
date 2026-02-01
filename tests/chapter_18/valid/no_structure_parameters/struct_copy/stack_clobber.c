@@ -15,12 +15,12 @@ struct chars {
 };
 
 static struct chars y = {{0, 1, 2}};
-static struct chars *ptr;  // in main we'll make this point to y
+static struct chars* ptr; // in main we'll make this point to y
 
 // validate a three-char array, which should contain
 // an increasing sequence of values starting with 'start'
 // If validation fails, exit with status code 'code'
-void validate_array(char *char_array, int start, int code) {
+void validate_array(char* char_array, int start, int code) {
 
     for (int i = 0; i < 3; i = i + 1) {
         if (char_array[i] != start + i) {
@@ -67,9 +67,7 @@ int test_copy(void) {
 
 // helpers to validate other stuff on stack without generating any other temporary variables
 static struct chars to_validate;
-void validate_static(int start, int code) {
-    validate_array(to_validate.char_array, start, code);
-}
+void validate_static(int start, int code) { validate_array(to_validate.char_array, start, code); }
 
 int test_load(void) {
     static struct chars b; // keep b in static storage, not on the stack
@@ -89,7 +87,7 @@ int test_load(void) {
 int test_store(void) {
     // write some values to stack
     struct chars struct_array[3] = {{"jkl"}, {"xyz"}, {"mno"}};
-    struct chars *ptr = &struct_array[1];
+    struct chars* ptr = &struct_array[1];
 
     // store y through pointer to array element
     *ptr = y;
@@ -137,9 +135,7 @@ int test_copy_from_offset(void) {
 // Test case 5: copy struct via CopyToOffset instruction
 int test_copy_to_offset(void) {
 
-    struct chars_container container = {
-        'x', {{0, 0, 0}}, "stu"
-    };
+    struct chars_container container = {'x', {{0, 0, 0}}, "stu"};
 
     // copy to nested struct chars via CopyToOffset
     container.chars = y;

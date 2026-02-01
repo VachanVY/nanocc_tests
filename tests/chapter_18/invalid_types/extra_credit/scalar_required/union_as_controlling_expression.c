@@ -1,6 +1,8 @@
 // Can't use union as controlling expression
 
-union u {int x;};
+union u {
+    int x;
+};
 
 int main(void) {
     union u my_union = {10};

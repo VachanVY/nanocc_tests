@@ -17,11 +17,7 @@
 // case 1: fully initialized struct (include some implicit conversions while
 // we're at it)
 int test_full_initialization(void) {
-    struct outer full = {-200,
-                         {-171l, {-56, -54, -53}, 40.5},
-                         "Important message!",
-                         -22,
-                         {1, 2}};
+    struct outer full = {-200, {-171l, {-56, -54, -53}, 40.5}, "Important message!", -22, {1, 2}};
 
     return validate_full_initialization(&full);
 }
@@ -33,7 +29,7 @@ int test_partial_initialization(void) {
                                 1,
                                 // leave two_arr and three_u ininitialized
                             },
-                            "Partial"};  // leave four_d uninitialized
+                            "Partial"}; // leave four_d uninitialized
 
     return validate_partial_initialization(&partial);
 }
@@ -47,11 +43,10 @@ int test_mixed_initialization(void) {
 
     struct outer mixed = {
         200,
-        flag ? inner1 : inner2,  // initialize to inner2
+        flag ? inner1 : inner2, // initialize to inner2
         "mixed",
         10.0,
-        {99,
-         100}  // still use compound init for second nexted struct, five_pair
+        {99, 100} // still use compound init for second nexted struct, five_pair
     };
 
     return validate_mixed_initialization(&mixed);
@@ -103,5 +98,5 @@ int main(void) {
         return 4;
     }
 
-    return 0;  // success
+    return 0; // success
 }

@@ -2,7 +2,7 @@ union u {
     int x;
 };
 
-union u return_union(void){
+union u return_union(void) {
     // define an identical but distinct union type
     union u {
         int x;

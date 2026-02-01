@@ -36,22 +36,22 @@ int main(void) {
 
     // return a value in one XMM and one general-purpose register
     union xmm_and_gp dbl_and_int = return_xmm_and_gp();
-    if (dbl_and_int.d != -50000.125 || dbl_and_int.ise.d != -50000.125
-        || dbl_and_int.ise.i != -3000) {
+    if (dbl_and_int.d != -50000.125 || dbl_and_int.ise.d != -50000.125 ||
+        dbl_and_int.ise.i != -3000) {
         return 6;
     }
 
     // return a value in memory
     union contains_union_array big_union = return_contains_union_array();
-    if (!(big_union.arr[0].d_arr[0] == -2000e-4 && big_union.arr[0].d_arr[1] == -3000e-4
-        && big_union.arr[1].d_arr[0] == 20000e10 && big_union.arr[1].d_arr[1] == 5000e11)) {
+    if (!(big_union.arr[0].d_arr[0] == -2000e-4 && big_union.arr[0].d_arr[1] == -3000e-4 &&
+          big_union.arr[1].d_arr[0] == 20000e10 && big_union.arr[1].d_arr[1] == 5000e11)) {
         return 7;
     }
 
     // pass some unions and return a value in memory;
     // make sure returning in memory doesn't screw up param passing
-    union lotsa_chars chars_union = pass_params_and_return_in_mem(1,
-        int_and_dbl, two_arrs, 25, big_union, oin);
+    union lotsa_chars chars_union =
+        pass_params_and_return_in_mem(1, int_and_dbl, two_arrs, 25, big_union, oin);
 
     if (strcmp(chars_union.more_chars, "ABCDEFGHIJKLMNOPQ") != 0) {
         return 8;

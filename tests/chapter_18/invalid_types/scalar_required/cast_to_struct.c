@@ -1,5 +1,5 @@
 struct s {
-  int a;
+    int a;
 };
 
 struct s x;

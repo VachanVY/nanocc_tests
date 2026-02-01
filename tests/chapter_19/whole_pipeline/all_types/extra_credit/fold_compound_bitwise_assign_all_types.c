@@ -10,8 +10,8 @@
 #endif
 #endif
 
- // Similar to Chapter 16's compound_bitwise_ops_chars.c but modified to be
- // constant-foldable
+// Similar to Chapter 16's compound_bitwise_ops_chars.c but modified to be
+// constant-foldable
 int target_chars(void) {
     signed char c1 = -128;
     signed char c2 = -120;
@@ -39,7 +39,7 @@ int target_chars(void) {
     // but this is well-defined b/c of integer promotions
     u4 <<= 12;
     u3 >>= (x - 1);
-    u2 |= -399; // doesn't overflow b/c of integer promotion
+    u2 |= -399;       // doesn't overflow b/c of integer promotion
     x = -4296140120l; // a number that doesn't fit in int or unsigned int
     u1 ^= x;
 
@@ -83,13 +83,11 @@ int target_chars(void) {
     return 0;
 }
 
-
-
 // Identical to chapter 11's compound_bitwise.c, but inspect assembly
 int target_long_bitwise(void) {
     // bitwise compound operations on long integers
-    long l1 = 71777214294589695l;  // 0x00ff_00ff_00ff_00ff
-    long l2 = -4294967296;  // -2^32; upper 32 bits are 1, lower 32 bits are 0
+    long l1 = 71777214294589695l; // 0x00ff_00ff_00ff_00ff
+    long l2 = -4294967296;        // -2^32; upper 32 bits are 1, lower 32 bits are 0
 
     l1 &= l2;
     if (l1 != 71777214277877760l) {
@@ -107,8 +105,8 @@ int target_long_bitwise(void) {
     }
 
     // if rval is int, convert to common type
-    l1 = 4611686018427387903l;  // 0x3fff_ffff_ffff_ffff
-    int i = -1073741824;  // 0b1100....0, or 0xc000_0000
+    l1 = 4611686018427387903l; // 0x3fff_ffff_ffff_ffff
+    int i = -1073741824;       // 0b1100....0, or 0xc000_0000
     // 1. sign-extend i to 64 bits; upper 32 bits are all 1s
     // 2. take bitwise AND of sign-extended value with l1
     // 3. result (stored in l1) is 0x3fff_ffff_c000_0000;
@@ -133,7 +131,6 @@ int target_long_bitwise(void) {
 
     return 0; // success
 }
-
 
 // similar to chapter 11's compound_bitshift.c, but we inspect assembly
 int target_long_bitshift(void) {
@@ -171,7 +168,7 @@ int target_long_bitshift(void) {
 // similar to chapter 12's compound_bitwise.c, but we inspect assembly
 int target_unsigned_bitwise(void) {
     unsigned long ul = 18446460386757245432ul; // 0xfffe_fdfc_fbfa_f9f8
-    ul &= -1000; // make sure we sign-extend -1000 to unsigned long
+    ul &= -1000;                               // make sure we sign-extend -1000 to unsigned long
     if (ul != 18446460386757244952ul /* 0xfffe_fdfc_fbfa_f818 */) {
         return 1; // fail
     }
@@ -187,7 +184,7 @@ int target_unsigned_bitwise(void) {
     // result to four-byte ui variable
     int i = 123456;
     unsigned int ui = 4042322160u; // 0xf0f0_f0f0
-    long l = -252645136; // 0xffff_ffff_f0f0_f0f0
+    long l = -252645136;           // 0xffff_ffff_f0f0_f0f0
     // 1. zero-extend ui to 8-bytes
     // 2. XOR w/ l, resulting in 0xffff_ffff_0000_0000
     // 3. truncate back to 4 bytes, resulting in 0
@@ -223,12 +220,12 @@ int target_unsigned_bitshift(void) {
         return 1;
     }
 
-    unsigned long ul = 18446744073709551615UL;  // 2^64 - 1
-    ul <<= 44;                                  // 0 out lower 44 bits
+    unsigned long ul = 18446744073709551615UL; // 2^64 - 1
+    ul <<= 44;                                 // 0 out lower 44 bits
     if (ul != 18446726481523507200ul) {
-        return 2;  // fail
+        return 2; // fail
     }
-    return 0;  // success
+    return 0; // success
 }
 
 int main(void) {

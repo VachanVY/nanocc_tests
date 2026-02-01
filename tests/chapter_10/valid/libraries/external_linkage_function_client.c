@@ -17,7 +17,6 @@ int add_one_and_two(void) {
 extern int sum(int x, int y);
 int sum(int x, int y);
 
-
 int add_three_and_four(void) {
     /* Define a sum variable shadowing the sum function */
     int sum = 3;

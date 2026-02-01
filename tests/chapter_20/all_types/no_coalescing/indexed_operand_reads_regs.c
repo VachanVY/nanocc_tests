@@ -21,19 +21,19 @@ int main(void) {
     // the second coalescing round will coalesce zero into reg2, clobbering one.
     long one = three - 2;
     long zero = three - 3;
-    int *ptr = arr;
-    long *ptr2 = arr2;
+    int* ptr = arr;
+    long* ptr2 = arr2;
 
     // This will be something like:
     //   movq %ptr, %r8
     //   movq %one, %r9
     //   leaq (%r8, %r9, 4), %other_ptr
-    int *other_ptr = ptr + one;
+    int* other_ptr = ptr + one;
     // This will be something like:
     //   movq %ptr2, %r8
     //   movq %zero, %r9
     //   leaq (%r8, %r9, 4), %other_ptr2
-    long *other_ptr2 = ptr2 + zero;
+    long* other_ptr2 = ptr2 + zero;
 
     check_one_int(*other_ptr, 2);
     check_one_long(*other_ptr2, 3);

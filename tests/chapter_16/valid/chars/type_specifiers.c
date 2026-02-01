@@ -10,8 +10,7 @@ char signed static a = 10;
 unsigned static char b = 20;
 char c = 30;
 
-int main(void)
-{
+int main(void) {
     extern signed char a;
     char unsigned extern b;
     extern char c;

@@ -11,7 +11,7 @@ int main(void) {
      * casting it to unsigned int and back is equivalent to subtracting
      * 2^32, resulting in 4294967284
      */
-    unsigned long b = (unsigned long) (unsigned int) a;
+    unsigned long b = (unsigned long)(unsigned int)a;
 
     if (b != 4294967284ul)
         return 1;
@@ -20,7 +20,7 @@ int main(void) {
      * casting it back to unsigned long results in 2^64 - 12,
      * or 18446744073709551604
      */
-    b = (unsigned long) (signed int) a;
+    b = (unsigned long)(signed int)a;
     if (b != 18446744073709551604ul)
         return 2;
 

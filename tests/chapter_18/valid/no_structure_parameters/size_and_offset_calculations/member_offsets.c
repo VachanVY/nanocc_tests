@@ -4,7 +4,7 @@
  * */
 #include "struct_sizes.h"
 
-void *malloc(unsigned long size);
+void* malloc(unsigned long size);
 
 // test 1: validate struct w/ scalar members (includes trailing padding)
 // test member accesses of the form &x.y
@@ -35,13 +35,13 @@ int test_eightbytes(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // test 2: validate struct w/ padding between members (accessing struct thru
 // pointer) test member accesses of the form &x->y
 int test_internal_padding(void) {
-    struct internal_padding *s_ptr = malloc(sizeof(struct internal_padding));
+    struct internal_padding* s_ptr = malloc(sizeof(struct internal_padding));
     unsigned long start_addr = (unsigned long)s_ptr;
     unsigned long c_addr = (unsigned long)&s_ptr->c;
     unsigned long d_addr = (unsigned long)&s_ptr->d;
@@ -67,7 +67,7 @@ int test_internal_padding(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // test 3: validate struct that contains an array
@@ -118,7 +118,7 @@ int test_three_bytes(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // test 4: validate struct containing nested structs
@@ -126,7 +126,7 @@ int test_three_bytes(void) {
 // &x.y.z, &x.y.z[i]
 int test_sixteen_bytes(void) {
     static struct sixteen_bytes s;
-    struct sixteen_bytes *s_ptr = &s;
+    struct sixteen_bytes* s_ptr = &s;
 
     // get addresses of various members through s_ptr
     unsigned long start_addr = (unsigned long)s_ptr;
@@ -231,7 +231,7 @@ int test_sixteen_bytes(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // test 5: validate array of irregularly-sized structs; make sure there's no
@@ -268,7 +268,7 @@ int test_wonky_array(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 // test 6: validate array of structs containing arrays of structs
@@ -296,12 +296,10 @@ int test_contains_struct_array_array(void) {
     unsigned long outer1_arr = (unsigned long)(arr[1].struct_array);
 
     // arr[1].struct_array[1].i
-    unsigned long outer1_inner1_i =
-        (unsigned long)&(((arr + 1)->struct_array + 1)->i);
+    unsigned long outer1_inner1_i = (unsigned long)&(((arr + 1)->struct_array + 1)->i);
 
     // arr[2].struct_array[0].c
-    unsigned long outer2_inner0_c =
-        (unsigned long)&((arr + 2)->struct_array->c);
+    unsigned long outer2_inner0_c = (unsigned long)&((arr + 2)->struct_array->c);
 
     // whole thing should be 4-byte aligned
     if (array_start % 4 != 0) {
@@ -357,7 +355,7 @@ int test_contains_struct_array_array(void) {
         return 0;
     }
 
-    return 1;  // success
+    return 1; // success
 }
 
 int main(void) {
@@ -385,5 +383,5 @@ int main(void) {
         return 6;
     }
 
-    return 0;  // success
+    return 0; // success
 }

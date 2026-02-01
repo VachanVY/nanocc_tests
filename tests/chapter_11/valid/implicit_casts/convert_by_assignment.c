@@ -2,7 +2,8 @@
  * - actual assignment expressions
  * - initializers for automatic variables
  * - return statements
- * Implicit conversions of function arguments are in a separate test case, convert_function_arguments.c
+ * Implicit conversions of function arguments are in a separate test case,
+ * convert_function_arguments.c
  */
 
 #ifdef SUPPRESS_WARNINGS
@@ -13,13 +14,9 @@
 #endif
 #endif
 
-int return_truncated_long(long l) {
-    return l;
-}
+int return_truncated_long(long l) { return l; }
 
-long return_extended_int(int i) {
-    return i;
-}
+long return_extended_int(int i) { return i; }
 
 int truncate_on_assignment(long l, int expected) {
     int result = l; // implicit conversion truncates l

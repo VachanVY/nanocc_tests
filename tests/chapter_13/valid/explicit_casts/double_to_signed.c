@@ -1,12 +1,8 @@
 /* Test conversions from double to the signed integer types */
 
-int double_to_int(double d) {
-    return (int) d;
-}
+int double_to_int(double d) { return (int)d; }
 
-long double_to_long(double d) {
-    return (long) d;
-}
+long double_to_long(double d) { return (long)d; }
 
 int main(void) {
 

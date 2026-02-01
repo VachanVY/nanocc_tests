@@ -27,21 +27,15 @@ unsigned int target_rem(void) {
     return 4294967286u % 10u;
 }
 
-unsigned int target_complement(void) {
-    return ~1u;
-}
+unsigned int target_complement(void) { return ~1u; }
 
-unsigned int target_neg(void) {
-    return -10u;
-}
+unsigned int target_neg(void) { return -10u; }
 
 int target_not(void) {
-    return !65536u;  // 2^16
+    return !65536u; // 2^16
 }
 
-int target_eq(void) {
-    return 100u == 100u;
-}
+int target_eq(void) { return 100u == 100u; }
 
 int target_neq(void) {
     // these have identical binary representations except for the most
@@ -56,9 +50,7 @@ int target_gt(void) {
     return 2147483649u > 1000u;
 }
 
-int target_ge(void) {
-    return 4000000000u >= 3999999999u;
-}
+int target_ge(void) { return 4000000000u >= 3999999999u; }
 
 int target_lt(void) {
     // as with target_gt, make sure we don't interpret 2147483649u
@@ -66,9 +58,7 @@ int target_lt(void) {
     return 2147483649u < 1000u;
 }
 
-int target_le(void) {
-    return 4000000000u <= 3999999999u;
-}
+int target_le(void) { return 4000000000u <= 3999999999u; }
 
 int main(void) {
     // binary arithmetic

@@ -7,10 +7,14 @@ int globvar = 0;
 int target(int x) {
     int retval = 0;
     switch (x) {
-        case 1: globvar = 1;
-        case 2: globvar = globvar + 3;
-        case 3: globvar = globvar * 2;
-        default: retval = 3; // we always reach this no matter which case we take
+    case 1:
+        globvar = 1;
+    case 2:
+        globvar = globvar + 3;
+    case 3:
+        globvar = globvar * 2;
+    default:
+        retval = 3; // we always reach this no matter which case we take
     }
 
     return retval; // replace with "return 3"

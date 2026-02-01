@@ -10,40 +10,28 @@
  * them more thoroughly once other optimizations are enabled.
  */
 
-long uint_to_long(void) {
-    return (long)4294967295U;
-}
+long uint_to_long(void) { return (long)4294967295U; }
 
-unsigned long uint_to_ulong(void) {
-    return (unsigned long)4294967295U;
-}
+unsigned long uint_to_ulong(void) { return (unsigned long)4294967295U; }
 
 /* These next two are target_* functions b/c they require sign extension */
-unsigned long target_int_to_ulong(void) {
-    return (unsigned long)2147483647;
-}
+unsigned long target_int_to_ulong(void) { return (unsigned long)2147483647; }
 
-long target_int_to_long(void) {
-    return (long)1;
-}
+long target_int_to_long(void) { return (long)1; }
 
 int uint_to_int(void) {
     // outside the range of int; will be negative
     return (int)4294967200U;
 }
 
-unsigned int int_to_uint(void) {
-    return (unsigned)2147480000;
-}
+unsigned int int_to_uint(void) { return (unsigned)2147480000; }
 
 long ulong_to_long(void) {
     // outside the range of long; will be negative
     return (long)18446744073709551615UL;
 }
 
-unsigned long long_to_ulong(void) {
-    return 2147483650l;
-}
+unsigned long long_to_ulong(void) { return 2147483650l; }
 
 long implicit(void) {
     // same as ulong_to_long, but cast is implicit
@@ -90,5 +78,5 @@ int main(void) {
         return 9;
     }
 
-    return 0;  // success
+    return 0; // success
 }

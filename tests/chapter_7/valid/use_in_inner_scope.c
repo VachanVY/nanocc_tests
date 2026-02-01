@@ -1,10 +1,5 @@
-int main(void)
-{
+int main(void) {
     int x;
-    {
-        x = 3;
-    }
-    {
-        return x;
-    }
+    { x = 3; }
+    { return x; }
 }

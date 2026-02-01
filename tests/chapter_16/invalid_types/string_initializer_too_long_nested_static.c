@@ -3,8 +3,4 @@
  * This goes for sub-arrays and static arrays too.*/
 char array[3][3] = {"a", "bcde"};
 
-int main(void)
-{
-
-    return 0;
-}
+int main(void) { return 0; }

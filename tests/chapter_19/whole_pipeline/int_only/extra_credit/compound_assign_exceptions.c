@@ -12,7 +12,6 @@
 #endif
 #endif
 
-
 static int zero;
 
 int main(void) {
