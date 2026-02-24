@@ -1,4 +1,4 @@
 int main(void) {
-    int foo[[10]];
-    return 0;
+  int foo[[10]];
+  return 0;
 }

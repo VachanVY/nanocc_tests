@@ -1,10 +1,10 @@
 struct s {
-    int y;
+  int y;
 };
 
 int main(void) {
-    // can't parenthesize union tag
-    union(s) var;
+  // can't parenthesize union tag
+  union(s) var;
 
-    return 0;
+  return 0;
 }

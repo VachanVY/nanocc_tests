@@ -1,5 +1,5 @@
 int main(void) {
-    goto(a);
+  goto(a);
 a:
-    return 0;
+  return 0;
 }

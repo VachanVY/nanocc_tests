@@ -1,6 +1,6 @@
 struct pair {
-    int a;
-    int b;
+  int a;
+  int b;
 };
 // a static compound structure initializer can't initialize more values than the
 // struct has

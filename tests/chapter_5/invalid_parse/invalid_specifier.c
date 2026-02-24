@@ -1,4 +1,4 @@
 int main(void) {
-    int foo bar = 3;
-    return bar;
+  int foo bar = 3;
+  return bar;
 }

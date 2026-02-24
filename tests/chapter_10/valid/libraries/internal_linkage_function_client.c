@@ -16,13 +16,13 @@ int call_static_my_fun_2(void);
 
 int main(void) {
 
-    if (call_static_my_fun() != 1)
-        return 1;
-    if (my_fun() != 100)
-        return 1;
-    if (call_static_my_fun_2() != 2)
-        return 1;
-    return 0;
+  if (call_static_my_fun() != 1)
+    return 1;
+  if (my_fun() != 100)
+    return 1;
+  if (call_static_my_fun_2() != 2)
+    return 1;
+  return 0;
 }
 
 int my_fun(void) { return 100; }

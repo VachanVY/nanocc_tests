@@ -2,13 +2,13 @@
 // are constant
 
 union u {
-    long l;
+  long l;
 };
 
 struct has_union {
-    int a;
-    union u b;
-    char c;
+  int a;
+  union u b;
+  char c;
 };
 
 long some_var = 10l;

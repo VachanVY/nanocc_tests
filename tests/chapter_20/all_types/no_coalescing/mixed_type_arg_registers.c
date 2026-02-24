@@ -14,25 +14,25 @@
 #include "../util.h"
 
 struct s1 {
-    // XMM0
-    double d;
-    // RDI
-    char c;
-    int i;
+  // XMM0
+  double d;
+  // RDI
+  char c;
+  int i;
 };
 
 struct s2 {
-    // RSI
-    unsigned long ul;
-    // XMM1
-    double d;
+  // RSI
+  unsigned long ul;
+  // XMM1
+  double d;
 };
 
 // passed in memory
 struct s3 {
-    double d1;
-    double d2;
-    signed char s;
+  double d1;
+  double d2;
+  signed char s;
 };
 
 // helper functions defined in
@@ -40,8 +40,8 @@ struct s3 {
 // both of these functions print an error message and exit if
 // arguments don't have the expected values
 int callee(struct s1 a, struct s2 b, char c, struct s3 in_mem);
-int check_some_args(int one, long two, unsigned int three, unsigned long four, char five,
-                    unsigned char six, signed char seven);
+int check_some_args(int one, long two, unsigned int three, unsigned long four,
+                    char five, unsigned char six, signed char seven);
 
 // Global variables
 int glob1;
@@ -73,69 +73,70 @@ double glob13_d;
 // target in that reg, so the error wouldn't necessarily force a spill. (I think
 // having _fewer_ params in target than in callee would be be fine.)
 int target(int one, int two, int three, double one_d, double two_d) {
-    // Create a clique of 12 integer pseudoregs
-    // we'll use eight through twelve in arguments to callee
-    long four = two + 2;
-    char five = three + two;
-    int six = 12 - one - two - three;
-    unsigned int seven = 13 - six;
-    unsigned char eight = four * two;
-    unsigned long nine = three * three;
-    signed long ten = six + four;
-    signed char eleven = six * two - one;
-    int twelve = six * two;
+  // Create a clique of 12 integer pseudoregs
+  // we'll use eight through twelve in arguments to callee
+  long four = two + 2;
+  char five = three + two;
+  int six = 12 - one - two - three;
+  unsigned int seven = 13 - six;
+  unsigned char eight = four * two;
+  unsigned long nine = three * three;
+  signed long ten = six + four;
+  signed char eleven = six * two - one;
+  int twelve = six * two;
 
-    // Create clique of 14 double pseudos; we'll use eleven_d through
-    // fourteen_d in arguments to callee
-    double three_d = one_d + two_d;
-    double four_d = three_d + one_d;
-    double five_d = two_d + three_d;
-    double six_d = three_d * two_d;
-    double seven_d = 13. - six_d;
-    double eight_d = four_d * two_d;
-    double nine_d = three_d * three_d;
-    double ten_d = five_d * two_d;
-    double eleven_d = seven_d * two_d - three_d;
-    double twelve_d = eight_d * four_d - 20.;
-    double thirteen_d = (nine_d + ten_d) - six_d;
-    double fourteen_d = eleven_d + 3;
+  // Create clique of 14 double pseudos; we'll use eleven_d through
+  // fourteen_d in arguments to callee
+  double three_d = one_d + two_d;
+  double four_d = three_d + one_d;
+  double five_d = two_d + three_d;
+  double six_d = three_d * two_d;
+  double seven_d = 13. - six_d;
+  double eight_d = four_d * two_d;
+  double nine_d = three_d * three_d;
+  double ten_d = five_d * two_d;
+  double eleven_d = seven_d * two_d - three_d;
+  double twelve_d = eight_d * four_d - 20.;
+  double thirteen_d = (nine_d + ten_d) - six_d;
+  double fourteen_d = eleven_d + 3;
 
-    // To make all our pseudoregs interfere with each other, without forcing
-    // them to be callee-saved, copy all of them to global variables.
-    // (We don't need to copy the ones that get passed to callee).
+  // To make all our pseudoregs interfere with each other, without forcing
+  // them to be callee-saved, copy all of them to global variables.
+  // (We don't need to copy the ones that get passed to callee).
 
-    // integers
-    glob1 = one;
-    glob2 = two;
-    glob3 = three;
-    glob4 = four;
-    glob5 = five;
-    glob6 = six;
-    glob7 = seven;
+  // integers
+  glob1 = one;
+  glob2 = two;
+  glob3 = three;
+  glob4 = four;
+  glob5 = five;
+  glob6 = six;
+  glob7 = seven;
 
-    // doubles
-    glob1_d = one_d;
-    glob2_d = two_d;
-    glob3_d = three_d;
-    glob4_d = four_d;
-    glob5_d = five_d;
-    glob6_d = six_d;
-    glob7_d = seven_d;
-    glob8_d = eight_d;
-    glob9_d = nine_d;
-    glob10_d = ten_d;
+  // doubles
+  glob1_d = one_d;
+  glob2_d = two_d;
+  glob3_d = three_d;
+  glob4_d = four_d;
+  glob5_d = five_d;
+  glob6_d = six_d;
+  glob7_d = seven_d;
+  glob8_d = eight_d;
+  glob9_d = nine_d;
+  glob10_d = ten_d;
 
-    // now populate some structs that use our pseudoregs
-    // and pass them to callee
-    struct s1 arg1 = {eleven_d, eight, nine};
-    struct s2 arg2 = {ten, twelve_d};
-    struct s3 in_mem = {thirteen_d, fourteen_d, eleven};
-    callee(arg1, arg2, twelve, in_mem);
+  // now populate some structs that use our pseudoregs
+  // and pass them to callee
+  struct s1 arg1 = {eleven_d, eight, nine};
+  struct s2 arg2 = {ten, twelve_d};
+  struct s3 in_mem = {thirteen_d, fourteen_d, eleven};
+  callee(arg1, arg2, twelve, in_mem);
 
-    // validate globals
-    check_some_args(glob1, glob2, glob3, glob4, glob5, glob6, glob7);
-    check_14_doubles(glob1_d, glob2_d, glob3_d, glob4_d, glob5_d, glob6_d, glob7_d, glob8_d,
-                     glob9_d, glob10_d, 11.0, 12.0, 13., 14., 1);
+  // validate globals
+  check_some_args(glob1, glob2, glob3, glob4, glob5, glob6, glob7);
+  check_14_doubles(glob1_d, glob2_d, glob3_d, glob4_d, glob5_d, glob6_d,
+                   glob7_d, glob8_d, glob9_d, glob10_d, 11.0, 12.0, 13., 14.,
+                   1);
 
-    return 0; // success
+  return 0; // success
 }

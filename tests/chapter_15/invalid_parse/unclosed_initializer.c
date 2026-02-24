@@ -1,4 +1,4 @@
 int main(void) {
-    int arr = { 1, 2;
-    return arr[0];
+  int arr = { 1, 2;
+  return arr[0];
 }

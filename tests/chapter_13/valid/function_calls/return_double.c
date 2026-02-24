@@ -2,6 +2,6 @@
 double d(void) { return 1234.e75; }
 
 int main(void) {
-    double retval = d();
-    return retval == 1234.e75;
+  double retval = d();
+  return retval == 1234.e75;
 }

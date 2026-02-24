@@ -5,25 +5,25 @@
 int x = 1;
 
 int f(void) {
-    x = 4;
-    return 0;
+  x = 4;
+  return 0;
 }
 
 int target(void) {
-    int y = x; // generate y = x
-    f();       // kill y = x
-    return y;  // don't
+  int y = x; // generate y = x
+  f();       // kill y = x
+  return y;  // don't
 }
 
 int main(void) {
-    if (target() != 1) {
-        return 1;
-    }
+  if (target() != 1) {
+    return 1;
+  }
 
-    // make sure x actually got updated
-    if (x != 4) {
-        return 2;
-    }
+  // make sure x actually got updated
+  if (x != 4) {
+    return 2;
+  }
 
-    return 0; // success
+  return 0; // success
 }

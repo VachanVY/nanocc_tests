@@ -3,8 +3,8 @@
  */
 
 union u {
-    int a;
-    long b;
+  int a;
+  long b;
 };
 
 union u x = {1, 2}; // invalid - multiple initializers

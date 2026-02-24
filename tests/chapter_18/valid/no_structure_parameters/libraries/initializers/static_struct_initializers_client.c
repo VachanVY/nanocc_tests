@@ -34,21 +34,21 @@ struct s converted = {
 };
 
 int main(void) {
-    if (!test_uninitialized()) {
-        return 1;
-    }
+  if (!test_uninitialized()) {
+    return 1;
+  }
 
-    if (!test_partially_initialized()) {
-        return 2;
-    }
+  if (!test_partially_initialized()) {
+    return 2;
+  }
 
-    if (!test_partial_inner_init()) {
-        return 3;
-    }
+  if (!test_partial_inner_init()) {
+    return 3;
+  }
 
-    if (!test_implicit_conversion()) {
-        return 4;
-    }
+  if (!test_implicit_conversion()) {
+    return 4;
+  }
 
-    return 0; // success
+  return 0; // success
 }

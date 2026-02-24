@@ -9,19 +9,19 @@ int double_isnan(double d); // defined in tests/chapter_13/helper_libs/nan.c
 double na;
 
 int target(int flag) {
-    na = 0.0 / 0.0;
-    double d = 0.0 / 0.0;
-    if (flag) {
-        na = d; // same value it already is; can delete this
-    }
-    return 0;
+  na = 0.0 / 0.0;
+  double d = 0.0 / 0.0;
+  if (flag) {
+    na = d; // same value it already is; can delete this
+  }
+  return 0;
 }
 
 int main(void) {
-    target(1);
-    if (!double_isnan(na)) {
-        return 1; // fail
-    }
+  target(1);
+  if (!double_isnan(na)) {
+    return 1; // fail
+  }
 
-    return 0;
+  return 0;
 }

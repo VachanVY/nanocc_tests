@@ -6,25 +6,25 @@
  * */
 
 union u {
-    double d;
-    int i;
+  double d;
+  int i;
 };
 
 double target(int flag, int flag2, union u y) {
-    union u x = y;
+  union u x = y;
 
-    if (flag) {
-        y = x; // we can remove this because x and y already have the same
-               // value
-    }
-    if (flag2) {
-        x = y; // we can remove this because x and y already have the same
-               // value
-    }
-    return x.d + y.d;
+  if (flag) {
+    y = x; // we can remove this because x and y already have the same
+           // value
+  }
+  if (flag2) {
+    x = y; // we can remove this because x and y already have the same
+           // value
+  }
+  return x.d + y.d;
 }
 
 int main(void) {
-    union u my_union = {25.};
-    return target(0, 1, my_union) == 50.0;
+  union u my_union = {25.};
+  return target(0, 1, my_union) == 50.0;
 }

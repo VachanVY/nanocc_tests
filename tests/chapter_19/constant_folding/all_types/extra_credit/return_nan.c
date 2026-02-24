@@ -5,10 +5,10 @@ int double_isnan(double d); // defined in tests/chapter_13/helper_libs/nan.c
 double target(void) { return 0.0 / 0.0; }
 
 int main(void) {
-    double nan = target();
-    if (double_isnan(nan)) {
-        return 0; // success
-    }
+  double nan = target();
+  if (double_isnan(nan)) {
+    return 0; // success
+  }
 
-    return 1; // fail
+  return 1; // fail
 }

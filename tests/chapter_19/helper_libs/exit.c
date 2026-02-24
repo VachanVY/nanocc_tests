@@ -7,6 +7,6 @@
 void exit(int status); // from standard library
 
 int exit_wrapper(int status) {
-    exit(status);
-    return 0; // never reached
+  exit(status);
+  return 0; // never reached
 }

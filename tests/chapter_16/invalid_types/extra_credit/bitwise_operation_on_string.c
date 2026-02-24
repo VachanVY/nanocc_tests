@@ -1,5 +1,5 @@
 // Can't apply bitwise operations to strings
 int main(void) {
-    "My string" & 100;
-    return 0;
+  "My string" & 100;
+  return 0;
 }

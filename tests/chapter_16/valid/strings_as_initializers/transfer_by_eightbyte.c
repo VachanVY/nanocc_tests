@@ -9,20 +9,20 @@
  * we don't overrun neighboring memory
  */
 
-int strcmp(char* s1, char* s2);
+int strcmp(char *s1, char *s2);
 
 int main(void) {
-    char strings[2][13] = {"abcdefghijkl", "z"};
-    if (strcmp(strings[0], "abcdefghijkl"))
-        return 1;
+  char strings[2][13] = {"abcdefghijkl", "z"};
+  if (strcmp(strings[0], "abcdefghijkl"))
+    return 1;
 
-    if (strings[1][0] != 'z')
-        return 2;
+  if (strings[1][0] != 'z')
+    return 2;
 
-    // remaining bytes should be 0
-    for (int i = 1; i < 13; i = i + 1) {
-        if (strings[1][i])
-            return 3;
-    }
-    return 0;
+  // remaining bytes should be 0
+  for (int i = 1; i < 13; i = i + 1) {
+    if (strings[1][i])
+      return 3;
+  }
+  return 0;
 }

@@ -3,13 +3,13 @@
  */
 
 union u {
-    long l;
-    int i;
+  long l;
+  int i;
 };
 
 int main(void) {
-    union u my_union = {-1};
-    // not a dead store; we'll read lower bytes of this through my_union.i
-    my_union.l = 180;
-    return my_union.i;
+  union u my_union = {-1};
+  // not a dead store; we'll read lower bytes of this through my_union.i
+  my_union.l = 180;
+  return my_union.i;
 }

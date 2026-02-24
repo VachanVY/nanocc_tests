@@ -2,10 +2,10 @@
 // NOTE: empty initializer lists are valid as of C23
 
 struct s {
-    int a;
+  int a;
 };
 
 int main(void) {
-    struct s foo = {};
-    return 0;
+  struct s foo = {};
+  return 0;
 }

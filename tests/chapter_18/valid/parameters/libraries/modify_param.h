@@ -2,14 +2,14 @@
  * */
 
 struct inner {
-    double d;
-    int i;
+  double d;
+  int i;
 };
 
 struct outer {
-    struct inner s;
-    struct inner* ptr;
-    long l;
+  struct inner s;
+  struct inner *ptr;
+  long l;
 };
 
 int modify_simple_struct(struct inner s);

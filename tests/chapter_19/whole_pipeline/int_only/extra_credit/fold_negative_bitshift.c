@@ -5,9 +5,9 @@
 int target(void) { return -20000 >> 3; }
 
 int main(void) {
-    if (target() != -2500) {
-        return 1;
-    }
+  if (target() != -2500) {
+    return 1;
+  }
 
-    return 0; // success
+  return 0; // success
 }

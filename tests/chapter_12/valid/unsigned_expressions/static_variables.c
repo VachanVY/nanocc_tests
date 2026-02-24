@@ -6,12 +6,12 @@ unsigned long zero_long;
 unsigned zero_int;
 
 int main(void) {
-    if (x != 9223372036854775803ul)
-        return 0;
-    x = x + 10;
-    if (x != 9223372036854775813ul)
-        return 0;
-    if (zero_long || zero_int)
-        return 0;
-    return 1;
+  if (x != 9223372036854775803ul)
+    return 0;
+  x = x + 10;
+  if (x != 9223372036854775813ul)
+    return 0;
+  if (zero_long || zero_int)
+    return 0;
+  return 1;
 }

@@ -5,9 +5,9 @@
 #include "pass_struct.h"
 
 int main(void) {
-    struct pair arg = {1, 2};
-    if (!validate_struct_param(arg)) {
-        return 1;
-    }
-    return 0; // success
+  struct pair arg = {1, 2};
+  if (!validate_struct_param(arg)) {
+    return 1;
+  }
+  return 0; // success
 }

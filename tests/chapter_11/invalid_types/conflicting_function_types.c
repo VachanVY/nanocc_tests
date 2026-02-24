@@ -1,4 +1,5 @@
-/* It's illegal to declare a function multiple times with different parameter types */
+/* It's illegal to declare a function multiple times with different parameter
+ * types */
 
 int foo(int a);
 

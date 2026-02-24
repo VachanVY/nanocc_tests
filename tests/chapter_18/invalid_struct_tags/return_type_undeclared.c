@@ -4,5 +4,5 @@ void exit(int status);
 // undeclared type. In a fully conforming implementation, it fails because you
 // can't define a function with incomplete return type
 struct s foo(void) {
-    exit(0);
+  exit(0);
 }

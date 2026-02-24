@@ -1,5 +1,5 @@
 int main(void) {
-    while (int a) {
-        2;
-    }
+  while (int a) {
+    2;
+  }
 }

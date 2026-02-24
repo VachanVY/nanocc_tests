@@ -20,63 +20,63 @@ unsigned long target_int_to_ulong(void) { return (unsigned long)2147483647; }
 long target_int_to_long(void) { return (long)1; }
 
 int uint_to_int(void) {
-    // outside the range of int; will be negative
-    return (int)4294967200U;
+  // outside the range of int; will be negative
+  return (int)4294967200U;
 }
 
 unsigned int int_to_uint(void) { return (unsigned)2147480000; }
 
 long ulong_to_long(void) {
-    // outside the range of long; will be negative
-    return (long)18446744073709551615UL;
+  // outside the range of long; will be negative
+  return (long)18446744073709551615UL;
 }
 
 unsigned long long_to_ulong(void) { return 2147483650l; }
 
 long implicit(void) {
-    // same as ulong_to_long, but cast is implicit
-    return 18446744073709551615UL;
+  // same as ulong_to_long, but cast is implicit
+  return 18446744073709551615UL;
 }
 
 long one = 1l;
 long ninety_six = 96l;
 
 int main(void) {
-    if (uint_to_long() != 4294967295l) {
-        return 1;
-    }
+  if (uint_to_long() != 4294967295l) {
+    return 1;
+  }
 
-    if (uint_to_ulong() != 4294967295ul) {
-        return 2;
-    }
+  if (uint_to_ulong() != 4294967295ul) {
+    return 2;
+  }
 
-    if (target_int_to_ulong() != 2147483647l) {
-        return 3;
-    }
+  if (target_int_to_ulong() != 2147483647l) {
+    return 3;
+  }
 
-    if (target_int_to_long() != 1l) {
-        return 4;
-    }
+  if (target_int_to_long() != 1l) {
+    return 4;
+  }
 
-    if (uint_to_int() != -ninety_six) {
-        return 5;
-    }
+  if (uint_to_int() != -ninety_six) {
+    return 5;
+  }
 
-    if (int_to_uint() != 2147480000u) {
-        return 6;
-    }
+  if (int_to_uint() != 2147480000u) {
+    return 6;
+  }
 
-    if (ulong_to_long() != -one) {
-        return 7;
-    }
+  if (ulong_to_long() != -one) {
+    return 7;
+  }
 
-    if (long_to_ulong() != 2147483650ul) {
-        return 8;
-    }
+  if (long_to_ulong() != 2147483650ul) {
+    return 8;
+  }
 
-    if (implicit() != -one) {
-        return 9;
-    }
+  if (implicit() != -one) {
+    return 9;
+  }
 
-    return 0; // success
+  return 0; // success
 }

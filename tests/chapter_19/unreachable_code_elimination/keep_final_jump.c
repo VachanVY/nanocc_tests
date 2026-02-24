@@ -6,11 +6,11 @@
  * */
 
 int f(int a) {
-    do {
-        a = a - 1;
-        if (a)
-            return 17;
-    } while (1);
+  do {
+    a = a - 1;
+    if (a)
+      return 17;
+  } while (1);
 }
 
 int main(void) { return f(10); }

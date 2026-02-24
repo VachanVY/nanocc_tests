@@ -2,10 +2,10 @@
  * a union specifier.
  */
 struct x {
-    int a;
+  int a;
 };
 
 int main(void) {
-    union x foo; // incompatible with earlier declration of 'struct x' type
-    return 0;
+  union x foo; // incompatible with earlier declration of 'struct x' type
+  return 0;
 }

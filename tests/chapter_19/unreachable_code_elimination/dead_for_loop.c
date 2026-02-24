@@ -8,10 +8,10 @@
 int callee(void) { return 1 / 0; }
 
 int target(void) {
-    int i = 0;
-    for (i = 10; 0; i = callee())
-        callee();
-    return i;
+  int i = 0;
+  for (i = 10; 0; i = callee())
+    callee();
+  return i;
 }
 
 int main(void) { return target(); }

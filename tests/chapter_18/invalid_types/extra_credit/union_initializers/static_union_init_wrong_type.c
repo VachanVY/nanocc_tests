@@ -3,11 +3,11 @@
  */
 
 union u {
-    signed char* ptr;
-    double d;
+  signed char *ptr;
+  double d;
 };
 
 int main(void) {
-    // invalid; cannot implicitly convert char * to signed char *
-    static union u my_union = {"A char array"};
+  // invalid; cannot implicitly convert char * to signed char *
+  static union u my_union = {"A char array"};
 }

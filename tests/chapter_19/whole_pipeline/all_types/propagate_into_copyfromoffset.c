@@ -3,31 +3,31 @@
  */
 
 struct s {
-    int a;
-    int b;
+  int a;
+  int b;
 };
 
 struct s glob;
 
 int target(void) {
-    struct s loc = {100, 200};
+  struct s loc = {100, 200};
 
-    glob = loc;
+  glob = loc;
 
-    int x = glob.b; // rewrite as x = loc.b
+  int x = glob.b; // rewrite as x = loc.b
 
-    return x;
+  return x;
 }
 
 int main(void) {
-    if (target() != 200) {
-        return 1; // failure
-    }
-    if (glob.a != 100) {
-        return 2; // failure
-    }
-    if (glob.b != 200) {
-        return 3; // failure
-    }
-    return 0; // success
+  if (target() != 200) {
+    return 1; // failure
+  }
+  if (glob.a != 100) {
+    return 2; // failure
+  }
+  if (glob.b != 200) {
+    return 3; // failure
+  }
+  return 0; // success
 }

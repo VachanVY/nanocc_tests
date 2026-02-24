@@ -2,6 +2,6 @@
 // and not, for example, where you'd normally expect to find a postfix operator
 
 int main(void) {
-    int a = 3;
-    return a '1';
+  int a = 3;
+  return a '1';
 }

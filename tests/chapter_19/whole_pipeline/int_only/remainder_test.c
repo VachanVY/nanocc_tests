@@ -16,15 +16,15 @@
  * */
 
 int target(void) {
-    /* The result of the remainder operation 6 % -5 is 1,
-     * but 6 modulo -5 is -4.
-     */
-    return 6 % -5;
+  /* The result of the remainder operation 6 % -5 is 1,
+   * but 6 modulo -5 is -4.
+   */
+  return 6 % -5;
 }
 
 int main(void) {
-    if (target() != 1) {
-        return 1; // fail
-    }
-    return 0; // success
+  if (target() != 1) {
+    return 1; // fail
+  }
+  return 0; // success
 }

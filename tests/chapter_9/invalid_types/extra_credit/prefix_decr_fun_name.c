@@ -1,6 +1,6 @@
 int x(void);
 
 int main(void) {
-    --x;
-    return 0;
+  --x;
+  return 0;
 }

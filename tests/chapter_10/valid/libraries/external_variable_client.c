@@ -11,29 +11,29 @@ int read_x(void);
 extern int x;
 
 int main(void) {
-    /* x is initialized to 3 in external_variable.c,
-     * where it's defined.
-     */
-    if (x != 3)
-        return 1;
-    if (read_x() != 3)
-        return 1;
+  /* x is initialized to 3 in external_variable.c,
+   * where it's defined.
+   */
+  if (x != 3)
+    return 1;
+  if (read_x() != 3)
+    return 1;
 
-    /* when we make updates, they're visible here and in external_variable.c */
-    x = 4;
-    if (x != 4)
-        return 1;
-    if (read_x() != 4)
-        return 1;
+  /* when we make updates, they're visible here and in external_variable.c */
+  x = 4;
+  if (x != 4)
+    return 1;
+  if (read_x() != 4)
+    return 1;
 
-    /* when code in external_variable.c makes updates,
-     * they're visible here and in external_variable.c
-     */
-    update_x(5);
-    if (x != 5)
-        return 1;
-    if (read_x() != 5)
-        return 1;
+  /* when code in external_variable.c makes updates,
+   * they're visible here and in external_variable.c
+   */
+  update_x(5);
+  if (x != 5)
+    return 1;
+  if (read_x() != 5)
+    return 1;
 
-    return 0;
+  return 0;
 }

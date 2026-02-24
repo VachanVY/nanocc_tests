@@ -2,8 +2,8 @@
  * of the *=, /=, or %= operator
  */
 int main(void) {
-    int i = 10;
-    int* ptr = &i;
-    i %= ptr;
-    return 0;
+  int i = 10;
+  int *ptr = &i;
+  i %= ptr;
+  return 0;
 }

@@ -1,4 +1,4 @@
 int main(void) {
-    goto label;
-    return 0;
+  goto label;
+  return 0;
 }

@@ -2,6 +2,6 @@
 extern int foo;
 
 int main(void) {
-    /* Treating a variable as a function is a type error. */
-    return foo();
+  /* Treating a variable as a function is a type error. */
+  return foo();
 }

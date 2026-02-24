@@ -10,8 +10,8 @@
 #include "../util.h"
 
 struct s {
-    long l;   // RDI
-    double d; // XMM0
+  long l;   // RDI
+  double d; // XMM0
 };
 
 long glob = 100;
@@ -25,24 +25,24 @@ double y = 0;
 int callee(struct s s1, long a, double b);
 
 int main(void) {
-    long a = glob + 1;       // 101
-    double b = glob_d + 2.0; // 202.0
+  long a = glob + 1;       // 101
+  double b = glob_d + 2.0; // 202.0
 
-    struct s s1 = {-50, -40.0};
+  struct s s1 = {-50, -40.0};
 
-    // We'll coalesce a and b with RSI and XMM1 because they're copied into
-    // those registers before we call callee. If the register allocator doesn't
-    // recognize that s1 is passed in RDI and XMM0, it may not realize that
-    // x and y are passed in RSI and XMM1. In that case, when it reruns
-    // liveness analysis after coalescing, it won't realize that these
-    // registers are live until callee, and it will ALSO coalesce the temps
-    // holding a * glob and b * glob_d into these registers.
+  // We'll coalesce a and b with RSI and XMM1 because they're copied into
+  // those registers before we call callee. If the register allocator doesn't
+  // recognize that s1 is passed in RDI and XMM0, it may not realize that
+  // x and y are passed in RSI and XMM1. In that case, when it reruns
+  // liveness analysis after coalescing, it won't realize that these
+  // registers are live until callee, and it will ALSO coalesce the temps
+  // holding a * glob and b * glob_d into these registers.
 
-    x = a * glob;   // 10100
-    y = b * glob_d; // 40400.0
+  x = a * glob;   // 10100
+  y = b * glob_d; // 40400.0
 
-    callee(s1, a, b);
-    check_one_long(x, 10100);
-    check_one_double(y, 40400.0);
-    return 0;
+  callee(s1, a, b);
+  check_one_long(x, 10100);
+  check_one_double(y, 40400.0);
+  return 0;
 }

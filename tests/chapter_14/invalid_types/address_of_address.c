@@ -2,8 +2,8 @@
  * so it's illegal to take its address
  */
 int main(void) {
-    int x = 0;
-    int* y = &x;
-    int** z = &(&x);
-    return 0;
+  int x = 0;
+  int *y = &x;
+  int **z = &(&x);
+  return 0;
 }

@@ -3,9 +3,9 @@
  */
 
 int main(void) {
-    struct s;
-    {
-        union s* ptr;
-    }
-    return 0;
+  struct s;
+  {
+    union s *ptr;
+  }
+  return 0;
 }

@@ -5,8 +5,8 @@
 #endif
 
 int target(void) {
-    int x = 10; // this is a dead store
-    return 3;
+  int x = 10; // this is a dead store
+  return 3;
 }
 
 int main(void) { return target(); }

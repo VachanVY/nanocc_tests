@@ -6,16 +6,17 @@
  */
 
 int main(void) {
-    struct tag; // declare (don't define) a struct type
-    struct tag* struct_ptr = 0;
-    {
-        union tag; // declare (don't define) a union type, shadowing outer declaration
-        union tag* union_ptr = 0;
+  struct tag; // declare (don't define) a struct type
+  struct tag *struct_ptr = 0;
+  {
+    union tag; // declare (don't define) a union type, shadowing outer
+               // declaration
+    union tag *union_ptr = 0;
 
-        // both pointers are null
-        if (struct_ptr || union_ptr) {
-            return 1; // fail
-        }
+    // both pointers are null
+    if (struct_ptr || union_ptr) {
+      return 1; // fail
     }
-    return 0;
+  }
+  return 0;
 }

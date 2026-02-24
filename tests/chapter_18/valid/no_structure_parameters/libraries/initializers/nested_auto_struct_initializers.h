@@ -13,30 +13,30 @@
 #endif
 #endif
 
-int strcmp(char* s1, char* s2);
+int strcmp(char *s1, char *s2);
 
 // struct type defs
 struct pair {
-    int a;
-    int b;
+  int a;
+  int b;
 };
 
 struct inner {
-    int one_i;
-    unsigned char two_arr[3];
-    unsigned three_u;
+  int one_i;
+  unsigned char two_arr[3];
+  unsigned three_u;
 };
 
 struct outer {
-    long one_l;
-    struct inner two_struct;
-    char* three_msg;
-    double four_d;
-    struct pair five_pair;
+  long one_l;
+  struct inner two_struct;
+  char *three_msg;
+  double four_d;
+  struct pair five_pair;
 };
 
 // validation functions defined in library
-int validate_full_initialization(struct outer* ptr);
-int validate_partial_initialization(struct outer* ptr);
-int validate_mixed_initialization(struct outer* ptr);
-int validate_array_of_structs(struct outer* struct_array);
+int validate_full_initialization(struct outer *ptr);
+int validate_partial_initialization(struct outer *ptr);
+int validate_mixed_initialization(struct outer *ptr);
+int validate_array_of_structs(struct outer *struct_array);

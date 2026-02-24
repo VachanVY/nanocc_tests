@@ -1,5 +1,5 @@
 struct s {
-    int a;
+  int a;
 };
 
 // you can't initialize a static struct (or any struct) with a scalar constant

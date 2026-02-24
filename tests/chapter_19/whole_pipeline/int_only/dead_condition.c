@@ -12,18 +12,18 @@
 int flag = 1;
 
 int target(void) {
-    int x = 2;
-    if (flag) {
-        x = 20; // this will be a dead store after we remove branch below
-                // wrap this in an if statement so we don't propagate 20 into
-                // controlling condition
-    }
+  int x = 2;
+  if (flag) {
+    x = 20; // this will be a dead store after we remove branch below
+            // wrap this in an if statement so we don't propagate 20 into
+            // controlling condition
+  }
 
-    if (x)
-        ;
+  if (x)
+    ;
 
-    // we can eliminate the whole function body except this return statement
-    return 10;
+  // we can eliminate the whole function body except this return statement
+  return 10;
 }
 
 int main(void) { return target(); }

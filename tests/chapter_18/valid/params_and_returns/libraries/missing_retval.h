@@ -3,7 +3,7 @@
  * doesn't try to use the return value
  * */
 struct big {
-    char arr[25];
+  char arr[25];
 };
 
-struct big missing_return_value(int* i);
+struct big missing_return_value(int *i);

@@ -5,18 +5,18 @@
 double copysign(double x, double y);
 
 double target(int flag) {
-    double result = 0.0; // gen result = 0.0
-    if (flag) {
-        result = -0.0; // gen result = -0.0
-    }
+  double result = 0.0; // gen result = 0.0
+  if (flag) {
+    result = -0.0; // gen result = -0.0
+  }
 
-    // can't propagate value of result because it has
-    // different values on different paths
-    return result;
+  // can't propagate value of result because it has
+  // different values on different paths
+  return result;
 }
 
 int main(void) {
-    double pos_inf = 1 / target(0);
-    double neg_inf = 1 / target(1);
-    return pos_inf > neg_inf;
+  double pos_inf = 1 / target(0);
+  double neg_inf = 1 / target(1);
+  return pos_inf > neg_inf;
 }

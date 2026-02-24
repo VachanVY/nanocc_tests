@@ -3,12 +3,12 @@
  * */
 
 struct s {
-    int a;
-    int b;
+  int a;
+  int b;
 };
 
 int main(void) {
-    struct s x = {1, 2};
-    (void)x; // just make sure this doesn't cause a type error
-    return 0;
+  struct s x = {1, 2};
+  (void)x; // just make sure this doesn't cause a type error
+  return 0;
 }

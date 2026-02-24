@@ -8,13 +8,13 @@ int foo(struct s blah);
 
 // complete the type
 struct s {
-    int a;
-    int b;
+  int a;
+  int b;
 };
 
 int main(void) {
-    struct s arg = {1, 2};
-    return foo(arg); // we can call foo b/c 'struct s' type is completed
+  struct s arg = {1, 2};
+  return foo(arg); // we can call foo b/c 'struct s' type is completed
 }
 
 int foo(struct s blah) { return blah.a + blah.b; }

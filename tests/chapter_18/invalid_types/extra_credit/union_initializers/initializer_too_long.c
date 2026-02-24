@@ -3,11 +3,11 @@
  */
 
 union u {
-    int a;
-    long b;
+  int a;
+  long b;
 };
 
 int main(void) {
-    union u x = {1, 2}; // invalid - multiple initializers
-    return 0;
+  union u x = {1, 2}; // invalid - multiple initializers
+  return 0;
 }

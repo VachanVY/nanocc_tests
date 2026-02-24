@@ -29,39 +29,39 @@ int callee(int a, int b, int c);
 // target in that reg, so the error wouldn't necessarily force a spill. (I think
 // having _fewer_ params in target than in callee would be be fine.)
 int target(int one, int two, int three) {
-    /* Create a clique of 12 pseudos, and pass
-     * three of them to callee.
-     * */
+  /* Create a clique of 12 pseudos, and pass
+   * three of them to callee.
+   * */
 
-    int four = two + 2;
-    int five = three + two;
-    int six = 12 - one - two - three;
-    int seven = 13 - six;
-    int eight = four * two;
-    int nine = three * three;
-    int ten = six + four;
-    int eleven = six * two - one;
-    int twelve = six * two;
+  int four = two + 2;
+  int five = three + two;
+  int six = 12 - one - two - three;
+  int seven = 13 - six;
+  int eight = four * two;
+  int nine = three * three;
+  int ten = six + four;
+  int eleven = six * two - one;
+  int twelve = six * two;
 
-    // to make sure they all interfere without forcing them to be callee-saved,
-    // copy all of them to global variables
-    glob1 = one;
-    glob2 = two;
-    glob3 = three;
-    glob4 = four;
-    glob5 = five;
-    glob6 = six;
-    glob7 = seven;
-    glob8 = eight;
-    glob9 = nine;
-    // don't need to copy in ten through twelve b/c we use them below
+  // to make sure they all interfere without forcing them to be callee-saved,
+  // copy all of them to global variables
+  glob1 = one;
+  glob2 = two;
+  glob3 = three;
+  glob4 = four;
+  glob5 = five;
+  glob6 = six;
+  glob7 = seven;
+  glob8 = eight;
+  glob9 = nine;
+  // don't need to copy in ten through twelve b/c we use them below
 
-    // use ten through twelve
-    callee(ten, eleven, twelve);
+  // use ten through twelve
+  callee(ten, eleven, twelve);
 
-    // validate globals
-    check_12_ints(glob1, glob2, glob3, glob4, glob5, glob6, glob7, glob8, glob9, ten, eleven,
-                  twelve, 1);
+  // validate globals
+  check_12_ints(glob1, glob2, glob3, glob4, glob5, glob6, glob7, glob8, glob9,
+                ten, eleven, twelve, 1);
 
-    return 0;
+  return 0;
 }

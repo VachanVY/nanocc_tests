@@ -12,8 +12,8 @@ extern int x;
 int x;
 
 int update_x(int new_val) {
-    x = new_val;
-    return 0;
+  x = new_val;
+  return 0;
 }
 
 int read_x(void) { return x; }

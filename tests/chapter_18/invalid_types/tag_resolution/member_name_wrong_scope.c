@@ -1,14 +1,15 @@
 struct s {
-    int a;
+  int a;
 };
 
 int main(void) {
-    struct s foo = {1};
+  struct s foo = {1};
 
-    // introduce a different struct s type
-    struct s {
-        int b;
-    };
+  // introduce a different struct s type
+  struct s {
+    int b;
+  };
 
-    return foo.b; // foo belongs to outer struct s type, which doesn't have member 'b'
+  return foo
+      .b; // foo belongs to outer struct s type, which doesn't have member 'b'
 }

@@ -8,24 +8,24 @@
 #endif
 #endif
 
-int puts(char* s);
+int puts(char *s);
 
 int main(void) {
-    // start with a flat array
-    char flat_arr[4] = "abc";
-    puts(flat_arr);
+  // start with a flat array
+  char flat_arr[4] = "abc";
+  puts(flat_arr);
 
-    // update it
-    flat_arr[2] = 'x';
-    puts(flat_arr);
+  // update it
+  flat_arr[2] = 'x';
+  puts(flat_arr);
 
-    // similar test with nested array
-    char nested_array[2][6] = {"Hello", "World"};
-    puts(nested_array[0]);
-    puts(nested_array[1]);
+  // similar test with nested array
+  char nested_array[2][6] = {"Hello", "World"};
+  puts(nested_array[0]);
+  puts(nested_array[1]);
 
-    nested_array[0][0] = 'J';
-    puts(nested_array[0]);
+  nested_array[0][0] = 'J';
+  puts(nested_array[0]);
 
-    return 0;
+  return 0;
 }

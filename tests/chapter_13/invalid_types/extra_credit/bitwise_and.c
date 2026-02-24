@@ -1,5 +1,5 @@
 int main(void) {
-    /* It's illegal to apply bitwise & to doubles */
-    double d = 10.0 & -1;
-    return 0;
+  /* It's illegal to apply bitwise & to doubles */
+  double d = 10.0 & -1;
+  return 0;
 }

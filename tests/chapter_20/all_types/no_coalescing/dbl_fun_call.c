@@ -5,10 +5,12 @@
 
 double glob = 3.0;
 
-double callee(void); // defined in tests/chapter_20/helper_libs/clobber_xmm_regs_(linux|os_x).s
+double
+callee(void); // defined in
+              // tests/chapter_20/helper_libs/clobber_xmm_regs_(linux|os_x).s
 
 int main(void) {
-    double d = glob;
-    double x = callee();
-    return (d + x == 13.0);
+  double d = glob;
+  double x = callee();
+  return (d + x == 13.0);
 }

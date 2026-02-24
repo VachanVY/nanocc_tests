@@ -1,7 +1,7 @@
-char* s = "hello
+char *s = "hello
     world ";
 
     int
     main(void) {
-    return 0;
+  return 0;
 }

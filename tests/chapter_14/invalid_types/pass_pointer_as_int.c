@@ -5,6 +5,6 @@
 int f(int i) { return i; }
 
 int main(void) {
-    int x;
-    return f(&x);
+  int x;
+  return f(&x);
 }

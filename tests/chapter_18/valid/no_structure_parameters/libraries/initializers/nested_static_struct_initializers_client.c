@@ -30,7 +30,8 @@ struct outer partial = {100l,
 
 struct outer full = {
     18014398509481979l,
-    {1000, "ok", 4292870144u}, // can initialized signed char array w/ static string
+    {1000, "ok",
+     4292870144u}, // can initialized signed char array w/ static string
     "Another message",
     2e12};
 
@@ -49,28 +50,29 @@ struct outer converted = {
     9223372036854776833ul // 9223372036854777856.0
 };
 
-struct outer struct_array[3] = {{1, {2, "ab", 3}, 0, 5}, {6, {7, "cd", 8}, "Message", 9}};
+struct outer struct_array[3] = {{1, {2, "ab", 3}, 0, 5},
+                                {6, {7, "cd", 8}, "Message", 9}};
 
 int main(void) {
-    if (!test_uninitialized()) {
-        return 1;
-    }
+  if (!test_uninitialized()) {
+    return 1;
+  }
 
-    if (!test_partially_initialized()) {
-        return 2;
-    }
+  if (!test_partially_initialized()) {
+    return 2;
+  }
 
-    if (!test_fully_intialized()) {
-        return 3;
-    }
+  if (!test_fully_intialized()) {
+    return 3;
+  }
 
-    if (!test_implicit_conversions()) {
-        return 4;
-    }
+  if (!test_implicit_conversions()) {
+    return 4;
+  }
 
-    if (!test_array_of_structs()) {
-        return 5;
-    }
+  if (!test_array_of_structs()) {
+    return 5;
+  }
 
-    return 0; // success
+  return 0; // success
 }

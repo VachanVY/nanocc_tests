@@ -4,19 +4,19 @@
  * */
 
 int target(int x, int y) {
-    if (x) {
-        if (y) {
-        }
+  if (x) {
+    if (y) {
     }
-    return 1;
+  }
+  return 1;
 }
 
 int main(void) {
-    if (target(1, 1) != 1) {
-        return 1; // fail
-    }
-    if (target(0, 0) != 1) {
-        return 2; // fail
-    }
-    return 0; // success
+  if (target(1, 1) != 1) {
+    return 1; // fail
+  }
+  if (target(0, 0) != 1) {
+    return 2; // fail
+  }
+  return 0; // success
 }

@@ -1,5 +1,5 @@
 struct s {
-    int a;
+  int a;
 };
 
 struct struct s x; // can't use struct keyword twice in a type specifier

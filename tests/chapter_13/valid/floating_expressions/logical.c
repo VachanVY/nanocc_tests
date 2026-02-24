@@ -17,86 +17,87 @@ double rounded_to_zero = 1e-330;
 
 int main(void) {
 
-    /* double as controlling expression in if statement */
+  /* double as controlling expression in if statement */
 
-    if (zero) {
-        return 1;
-    }
+  if (zero) {
+    return 1;
+  }
 
-    if (rounded_to_zero) {
-        return 2;
-    }
+  if (rounded_to_zero) {
+    return 2;
+  }
 
-    if (non_zero) {
-        // no-op; should take this one
-    } else {
-        return 3;
-    }
+  if (non_zero) {
+    // no-op; should take this one
+  } else {
+    return 3;
+  }
 
-    /* constant doubles as controlling expression */
-    if (0.e10) {
-        return 4;
-    }
+  /* constant doubles as controlling expression */
+  if (0.e10) {
+    return 4;
+  }
 
-    /* ! operator */
-    if (!non_zero) {
-        return 5;
-    }
+  /* ! operator */
+  if (!non_zero) {
+    return 5;
+  }
 
-    if (!(!zero)) {
-        return 6;
-    }
+  if (!(!zero)) {
+    return 6;
+  }
 
-    if (!(!rounded_to_zero)) {
-        return 7;
-    }
+  if (!(!rounded_to_zero)) {
+    return 7;
+  }
 
-    /* && operator - test w/ mix of floating-point and non-floating-point operands */
+  /* && operator - test w/ mix of floating-point and non-floating-point operands
+   */
 
-    if (!(non_zero && 1.0)) {
-        return 8;
-    }
+  if (!(non_zero && 1.0)) {
+    return 8;
+  }
 
-    if (3.0 && zero) {
-        return 9;
-    }
+  if (3.0 && zero) {
+    return 9;
+  }
 
-    if (rounded_to_zero && 1000e10) {
-        return 10;
-    }
+  if (rounded_to_zero && 1000e10) {
+    return 10;
+  }
 
-    // mix of double and integer operands
-    if (18446744073709551615UL && zero) {
-        return 11;
-    }
+  // mix of double and integer operands
+  if (18446744073709551615UL && zero) {
+    return 11;
+  }
 
-    if (!(non_zero && 5l)) {
-        return 12;
-    }
+  if (!(non_zero && 5l)) {
+    return 12;
+  }
 
-    /* || operator */
+  /* || operator */
 
-    if (!(5.0 || zero)) {
-        return 13;
-    }
+  if (!(5.0 || zero)) {
+    return 13;
+  }
 
-    if (zero || rounded_to_zero) {
-        return 14;
-    }
+  if (zero || rounded_to_zero) {
+    return 14;
+  }
 
-    if (!(rounded_to_zero || 0.0001)) {
-        return 15;
-    }
+  if (!(rounded_to_zero || 0.0001)) {
+    return 15;
+  }
 
-    // mix of double and integer operands
-    if (!(non_zero || 0u)) {
-        return 16;
-    }
+  // mix of double and integer operands
+  if (!(non_zero || 0u)) {
+    return 16;
+  }
 
-    // try || with two constants
-    if (!(0 || 0.0000005)) {
-        return 17;
-    }
+  // try || with two constants
+  if (!(0 || 0.0000005)) {
+    return 17;
+  }
 
-    return 0;
+  return 0;
 }

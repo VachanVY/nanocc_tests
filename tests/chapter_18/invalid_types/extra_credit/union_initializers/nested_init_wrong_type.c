@@ -3,20 +3,20 @@
  */
 
 union u {
-    double d;
-    int i;
-    char c;
+  double d;
+  int i;
+  char c;
 };
 
 struct s {
-    int* ptr;
-    union u arr[3];
+  int *ptr;
+  union u arr[3];
 };
 
 int main(void) {
-    int x;
+  int x;
 
-    // invalid initializer for last element of arr;
-    // can't convert pointer &x to double
-    struct s my_struct = {&x, {{1.0}, {2.0}, {&x}}};
+  // invalid initializer for last element of arr;
+  // can't convert pointer &x to double
+  struct s my_struct = {&x, {{1.0}, {2.0}, {&x}}};
 }

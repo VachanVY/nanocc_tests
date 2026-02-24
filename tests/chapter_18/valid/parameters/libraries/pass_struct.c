@@ -5,9 +5,9 @@
 #include "pass_struct.h"
 
 int validate_struct_param(struct pair p) {
-    if (p.x != 1 || p.y != 2) {
-        return 0;
-    }
+  if (p.x != 1 || p.y != 2) {
+    return 0;
+  }
 
-    return 1; // success
+  return 1; // success
 }

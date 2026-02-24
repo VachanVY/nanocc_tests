@@ -1,4 +1,4 @@
 int main(void) {
-    char* ptr = "foo" bar ";
-        return 0;
+  char *ptr = "foo" bar ";
+      return 0;
 }

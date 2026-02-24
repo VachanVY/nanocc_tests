@@ -13,20 +13,20 @@
 #endif
 
 // standard library function
-int strcmp(char* s1, char* s2);
+int strcmp(char *s1, char *s2);
 
 // structure type defs
 struct inner {
-    int one_i;
-    signed char two_arr[3];
-    unsigned three_u;
+  int one_i;
+  signed char two_arr[3];
+  unsigned three_u;
 };
 
 struct outer {
-    long one_l;
-    struct inner two_struct;
-    char* three_msg;
-    double four_d;
+  long one_l;
+  struct inner two_struct;
+  char *three_msg;
+  double four_d;
 };
 
 // declarations of global vars (defined in client)

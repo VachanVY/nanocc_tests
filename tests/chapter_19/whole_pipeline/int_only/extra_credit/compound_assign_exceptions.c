@@ -15,31 +15,31 @@
 static int zero;
 
 int main(void) {
-    int w = 3;
-    int x = 10;
-    int y = 2147483647;
-    int z = -2147483647;
-    if (zero) {
-        w %= 0;
-        x /= 0;
-        y += 10;
-        z -= 10;
-    }
-    if (w != 3) {
-        return 1;
-    }
+  int w = 3;
+  int x = 10;
+  int y = 2147483647;
+  int z = -2147483647;
+  if (zero) {
+    w %= 0;
+    x /= 0;
+    y += 10;
+    z -= 10;
+  }
+  if (w != 3) {
+    return 1;
+  }
 
-    if (x != 10) {
-        return 2;
-    }
+  if (x != 10) {
+    return 2;
+  }
 
-    if (y != 2147483647) {
-        return 3;
-    }
+  if (y != 2147483647) {
+    return 3;
+  }
 
-    if (z != -2147483647) {
-        return 4;
-    }
+  if (z != -2147483647) {
+    return 4;
+  }
 
-    return 0; // success
+  return 0; // success
 }

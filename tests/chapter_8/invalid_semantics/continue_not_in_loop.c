@@ -1,7 +1,7 @@
 int main(void) {
-    {
-        int a;
-        continue;
-    }
-    return 0;
+  {
+    int a;
+    continue;
+  }
+  return 0;
 }

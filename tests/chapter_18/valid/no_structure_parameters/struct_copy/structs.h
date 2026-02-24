@@ -7,21 +7,21 @@
 #endif
 #endif
 
-int strcmp(char* s1, char* s2);
-void* malloc(unsigned long size);
+int strcmp(char *s1, char *s2);
+void *malloc(unsigned long size);
 
 struct small {
-    int a;
-    long b;
+  int a;
+  long b;
 };
 
 struct s {
-    char arr[3];
-    struct small inner;
+  char arr[3];
+  struct small inner;
 };
 
 struct with_end_padding {
-    int a;
-    int b;
-    char c;
+  int a;
+  int b;
+  char c;
 };

@@ -1,5 +1,5 @@
 struct s {
-    int a;
+  int a;
 };
 
 // storage class specifier can't come between struct keyword and tag

@@ -1,9 +1,9 @@
 int main(void) {
-    /* a function declared without the 'static'
-     * keyword always has external linkage
-     */
-    int foo(void);
-    return foo();
+  /* a function declared without the 'static'
+   * keyword always has external linkage
+   */
+  int foo(void);
+  return foo();
 }
 
 /* Can't define a symbol with external linkage,
