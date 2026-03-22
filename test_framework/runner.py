@@ -23,6 +23,24 @@ from test_framework.tacky.common import CHAPTER as TACKY_OPT_CHAPTER
 from test_framework.tacky.suite import Optimizations
 
 
+def convert_optimization_flags(flags: list[str]) -> list[str]:
+    """Convert standard optimization flags to nanocc-specific format.
+    
+    Maps:
+    --fold-constants -> -fopt-constfold
+    --eliminate-unreachable-code -> -fopt-unreach
+    --propagate-copies -> -fopt-copyprop
+    --eliminate-dead-stores -> -fopt-dse
+    """
+    flag_mapping = {
+        "--fold-constants": "-fopt-constfold",
+        "--eliminate-unreachable-code": "-fopt-unreach",
+        "--propagate-copies": "-fopt-copyprop",
+        "--eliminate-dead-stores": "-fopt-dse",
+    }
+    return [flag_mapping.get(flag, flag) for flag in flags]
+
+
 def get_optimization_flags(
     latest_chapter: int,
     optimization_opt: Optional[test_framework.tacky.suite.Optimizations],
@@ -34,12 +52,13 @@ def get_optimization_flags(
             # don't enable optimizations
             return []
         # otherwise, default to enabling all optimizations
-        return [
+        standard_flags = [
             "--fold-constants",
             "--eliminate-unreachable-code",
             "--propagate-copies",
             "--eliminate-dead-stores",
         ]
+        return convert_optimization_flags(standard_flags)
 
     # we enable optimizations cumulatively
     # you can test each one in isolation by passing them as extra compiler
@@ -53,22 +72,26 @@ def get_optimization_flags(
         )
 
     if optimization_opt == Optimizations.CONSTANT_FOLD:
-        return ["--fold-constants"]
+        standard_flags = ["--fold-constants"]
+        return convert_optimization_flags(standard_flags)
     if optimization_opt == Optimizations.UNREACHABLE_CODE_ELIM:
-        return ["--fold-constants", "--eliminate-unreachable-code"]
+        standard_flags = ["--fold-constants", "--eliminate-unreachable-code"]
+        return convert_optimization_flags(standard_flags)
     if optimization_opt == Optimizations.COPY_PROP:
-        return [
+        standard_flags = [
             "--fold-constants",
             "--eliminate-unreachable-code",
             "--propagate-copies",
         ]
+        return convert_optimization_flags(standard_flags)
     if optimization_opt == Optimizations.DEAD_STORE_ELIM:
-        return [
+        standard_flags = [
             "--fold-constants",
             "--eliminate-unreachable-code",
             "--propagate-copies",
             "--eliminate-dead-stores",
         ]
+        return convert_optimization_flags(standard_flags)
 
     # we got an unrecognizable option (or ALL, which should never be passed
     # to this function)
